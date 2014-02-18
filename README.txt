@@ -84,3 +84,18 @@ the second column should map back to the first column.
 
 A _generated_ file holding the names of all targets. Extracted from
 the table_dist.txt file.
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+TO DO LIST
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+(1) Add "overwrite" files to the LEDA-generated fields in order to
+allow improved estimates to overwrite the database values.
+
+(2) Add galaxy integrated properties: metallicity, SFR, Mstar, L_B,
+B-V, etc. I'd like to take a step back here and make these as good as
+possible.
+
+(3) Place some of our own measurements in here: especially the
+parameterized rotation curves.
+
