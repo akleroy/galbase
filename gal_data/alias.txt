@@ -1,0 +1,107 @@
+# Column 1: working name
+# Column 2: valid alias
+#
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# THINGS/KINGFISH/HERACLES
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+pgc023521	m81dwa		
+pgc029284	m81dwb		
+holmbergi	hoi
+holmbergii	hoii
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# LITTLE THINGS
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ugca292		pgc42275
+ugca292		cvnidwa	
+ddo043
+ddo046
+ddo047
+ddo050
+ddo052
+ddo053
+ddo063
+ddo069
+sextansb	ddo070	
+sextansb	sexb
+sextansb	ddo070
+sextansb	ugc5373
+sextansa	ddo075
+sextansa	sexb
+sextansa	ddo075
+sextansa	ugca205
+ddo087
+ddo101
+ddo126
+ddo133
+ddo154
+ddo155		gr8		
+ddo155		ugc8091
+ddo165
+ddo167
+ddo168
+ddo187
+ddo210
+ddo216
+lsbcd564-08	f563-v3
+ic10
+ic1613
+lgs3
+m81dwa
+ngc1569
+ngc2366
+ngc3738
+ngc4163
+ngc4214
+ngc6822
+sagdig
+ugc8508
+wlm
+ugca281		haro29
+ugc7950		haro36
+mrk178
+viizw403
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# VLA ANGST
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ngc0247
+ddo006		ddo6
+ngc0404
+kkh37		leda95597
+ugc4483
+leda166101	kk77		
+bk3n		pgc28529
+ao0952+69	arpsloop
+# sextansb - DUPLICATE
+ngc3109		
+pgc29194	antlia
+ddo071		kdg63
+ddo071		ugc5428
+# sextansa - DUPLICATE
+hs117
+ddo082		ugc5692
+kdg73		pgc32667
+ngc3741		ugc6572
+ddo099		ugc6817
+ngc4163		ngc4167
+ngc4163		ugc7199
+ngc4190		ugc7232
+ngc4190		ugc07232
+ddo113		ugca276
+mcg+09-20-131	cgcg269-049
+ddo125		ugc7577
+# ugca292		pgc42275
+# ddo155 - DUPLICATE
+ugc8508		izw60
+ddo181		ugc8651
+ddo183		ugc8760
+kkh86		leda2807150
+ugc8833		pgc49452
+kkr03		kk230
+ddo187		ugc9128
+ddo190		ugc9240
+kkr25		leda2801026
+kkh98		leda2807157
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# JCMT LEGACY
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ngc4789a	ngc4789

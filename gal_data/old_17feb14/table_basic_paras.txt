@@ -1,0 +1,88 @@
+#
+# SFR,distances from sings; metallicity sings; d25(=geometric mean) from sings, morph typ 
+# from leda; HI_mass from things; M_B calculated from m_B from leda and distances from sings
+# comments: - 1569,2366,2903,3077,4214,4449,5236,5457 not in sings:
+#             distances
+#            - d25 now from LEDA BUT m81 dw a is a guess from NED (1.3am)
+#           - 1569, 3077, 4214, 5236, 5457: sfr from FIR using 8E-44 Msun/yr (from text in 
+#             Kenn 1998), LFIR from LEDA (may be low by as much as a fac of 2 due to 
+#             FIR->TIR conversion, escape)
+#           - m81dwa: sfr is upper limit, no metallicity data found
+#
+# dist : should match the Walter+ '08 main THINGS paper
+#
+# m_B, M_B : apparent ?corrected? and absolute B magnitudes (LEDA)
+#
+# logd25 : log diameter of mu_B = 25 mag/as2 in tenths of an arcminute (LEDA)
+#
+# SFR, HI mass : don't trust these to be removed when I get time to pretty things up
+# 
+# morph_type : morphological type code from LEDA 
+#
+# gal_EmB : galactic reddening from the SFD98 dust maps
+#
+# vrot_r25: the deprojected rotation velocity in km/s at r25 from my crappy rotation curves
+#
+# B-V corrected (for KINGFISH), (?effective? for THINGS) colors from LEDA (helpful for the mass-to-light ratio)
+#
+# SFR for 2146, 3049, 4725, 5713 from FIR (IRAS) -> SFR using very simple assumptions. Needs an update soon.
+#
+#
+#name  dist   m_B     M_B    log(D25_opt)     metallicity      hi_flux     SFR		morph		gal_EmB		vrot_r25 bmv_eff
+#      [Mpc] [mag]   [mag]  [log(0.1 arcmin)] [12+log(O/H)]    [LEDA]	   [msun/yr]			[mag]		[km/s]	 [mag]
+#
+ddo053  3.6  14.31  -13.442   0.89		7.7661         NaN	   0.005        9.9		0.0470722	nan      0.31
+ddo154  4.3  13.75  -14.414   1.294             7.5432         NaN	   0.0015       9.9		0.0102893	23.      0.29
+hoi     3.8  13.01  -14.903   1.518             7.5360         NaN	   0.004        9.9		0.108097	nan	 0.37
+hoii    3.4  10.76  -16.882   1.876             7.6791	       NaN	   0.12         9.8		0.0297901	nan	 0.41
+ic2574  4.0  10.04  -17.973   2.108             7.9395         NaN	   0.10         8.9		0.0281110	58.      0.47
+m81dwb	5.3  14.5   -14.121   1.05		7.8460         NaN	   0.004        9.9		0.0767897	nan	 nan
+m81dwa  3.6  16.35  -11.401   1.11		nan            NaN	   0.001        10		0.0246617	nan	 nan
+ngc0628 7.3  9.348  -19.969   1.993             8.3397         NaN	   4.0          5.2		0.0622821	220.	 0.67
+ngc0925 9.2  9.796  -20.004   2.027             8.2371         NaN	   2.4          7		0.0770511	111.	 0.62
+ngc1569 2.0  8.282  -18.168   1.598             nan            NaN	   0.063        9.6		0.716531	nan	 0.77
+ngc2366 3.4  10.51  -17.003   1.643             nan            NaN	   NaN          9.8		0.0371352	35.	 0.38
+ngc2403 3.2  8.121  -19.418   2.197             8.3106         NaN	   1.3          6		0.0418375	125.	 0.57
+ngc2841 14.1 9.514  -21.232   1.839		 8.5202        NaN	   0.2          3		0.0144640	315.	 0.94
+ngc2903 8.9  8.853  -20.894   2.073             8.52           NaN	   NaN          4		0.0312671	198.	 0.73
+ngc2976 3.6  9.989  -17.768   1.857             8.2955         NaN	   0.2          5.3		0.100094	74.	 0.72
+ngc3031	3.6  7.023  -20.777   2.335             8.4104         NaN	   1.1          2.4		0.0935578	207.	 1.01
+ngc3077 3.8  10.16  -17.745   1.732             nan            NaN	   0.089        7.9		0.0595965	nan	 0.69
+ngc3184 11.1 10.31  -19.909   1.869             8.4839         NaN	   1.2          5.9		0.0148269	210.	 0.69
+ngc3198 13.8 9.983  -20.697   1.811             8.3234         NaN	   0.85         5.2		0.0109364	156.	 0.62
+ngc3351 10.1 10.14  -19.709   1.857             8.5975         NaN	   1.2          3		0.0274201	192.	 0.85
+ngc3521 10.7 9.1    -20.912   1.92              8.3634         NaN	   1.7          4		0.0383293	218.	 0.89
+ngc3621 6.6  9.101  -20.010   1.992             8.2419         NaN	   5.1          6.9		0.0720347	140.	 0.68
+ngc3627 9.3  9.073  -20.788   2.012             8.2835         NaN	   6.9          3		0.0251986	184.	 0.82
+ngc4214 2.9  9.925  -17.417   1.832             NaN            NaN	   0.052        9.8		0.0175162	nan	 0.40
+ngc4449 4.2  9.01   -19.111   1.668 		NaN	       NaN	   NaN		 9.8		0.0156178	nan	 0.37
+ngc4736 4.7  8.501  -19.998   1.889             8.3124         NaN	   2.1          2.4		0.0138084	155.	 0.82
+ngc4826 7.5  8.732  -19.746   2.024             8.5880         NaN	   0.3          2.4		0.0408779	158.	 0.88
+ngc5055 10.1 8.895  -20.570   2.074             8.4175         NaN	   2.3          4		0.0150315	202.	 0.80
+ngc5194 8.0  8.351  -21.101   1.887             8.5373         NaN	   5.4          4		0.0200949	157.	 0.68
+ngc5236 4.5  7.473  -20.779   2.190             nan            NaN	   2.517        5		0.0527633	204.	 0.72
+ngc5457 7.4  8.32   -21.020   2.380             nan            NaN	   2.491        5.9		0.0112268	203.	 0.58
+ngc6946 5.9  8.26   -20.903   2.057             8.3971         NaN	   2.2          5.9		0.422870	189.	 0.87
+ngc7331 14.7 9.133  -21.677   1.963             8.3592         NaN	   4.2          3.9		0.0764959	238.	 0.94
+ngc7793 3.9  9.212  -18.698   2.023             8.2203         NaN	   0.3          7.4		0.0135167	113.	 0.54
+ngc0337	24.7 10.23  -20.58    1.47		NaN	       13.43	   4.3		6.7		0.112		138	 0.50
+ngc2146	12.8 9.99   -21.11    1.73		NaN	       13.23	   6.1		2.3		0.096		218	 0.67
+ngc2798	24.7 12.52  -19.64    1.38		NaN	       15.11	   2.0		1.1		0.020		154	 0.60
+ngc3034	3.6  7.65   -18.08    2.04		NaN	       11.28	   NaN		8.1		0.15		65	 0.92
+ngc3049	8.9  13.01  -18.63    1.32		NaN	       15.20	   0.06		2.5		0.038		103	 NaN
+ngc3190	16.8 11.40  -20.10    1.56		NaN	       15.60	   0.1		0.9		0.025		196	 0.85
+ngc3938	12.2 10.80  -20.01    1.55		NaN	       13.07	   1.2		5.1		0.021		160	 0.49
+ngc4236	NaN  10.05  -18.09    2.38		NaN	       11.26	   NaN		8.0		0.015		71.	 0.34
+ngc4254	20.0 10.18  -22.58    1.70		NaN	       13.09	   11.0		5.2		0.039		194	 0.51
+ngc4321	14.3 9.84   -22.06    1.78		NaN	       13.20	   5.5		4.0		0.026		225	 0.66
+ngc4536	14.5 11.11  -21.79    1.85		NaN	       13.04	   3.7		4.2		0.018		173	 0.69
+ngc4559	11.57  NaN     NaN      2.02		NaN	       11.77	   NaN		6.0		0.018		113	 0.49
+ngc4569	20.0 9.42   -21.10    1.96		NaN	       15.34	   1.9		2.4		0.046		177	 0.61
+ngc4579	20.6 10.12  -21.68    1.70		NaN	       14.99	   2.0		2.8		0.041		263	 0.75
+ngc4594	9.3  8.70   -22.20    1.93		NaN	       14.86	   1.9		1.1		0.051		359	 0.88
+ngc4625	9.5  12.72  -17.63    1.14		NaN	       14.12	   0.0175	8.8		0.018		38	 0.52
+ngc4631	8.9  8.03   -22.22    2.16		NaN	       11.04	   3.3		6.6		0.017		139	 0.39
+ngc4725	9.3  9.68   -21.77    1.99		NaN	       12.84	   0.2		2.2		0.012		225	 0.67
+ngc5474	6.8  11.12  -16.06    1.38		NaN	       12.54	   0.2		6.0		0.011		23	 0.44
+ngc5713	26.5 11.18  -21.07    1.39		NaN	       13.52	   4.2		4.0		0.039		108	 0.56
+ddo165	4.6  12.52  NaN	      1.52		NaN	       14.09	   0.002	9.9		0.024		24	 0.28

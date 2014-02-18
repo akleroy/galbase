@@ -1,0 +1,287 @@
+# column 1: galaxy
+# column 2: distance in Mpc
+#
+# natural extensions - references, uncertainties
+#
+# KINGFISH: use the Kennicutt 2011 distances wherever possible
+# THINGS: Walter 2008 otherwise
+# LITTLE THINGS: use the Hunter 2012 table
+#
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# KINGFISH + THINGS + HERACLES
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#
+ddo053		3.6
+ddo154  	4.3
+ddo165		4.7	# HUNTER 4.6
+hoi     	3.9
+hoii    	3.05
+ic342		3.28
+ic2574  	3.79
+m81dwb		3.6
+m81dwa  	3.6
+ngc0337		19.3
+ngc0584		20.8
+ngc0628 	7.2
+ngc0855		9.73
+ngc0925 	9.12
+ngc1097		14.2
+ngc1266		30.6
+ngc1291		10.4
+ngc1316		21.0
+ngc1377		24.6
+ngc1404		20.2
+ngc1482		22.6
+ngc1512		11.6
+ngc1569 	2.0	# HUNTER 3.4
+ngc2146 	17.2
+ngc2366 	3.4	# HUNTER 3.4
+ngc2403 	3.2
+ngc2798		25.8
+ngc2841 	14.1
+ngc2903 	8.9 
+ngc2915		3.78
+ngc2976 	3.55
+ngc3031		3.6 
+ngc3034		3.6
+ngc3049 	19.2
+ngc3077 	3.83
+ngc3184 	11.8
+ngc3190 	19.3
+ngc3198 	14.1
+ngc3351 	9.33
+ngc3521 	11.2
+ngc3621 	6.55
+ngc3627 	9.38
+ngc3773 	12.4
+ngc3938		17.9
+ngc4214 	2.9	# HUNTER 3.0
+ngc4236		4.45
+ngc4254 	14.4
+ngc4321		14.3
+ngc4449 	4.2 
+ngc4536		14.5
+ngc4559 	6.98
+ngc4569 	9.86
+ngc4579 	16.4
+ngc4594		9.08
+ngc4625 	9.3
+ngc4631 	7.62
+ngc4725 	11.9
+ngc4736 	4.66
+ngc4826 	5.27
+ngc5055 	7.94
+ngc5194 	8.0
+ngc5236 	4.5
+ngc5398		7.66
+ngc5408 	4.8
+ngc5457 	6.7 
+ngc5474 	6.8
+ngc5713 	21.4
+ngc5866 	15.3
+ngc6946 	6.8
+ngc7331 	14.5
+ngc7793 	3.91
+#
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# "EVERYTHINGS"
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#
+
+#
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# LITTLE THINGS
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#
+cvnidwa		3.6	
+ddo043		7.8
+ddo046		6.1
+ddo047		5.2
+ddo050		3.4
+ddo052		10.3
+ddo053		3.6
+ddo063		3.9
+ddo069		0.8
+sextansb	1.3	# ddo070
+sextansa	1.3	# ddo075
+ddo087		7.7
+ddo101		6.4
+ddo126		4.9
+ddo133		3.5
+ddo154		3.7
+ddo155		2.2	# gr8
+# ddo165	4.6 - DUPLICATE
+ddo167		4.2
+ddo168		4.3
+ddo187		2.2
+ddo210		0.9
+ddo216		1.1
+f563-v3		8.7
+ic10		0.7
+ic1613		0.7
+lgs3		0.7
+# m81dwa	3.6 - DUPLICATE
+# ngc1569	3.4 - DUPLICATE
+# ngc2366	3.4 - DUPLICATE
+ngc3738		4.9
+ngc4163		2.9
+# ngc4214	3.0 - DUPLICATE
+ngc6822		0.5
+sagdig		1.1
+ugc8508		2.6
+wlm		1.0
+haro29		5.9
+haro36		9.3
+mrk178		3.9
+viizw403	4.4
+#
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# VLA ANGST
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#
+ngc247		3.5
+ddo006		3.31
+ngc404		3.05
+kkh37		3.26
+ugc4483		3.41
+kk77		3.55
+bk3n		3.86
+ao0952+69	3.78
+# sextansb	1.39	DUPLICATE
+ngc3109		1.26
+antlia		1.29
+ddo071		3.53	# kdg63
+sextansa	1.38
+hs117		3.82
+ddo082		3.80
+kdg73		4.03
+ngc3741		3.24
+ddo099		2.59
+ngc4163		2.86
+ngc4190		3.50
+ddo113		2.95
+mcg+09-20-131	1.60
+ddo125		2.58
+ugca292		3.62
+# ddo155	2.08 - DUPLICATE
+# ugc8508	2.58 - DUPLICATE
+ddo181		3.14
+ddo183		3.22
+kkh86		2.59
+ugc8833		3.08
+kk230		1.97
+ddo187		2.21
+ddo190		2.79
+kkr25		1.93
+kkh98		2.53
+#
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# CARMA STING
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#
+# ngc0337	21.3 - DUPLICATE
+# ngc0628	7.30 - DUPLICATE
+ngc0772		30.2
+ngc1156		7.0
+# ngc1569	2.5 - DUPLICATE
+ngc1637		9.8
+ngc2681		15.25 # NED MEDIAN
+ngc2782		16.1
+# ngc2976	3.6 - DUPLICATE
+ngc3147		40.9
+# ngc3198	14.0 - DUPLICATE
+ngc3486		15.6
+ngc3593		5.50
+ngc3949		18.41
+ngc4151		6.6
+# ngc4254	15.6
+ngc4273		33.68
+# ngc4536	14.7 - DUPLICATE
+ngc4605		5.5
+ngc4654		16.1
+ngc5371		27.7
+# ngc5713	21.4 - DUPLICATE
+ngc6503		5.4 # NED MEDIAN
+ngc6951		23.3
+#
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# NOBEYAMA NEARBY GALAXIES SAMPLE
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#
+# New distances here are NED medians
+ngc253		3.28 # KUNO 2.5
+maffei2		3.4 # KUNO 2.8
+ngc1068		12.25 # KUNO 14.4
+ic342		3.28 # KUNO 3.28
+ugc2855		15.5 # KUNO 20.3
+# ngc2903 	# KUNO 6.3 - DUPLICATE
+# ngc3184	# KUNO 8.7 - DUPLICATE
+# ngc3351 	# KUNO 10.1 - DUPLICATE
+# ngc3521 	# KUNO 7.2 - DUPLICATE
+# ngc3627 	# KUNO 11.1 - DUPLICATE
+ngc3631		9.16 # KUNO 21.6
+ngc4051		13.3 # KUNO 17
+ngc4102		19.1 # KUNO 17
+ngc4192		16.7 # KUNO 16.1
+ngc4212		17.3 # KUNO 16.1
+# ngc4254 	# KUNO 16.1 - DUPLICATE
+ngc4303		11.6 # KUNO 16.1
+# ngc4321 	# KUNO 16.1 - DUPLICATE
+ngc4402		15.5 # KUNO 16.1
+ngc4414		18.2 # KUNO 19.1
+ngc4419		18.0 # KUNO 16.1
+ngc4501		17.9 # KUNO 16.1
+ngc4504		21.3 # KUNO 16.1
+ngc4535		16.0 # KUNO 16.1
+# ngc4536 	# KUNO 16.1 - DUPLICATE
+ngc4548		15.8 # KUNO 16.1
+# ngc4569 	# KUNO 16.1 - DUPLICATE
+# ngc4579 	# KUNO 16.1 - DUPLICATE
+ngc4654		16.1 # KUNO 16.1
+ngc4689		16.7 # KUNO 16.1
+# ngc4736 	# KUNO 4.3 - DUPLICATE
+# ngc5055 	# KUNO 7.2 - DUPLICATE
+# ngc5194 	# KUNO 7.7 - DUPLICATE
+# ngc5236 	# KUNO 4.5 - DUPLICATE
+ngc5247		22.2 # KUNO 22.7
+ngc5248		15.6 # KUNO 22.2
+# ngc5457 	# KUNO 7.2 - DUPLICATE
+ngc6217		23.9 # KUNO 23.9
+# ngc6946 	# KUNO 5.5 - DUPLICATE
+# ngc6951	# KUNO 24.1 - DUPLICATE
+#
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# JCMT LEGACY SURVEY (SINGS)
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#
+# Listing only non-duplicates
+#
+ngc0024		7.6
+ugc4305		3.4
+ngc4450		16.7
+ngc5033		16.2
+ngc0584		20.1
+ngc0855		9.7
+ugc5139		3.6
+ugc5336		3.6
+ugc5423		3.6
+ngc3265		22.7
+ugc5720		25.0
+ngc4789a	3.8
+ugc8201		4.6
+#
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# BIMA SONG
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#
+# Only non-duplicates, distances NED median
+ngc3344		19.0
+ngc3368		10.6
+ngc3726		16.0
+ngc3953		18.9
+ngc3992		22.7
+ngc4258		7.6
+ngc4490		7.5
+ngc4699		24.7
+ngc5005		19.1
+
