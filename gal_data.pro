@@ -218,6 +218,27 @@ function gal_data $
 ; GALACTIC EXTINCTION
 ; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
+  mwext_file = data_dir+'extinction.tbl'
+  readcol, mwext_file $
+           , mwext_name $
+           , mwext_sf11 $
+           , mwext_sf11_mean $
+           , mwext_sfd98 $
+           , mwext_sfd98_mean $
+           , format="A,X,X,X,F,F,X,X,X,X,F,F" $
+           , /silent $
+           , comment='#' $
+           , /nan
+  mwext_name = strcompress(mwext_name, /rem)
+
+  ind = where(mwext_name eq name, ct)
+  if ct eq 1 then begin
+     s.e_bmv = mwext_sf11_mean[ind]
+  endif else begin
+     message $
+        , 'No extinction for '+name, /info
+  endelse
+
 ; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 ; ISOPHOTAL RADIUS
 ; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

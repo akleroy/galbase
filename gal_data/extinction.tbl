@@ -1,19 +1,19 @@
-\Rows = 183
-\Cols = 17
-\Coordinate system = equ
-\Equinox = J2000
-\Coordinate format = degree
-\Cutout size unit = degree
-\E_B_V is E(B-V), unit = mag
-\AV is A(V), unit = mag
-\Statistics radius = 5.0 arcmin
-\stdev is the standard deviation of the quantity
-\A(V)/E(B-V) = 3.1 is assumed
-\SandF: Schlafly and Finkbeiner 2011 (ApJ 737, 103)
-\SFD: Schlegel et al. 1998 (ApJ 500, 525)
-|objname                                                         |ra             |dec            |cutout_size     |E_B_V_SandF       |mean_E_B_V_SandF  |stdev_E_B_V_SandF |max_E_B_V_SandF   |min_E_B_V_SandF   |AV_SandF          |E_B_V_SFD         |mean_E_B_V_SFD    |stdev_E_B_V_SFD   |max_E_B_V_SFD     |min_E_B_V_SFD     |AV_SFD            |errmsg                                                                                                                          |
-|char                                                            |double         |double         |float           |float             |float             |float             |float             |float             |float             |float             |float             |float             |float             |float             |float             |char                                                                                                                            |
-|                                                                |deg            |deg            |deg             |mags              |mags              |mags              |mags              |mags              |mags              |mags              |mags              |mags              |mags              |mags              |mags              |                                                                                                                                |
+#\Rows = 183
+#\Cols = 17
+#\Coordinate system = equ
+#\Equinox = J2000
+#\Coordinate format = degree
+#\Cutout size unit = degree
+#\E_B_V is E(B-V), unit = mag
+#\AV is A(V), unit = mag
+#\Statistics radius = 5.0 arcmin
+#\stdev is the standard deviation of the quantity
+#\A(V)/E(B-V) = 3.1 is assumed
+#\SandF: Schlafly and Finkbeiner 2011 (ApJ 737, 103)
+#\SFD: Schlegel et al. 1998 (ApJ 500, 525)
+#|objname                                                         |ra             |dec            |cutout_size     |E_B_V_SandF       |mean_E_B_V_SandF  |stdev_E_B_V_SandF |max_E_B_V_SandF   |min_E_B_V_SandF   |AV_SandF          |E_B_V_SFD         |mean_E_B_V_SFD    |stdev_E_B_V_SFD   |max_E_B_V_SFD     |min_E_B_V_SFD     |AV_SFD            |errmsg                                                                                                                          |
+#|char                                                            |double         |double         |float           |float             |float             |float             |float             |float             |float             |float             |float             |float             |float             |float             |float             |char                                                                                                                            |
+#|                                                                |deg            |deg            |deg             |mags              |mags              |mags              |mags              |mags              |mags              |mags              |mags              |mags              |mags              |mags              |mags              |                                                                                                                                |
  bk3n                                                             147.4250        69.2050         5.0              0.0786             0.0798             0.0037             0.0869             0.0735             0.2437             0.0914             0.0928             0.0043             0.1011             0.0855             0.2833                                                                                                                                             
  ddo006                                                           11.8391         -21.2852        5.0              0.0138             0.0139             0.0004             0.0147             0.0131             0.0427             0.0160             0.0162             0.0005             0.0171             0.0152             0.0497                                                                                                                                             
  ddo043                                                           111.2100        40.8728         5.0              0.0681             0.0670             0.0020             0.0710             0.0627             0.2110             0.0791             0.0779             0.0023             0.0826             0.0729             0.2453                                                                                                                                             
