@@ -6,8 +6,10 @@
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 pgc023521	m81dwa		
 pgc029284	m81dwb		
-holmbergi	hoi
-holmbergii	hoii
+ugc05139	hoi
+ugc05139	holmbergi
+ugc04305	holmbergii	
+ugc04305	hoii
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 # LITTLE THINGS
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -21,21 +23,23 @@ ddo052
 ddo053
 ddo063
 ddo069
-sextansb	ddo070	
-sextansb	sexb
-sextansb	ddo070
-sextansb	ugc5373
-sextansa	ddo075
-sextansa	sexb
-sextansa	ddo075
-sextansa	ugca205
+ugc05373	sextansb
+ugc05373	ddo070	
+ugc05373	sexb
+ugc05373	ddo070
+ugc05373	ugc5373
+ugca205		sextansa
+ugca205		ddo075
+ugca205		sexb
+ugca205		ddo075
+ugca205		ugca205
 ddo087
 ddo101
 ddo126
 ddo133
 ddo154
 ddo155		gr8		
-ddo155		ugc8091
+ddo155		ugc08091
 ddo165
 ddo167
 ddo168
@@ -54,10 +58,10 @@ ngc4163
 ngc4214
 ngc6822
 sagdig
-ugc8508
+ugc08508
 wlm
 ugca281		haro29
-ugc7950		haro36
+ugc07950	haro36
 mrk178
 viizw403
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -66,41 +70,51 @@ viizw403
 ngc0247
 ddo006		ddo6
 ngc0404
-kkh37		leda95597
-ugc4483
-leda166101	kk77		
-bk3n		pgc28529
-ao0952+69	arpsloop
+pgc095597	leda95597
+pgc095597	kkh37		
+pgc095597	pgc95597
+ugc04483
+leda166101	kk77
+leda166101	pgc166101
+pgc028529	bk3n		
+pgc028529	pgc28529
+pgc028759	ao0952+69	
+pgc028759	arpsloop
+pgc028759	pgc28759
 # sextansb - DUPLICATE
 ngc3109		
-pgc29194	antlia
+pgc029194	antlia
+pgc029194	pgc29194
 ddo071		kdg63
-ddo071		ugc5428
+ddo071		ugc05428
 # sextansa - DUPLICATE
 hs117
-ddo082		ugc5692
-kdg73		pgc32667
-ngc3741		ugc6572
-ddo099		ugc6817
+ugc05692	ddo082		
+pgc032667	pgc32667
+pgc032667	kdg73
+ngc3741		ugc06572
+ddo099		ugc06817
 ngc4163		ngc4167
-ngc4163		ugc7199
-ngc4190		ugc7232
+ngc4163		ugc07199
 ngc4190		ugc07232
-ddo113		ugca276
+pgc039145	ddo113
+pgc039145	ugca276
 mcg+09-20-131	cgcg269-049
-ddo125		ugc7577
+ddo125		ugc07577
 # ugca292		pgc42275
 # ddo155 - DUPLICATE
-ugc8508		izw60
-ddo181		ugc8651
-ddo183		ugc8760
-kkh86		leda2807150
-ugc8833		pgc49452
+ugc08508	izw60
+ddo181		ugc08651
+ddo183		ugc08760
+pgc2807150	kkh86
+pgc2807150	leda2807150
+ugc08833	pgc49452
 kkr03		kk230
-ddo187		ugc9128
-ddo190		ugc9240
+ddo187		ugc09128
+ugc09240	ddo190
 kkr25		leda2801026
-kkh98		leda2807157
+pgc2807157	kkh98		
+pgc2807157	leda2807157
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 # JCMT LEGACY
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

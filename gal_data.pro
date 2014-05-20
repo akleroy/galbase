@@ -330,18 +330,6 @@ function gal_data $
 ; VALUE-ADDED (GALAXY INTEGRATED) INFORMATION
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
-; LUMINOSITY
-
-; COLOR
-
-; MASS
-
-; STAR FORMATION RATE
-
-; METALLICITY
-
-; ROTATION CURVE
-
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; FINISH
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
