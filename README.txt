@@ -1,7 +1,7 @@
 Nearby Galaxies Database
 
 A code base to provide infrastructure for working with ISM, structure,
-and starf formation in nearby galaxies.
+and star formation in nearby galaxies.
 
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 PROGRAMS TO ACCESS THE DATABASE
@@ -84,6 +84,14 @@ the second column should map back to the first column.
 
 A _generated_ file holding the names of all targets. Extracted from
 the table_dist.txt file.
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+FILES MISSED IN LEDA (NO VELOCITY)
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+PGC39145 == DDO113
+pgc166101 == KK77
+
 
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 TO DO LIST
