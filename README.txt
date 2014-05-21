@@ -69,6 +69,8 @@ pgc166101 == KK77
 
 +++ TO DO LIST
 
+- Add survey membership as a field?
+
 - Get our override files straight (distance, center).
 
 - Get IPAC interface fully working.
