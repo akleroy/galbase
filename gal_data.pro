@@ -7,11 +7,11 @@ function gal_data $
 ;+
 ; NAME:
 ;
-; galaxies
+; gal_data
 ;
 ; PURPOSE:
 ;
-; Retreives basic information a galaxy and returns an IDL structure.
+; Retreives information about a galaxy or list of galaxies as IDL structures.
 ;
 ; CATEGORY:
 ;
@@ -19,17 +19,15 @@ function gal_data $
 ;
 ; CALLING SEQUENCE:
 ;
-; s = galaxies('ngc5055')
+; s = gal_data('ngc5055')
 ;
 ; INPUTS:
 ;
-; The name of the galaxy you want a structure for in a format of:
-;
-; lower case catalog + number (e.g. ngc5055 or ic2574)
+; The name of the galaxy you want a structure for.
 ;
 ; OPTIONAL INPUTS:
 ;
-; data_dir : the location of my structure files
+; data_dir : the location of structure
 ;
 ; KEYWORD PARAMETERS:
 ;
@@ -52,288 +50,92 @@ function gal_data $
 ; defaults to nans to handle missing data - sep 2008
 ; cleanup, aliases, still could use a dedicated day - dec 11
 ; revamp, cleanup, checkin to GIT - feb 14
+; total overhaul - may 14
 ;
 ;-
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; HANDLE VECTORS
+; DEFAULTS, DEFINITIONS, AND ERROR HANDLING
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
   
-; Check that we got a name. Also handle the case where we got a vector
-; of names by looping over the list of names and calling the program
-; each time (inefficient because of the re-reading, but cleaner
-; code). Else, pass through this section to the main body.
+; DEFAULT TO NOT FOUND
+  found = 0B
 
-; ERROR CATCHING
+; CHECK THAT WE GOT A NAME
   if n_elements(name_in) eq 0 then begin
      message, 'Need a name to find a galaxy. Returning empty structure', /info    
      return, empty_gal_struct()
   endif
 
-; IF WE HAVE A VECTOR SET UP A RECURSIVE LOOP
-  if n_elements(name_in) gt 1 then begin
-     for j = 0, n_elements(name_in)-1 do begin
-        if j eq 0 then $
-           s_vec = [gal_data(name_in[j])] $
-        else $
-           s_vec = [s_vec, gal_data(name_in[j])]
-     endfor
-
-;    RETURN THE VECTOR
-     return, s_vec
-  endif
-
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; DEFAULTS
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-
-; Initialize default values, directories, etc.
-
-; INITIALIZE AN EMPTY GALAXY STRUCTURE
-  s = empty_gal_struct()
-
-; SHIFT THE NAME TO LOWER CASE
-  name = strcompress(strlowcase(name_in), /rem) 
-
-; INITIALIZE THE FOUND FLAG
-  found = -1
-  
-; INITIALIZE COMMENTS
-  comment = ""
-  
-; DIRECTORY FOR FILES
+; DIRECTORY FOR THE DATABASE
   if n_elements(data_dir) eq 0 then begin
      data_dir = '$MY_IDL/nearby_galaxies/gal_data/'
   endif
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; READ THE DATA BASE
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+; N.B. - could make this faster by saving the ALIASES + NAMES (as an
+;        IDL file?) but this breaks FITS generality. Mull.
+
+  infile = data_dir+"leda_vlsr3500.fits"
+  data = mrdfits(infile, 1, hdr)
+  
+; BUILD THE INFRASTRUCTURE TO LOOKUP ACROSS ALIASES
+
+  n_data = n_elements(data)-1
+  n_names = 0
+  for i = 0L, n_data-1 do begin
+     n_names += 1
+     aliases = strsplit(data[i].alias, ';', /extract)     
+     n_names += n_elements(aliases)
+  endfor
+
+  alias_vec = strarr(n_names)
+  name_vec = strarr(n_names)
+  counter = 0L
+  for i = 0L, n_data-1 do begin
+     alias_vec[counter] = data[i].name
+     name_vec[counter] = data[i].name
+     counter += 1
+     
+     if data[i].alias eq '' then continue
+     aliases = strsplit(data[i].alias, ';', /extract)     
+     n_alias = n_elements(aliases)
+
+     alias_vec[counter:(counter+n_alias-1)] = aliases
+     name_vec[counter:(counter+n_alias-1)] = replicate(data[i].name, n_alias)
+     counter += n_alias
+  endfor
+
+; WE NOW HAVE A PAIRED LIST OF {ALIAS, NAME} - A PSUEDODICTIONARY
+
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; IDENTIFY THE GALAXY
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
-; Check if the galaxy is in the target list.
+  n_names = n_elements(name_in)
+  output = replicate(empty_gal_struct(), n_names)
   
-  readcol, data_dir+"target_list.txt" $
-           , format='A' $
-           , comment="#" $
-           , all_names $
-           , /silent
-  found = total(all_names eq name)
-  
-  if found gt 1 then begin
-     message, "Too many matches. Stopping for debugging.", /info
-  endif
-  
-; If the galaxy is not in the target list, check for aliases.
+  name_in = strupcase(strcompress(name_in,/rem))
+  name_vec = strupcase(strcompress(name_vec,/rem))
+  alias_vec = strupcase(strcompress(alias_vec,/rem))
 
-  if found eq 0 then begin
+  for i = 0, n_names-1 do begin
 
-     readcol, data_dir+"alias.txt" $
-              , format='A,A' $
-              , alist_name, alist_alias $
-              , comment = "#" $
-              , /silent
-     n_alias = n_elements(alist_name)
+     ind = where(alias_vec eq name_in[i], ct)
      
-;    LOOP OVER ALIASES
-     for i = 0, n_alias-1 do begin
-
-;       CONTINUE IF WE ALREADY FOUND THE GALAXY
-        if found then $
-           continue
-
-;       IF WE HAVE A MATCH, NOTE THAT WE FOUND THE GALAXY AND WRITE
-;       DOWN THE NAME.
-        if name eq alist_alias[i] eq 0 then begin
-           name = alist_name[i]
-           found = 1B
-        endif
-
-     endfor
-
-;    HANDLE THE CASE OF NO MATCH
-     if found eq 0 then begin
-        message $
-           , 'No match for '+name_in+ $
-           ' in database. Returning empty structure.', /info
-        return, s 
+     if ct eq 0 then begin
+        message, "No match for "+name_in[i], /str
+        continue
      endif
-     
-  endif
 
-; RECORD THE NAME
-  s.name = name
-  
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; BASICS: POSITION AND DISTANCE
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-  
-; Every galaxy has a distance, a center position, a Galactic (Milky
-; Way) foreground extinction, and an isophotal radius.
+     data_ind = where(data.name eq name_vec[ind], ct)
+     output[i] = data[data_ind]
 
-; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-; DISTANCE
-; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+  endfor
 
-  dist_file = data_dir+'table_dist.txt'
-  readcol, dist_file $
-           , dist_name $
-           , dist_mpc $
-           , format="A,F" $
-           , /silent $
-           , comment='#'
-
-  ind = where(dist_name eq name, ct)
-  if ct eq 1 then begin
-     s.dist_mpc = dist_mpc[ind]
-  endif else begin
-     message $
-        , 'No distance for '+name, /info
-  endelse
-
-; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-; CENTER POSITION
-; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-  pos_file = data_dir+'leda_position.txt'
-  readcol, pos_file $
-           , pos_name $
-           , pos_al2000 $
-           , pos_de2000 $
-           , format="A,F,F" $
-           , delim="|" $
-           , /silent $
-           , comment='#'
-  pos_name = strcompress(pos_name, /rem)
-
-  ind = where(pos_name eq name, ct)
-  if ct eq 1 then begin
-     s.ra_deg = pos_al2000[ind]*15.
-     s.dec_deg = pos_de2000[ind]
-  endif else begin
-     message $
-        , 'No position for '+name, /info
-  endelse
-  
-; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-; GALACTIC EXTINCTION
-; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-  mwext_file = data_dir+'extinction.tbl'
-  readcol, mwext_file $
-           , mwext_name $
-           , mwext_sf11 $
-           , mwext_sf11_mean $
-           , mwext_sfd98 $
-           , mwext_sfd98_mean $
-           , format="A,X,X,X,F,F,X,X,X,X,F,F" $
-           , /silent $
-           , comment='#' $
-           , /nan
-  mwext_name = strcompress(mwext_name, /rem)
-
-  ind = where(mwext_name eq name, ct)
-  if ct eq 1 then begin
-     s.e_bmv = mwext_sf11_mean[ind]
-  endif else begin
-     message $
-        , 'No extinction for '+name, /info
-  endelse
-
-; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-; ISOPHOTAL RADIUS
-; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-  diam_file = data_dir+'leda_diameter.txt'
-  readcol, diam_file $
-           , diam_name $
-           , diam_logd25 $
-           , diam_elogd25 $
-           , format="A,F,F" $
-           , delim="|" $
-           , /silent $
-           , comment='#' $
-           , /nan
-  diam_name = strcompress(diam_name, /rem)
-
-  ind = where(diam_name eq name, ct)
-  if ct eq 1 then begin
-     s.d25_am = 10.^(diam_logd25[ind])*10.
-     s.e_logd25 = diam_elogd25[ind]
-     s.r25_deg = 2.0*s.d25_am/60.
-     s.e_logr25 = s.e_logr25
-  endif else begin
-     message $
-        , 'No position for '+name, /info
-  endelse
-
-; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-; MORPHOLOGY
-; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-  morph_file = data_dir+'leda_morphology.txt'
-  readcol, morph_file $
-           , morph_name $
-           , morph_type $
-           , morph_bar $
-           , morph_ring $
-           , morph_multiple $
-           , morph_compact $
-           , morph_t $
-           , morph_et $
-           , format="A,A,A,A,A,A,F,F" $
-           , delim="|" $
-           , /silent $
-           , comment='#'
-  morph_name = strcompress(morph_name, /rem)
-
-  ind = where(morph_name eq name, ct)
-  if ct eq 1 then begin
-     s.t = morph_t[ind]
-     s.e_t = morph_et[ind]
-     if strcompress(morph_bar[ind], /remove_all) eq "B" then $
-        s.bar = 1B
-     if strcompress(morph_ring[ind], /remove_all) eq "R" then $
-        s.ring = 1B
-  endif else begin
-     message $
-        , 'No morphology for '+name, /info
-  endelse
-
-; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-; ORIENTATION
-; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-  orient_file = data_dir+'leda_orient.txt'
-  readcol, orient_file $
-           , orient_name $
-           , orient_logr25 $
-           , orient_elogr25 $
-           , orient_pa $
-           , orient_incl $
-           , format="A,F,F,F,F" $
-           , delim="|" $
-           , /silent $
-           , comment='#' $
-           , /nan
-  orient_name = strcompress(orient_name, /rem)
-
-  ind = where(orient_name eq name, ct)
-  if ct eq 1 then begin
-     s.posang_deg = orient_pa[ind]
-     s.incl_deg = orient_incl[ind]
-  endif else begin
-     message $
-        , 'No orientation for '+name, /info
-  endelse
-
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; VALUE-ADDED (GALAXY INTEGRATED) INFORMATION
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; FINISH
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-
-  return, s
+  return, output
 
 end                             ; of gal_data
