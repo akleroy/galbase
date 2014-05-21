@@ -79,7 +79,7 @@ function gal_data $
 ; N.B. - could make this faster by saving the ALIASES + NAMES (as an
 ;        IDL file?) but this breaks FITS generality. Mull.
 
-  infile = data_dir+"leda_vlsr3500.fits"
+  infile = data_dir+"gal_base.fits"
   data = mrdfits(infile, 1, hdr)
   
 ; BUILD THE INFRASTRUCTURE TO LOOKUP ACROSS ALIASES
@@ -121,6 +121,7 @@ function gal_data $
   name_in = strupcase(strcompress(name_in,/rem))
   name_vec = strupcase(strcompress(name_vec,/rem))
   alias_vec = strupcase(strcompress(alias_vec,/rem))
+  data_name = strupcase(strcompress(data.name,/rem))
 
   for i = 0, n_names-1 do begin
 
@@ -131,7 +132,7 @@ function gal_data $
         continue
      endif
 
-     data_ind = where(data.name eq name_vec[ind], ct)
+     data_ind = where(data_name eq (name_vec[ind])[0], ct)
      output[i] = data[data_ind]
 
   endfor
