@@ -2,64 +2,131 @@
 # Column 2: field
 # Column 3: value
 # Column 4: reference
-ngc0925		incl_deg	66	DEBLOK08
-ngc0925		posang_deg	287	DEBLOK08
-ngc2366		incl_deg	64	DEBLOK08
-ngc2366		posang_deg	40	DEBLOK08
-ngc2403		incl_deg	63	DEBLOK08
-ngc2403		posang_deg	124	DEBLOK08
-ngc2841		incl_deg	74	DEBLOK08
-ngc2841		posang_deg	153	DEBLOK08
-ngc2903		incl_deg	65	DEBLOK08
-ngc2903		posang_deg	204	DEBLOK08
-ngc2976		incl_deg	65	DEBLOK08
-ngc2976		posang_deg	335	DEBLOK08
-ngc3031		incl_deg	59	DEBLOK08
-ngc3031		posang_deg	330	DEBLOK08
-ngc3198		incl_deg	72	DEBLOK08
-ngc3198		posang_deg	215	DEBLOK08
-ic2574		incl_deg	53	DEBLOK08
-ic2574		posang_deg	56	DEBLOK08
-ngc3521		incl_deg	73	DEBLOK08
-ngc3521		posang_deg	340	DEBLOK08
-ngc3621		incl_deg	65	DEBLOK08
-ngc3621		posang_deg	345	DEBLOK08
-ngc3627		incl_deg	62	DEBLOK08
-ngc3627		posang_deg	173	DEBLOK08
-ngc4736		incl_deg	41	DEBLOK08
-ngc4736		posang_deg	296	DEBLOK08
-ddo154		incl_deg	66	DEBLOK08
-ddo154		posang_deg	230	DEBLOK08
-ngc4826		incl_deg	65	DEBLOK08
-ngc4826		posang_deg	121	DEBLOK08
-ngc5055		incl_deg	59	DEBLOK08
-ngc5055		posang_deg	102	DEBLOK08
-ngc6946		incl_deg	33	DEBLOK08
-ngc6946		posang_deg	243	DEBLOK08
-ngc7331		incl_deg	76	DEBLOK08
-ngc7331		posang_deg	168	DEBLOK08
-ngc7793		incl_deg	50	DEBLOK08
-ngc7793		posang_deg	290	DEBLOK08
-ngc0628		incl_deg	7	DAIGLE06
-ngc0628		posang_deg	20	DAIGLE06
-ngc3938		incl_deg	14	MUNOZMATEOS09
-ngc3938		posang_deg	195	MUNOZMATEOS09
-ngc4321		incl_deg	30	MUNOZMATEOS09
-ngc4321		posang_deg	153	MUNOZMATEOS09
-ngc4625		incl_deg	47	MUNOZMATEOS09
-ngc4625		posang_deg	330	MUNOZMATEOS09
-ddo165		incl_deg	51	MUNOZMATEOS09
-ddo165		posang_deg	90	MUNOZMATEOS09
-ngc4214		incl_deg	44	WALTER01
-ngc4214		posang_deg	65	WALTER01
-ngc4254		incl_deg	32	BOISSIER03
-ngc4254		posang_deg	55	BOISSIER03
-ngc5194		incl_deg	20	CALZETTI05
-ngc5194		posang_deg	172	CALZETTI05
-ngc5236		incl_deg	24	SOFUE99
-ngc5236		posang_deg	225	SOFUE99
-ngc5457		incl_deg	18	SOFUE99
-ngc5457		posang_deg	39	SOFUE99
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# DE BLOK '08 ORIENTATION PARAMETERS
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ngc0925		incl_deg	66
+ngc0925		ref_incl	DEBLOK08
+ngc0925		posang_deg	287
+ngc0925		ref_posang	DEBLOK08
+ngc2366		incl_deg	64
+ngc2366		ref_incl	DEBLOK08
+ngc2366		posang_deg	40
+ngc2366		ref_posang	DEBLOK08
+ngc2403		incl_deg	63
+ngc2403		ref_incl	DEBLOK08
+ngc2403		posang_deg	124
+ngc2403		ref_posang	DEBLOK08
+ngc2841		incl_deg	74
+ngc2841		ref_incl	DEBLOK08
+ngc2841		posang_deg	153
+ngc2841		ref_posang	DEBLOK08
+ngc2903		incl_deg	65
+ngc2903		ref_incl	DEBLOK08
+ngc2903		posang_deg	204
+ngc2903		ref_posang	DEBLOK08
+ngc2976		incl_deg	65
+ngc2976		ref_incl	DEBLOK08
+ngc2976		posang_deg	335
+ngc2976		ref_posang	DEBLOK08
+ngc3031		incl_deg	59
+ngc3031		ref_incl	DEBLOK08
+ngc3031		posang_deg	330
+ngc3031		ref_posang	DEBLOK08
+ngc3198		incl_deg	72
+ngc3198		ref_incl	DEBLOK08
+ngc3198		posang_deg	215
+ngc3198		ref_posang	DEBLOK08
+ic2574		incl_deg	53
+ic2574		ref_incl	DEBLOK08
+ic2574		posang_deg	56
+ic2574		ref_posang	DEBLOK08
+ngc3521		incl_deg	73
+ngc3521		ref_incl	DEBLOK08
+ngc3521		posang_deg	340
+ngc3521		ref_posang	DEBLOK08
+ngc3621		incl_deg	65
+ngc3621		ref_incl	DEBLOK08
+ngc3621		posang_deg	345
+ngc3621		ref_posang	DEBLOK08
+ngc3627		incl_deg	62
+ngc3627		ref_incl	DEBLOK08
+ngc3627		posang_deg	173
+ngc3627		ref_posang	DEBLOK08
+ngc4736		incl_deg	41
+ngc4736		ref_incl	DEBLOK08
+ngc4736		posang_deg	296
+ngc4736		ref_posang	DEBLOK08
+ddo154		incl_deg	66
+ddo154		ref_incl	DEBLOK08
+ddo154		posang_deg	230
+ddo154		ref_posang	DEBLOK08
+ngc4826		incl_deg	65
+ngc4826		ref_incl	DEBLOK08
+ngc4826		posang_deg	121
+ngc4826		ref_posang	DEBLOK08
+ngc5055		incl_deg	59
+ngc5055		ref_incl	DEBLOK08
+ngc5055		posang_deg	102
+ngc5055		ref_posang	DEBLOK08
+ngc6946		incl_deg	33
+ngc6946		ref_incl	DEBLOK08
+ngc6946		posang_deg	243
+ngc6946		ref_posang	DEBLOK08
+ngc7331		incl_deg	76
+ngc7331		ref_incl	DEBLOK08
+ngc7331		posang_deg	168
+ngc7331		ref_posang	DEBLOK08
+ngc7793		incl_deg	50
+ngc7793		ref_incl	DEBLOK08
+ngc7793		posang_deg	290
+ngc7793		ref_posang	DEBLOK08
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# OTHER LITERATURE PARAMETERS
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ngc0628		incl_deg	7
+ngc0628		ref_incl	DAIGLE06
+ngc0628		posang_deg	20
+ngc0628		ref_posang	DAIGLE06
+ngc3938		incl_deg	14
+ngc3938		ref_incl	MUNOZMATEOS09
+ngc3938		posang_deg	195
+ngc3938		ref_posang	MUNOZMATEOS09
+ngc4321		incl_deg	30
+ngc4321		ref_incl	MUNOZMATEOS09
+ngc4321		posang_deg	153
+ngc4321		ref_posang	MUNOZMATEOS09
+ngc4625		incl_deg	47
+ngc4625		ref_incl	MUNOZMATEOS09
+ngc4625		posang_deg	330
+ngc4625		ref_posang	MUNOZMATEOS09
+ddo165		incl_deg	51
+ddo165		ref_incl	MUNOZMATEOS09
+ddo165		posang_deg	90
+ddo165		ref_posang	MUNOZMATEOS09
+ngc4214		incl_deg	44
+ngc4214		ref_incl	WALTER01
+ngc4214		posang_deg	65
+ngc4214		ref_posang	WALTER01
+ngc4254		incl_deg	32
+ngc4254		ref_incl	BOISSIER03
+ngc4254		posang_deg	55
+ngc4254		ref_posang	BOISSIER03
+ngc5194		incl_deg	20
+ngc5194		ref_incl	CALZETTI05
+ngc5194		posang_deg	172
+ngc5194		ref_posang	CALZETTI05
+ngc5236		incl_deg	24
+ngc5236		ref_incl	SOFUE99
+ngc5236		posang_deg	225
+ngc5236		ref_posang	SOFUE99
+ngc5457		incl_deg	18
+ngc5457		ref_incl	SOFUE99
+ngc5457		posang_deg	39
+ngc5457		ref_posang	SOFUE99
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# HISTORICAL HERACLES/THINGS VALUES
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 hoi		incl_deg	12	NONE
 hoi		posang_deg	50	NONE
 ngc0337		incl_deg	51	NONE

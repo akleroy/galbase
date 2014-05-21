@@ -1,4 +1,7 @@
+------------------------
 Nearby Galaxies Database
+------------------------
+
 
 A code base to provide infrastructure for working with ISM, structure,
 and star formation in nearby galaxies.
@@ -26,84 +29,63 @@ make_target_list : extract the target list from the distance file.
 UPDATING THE DATA BASE
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
+
++++ HOW TO REBUILD THE DATABASE
+
 To add a galaxy: 
 
-(1) place an entry with a distance in the "table_dist.txt" file. By
-default, I suggest using the median distance from NED.
+(1) In IDL run make_leda_fits, /print_query to generate the LEDA SQL
+query. 
 
-(2) Generate a new target list with "make_target_list"
+(2) Go to http://leda.univ-lyon1.fr/leda/fullsql.html and enter
+this. Choose | as a delimiter and NaN as the undefined string.
 
-(3) Go to hyperleda and choose to "Define a Sample"
+(3) Download the results to the gal_data directory and rename them to
+leda_lvsr3500.txt. Edit the file to comment the header line (with a #)
+and remove blank lines.
 
-(4) Generate the following new files:
+(4) Run make_leda_fits to generate a binary FITS table out of the LEDA
+file.
 
-leda_position.txt - columns are al2000, de2000, celposj(pgc)
+(5) Get the Milky Way foreground extinction. LEDA ships with SFD98
+estimates, but it may still be useful to query IPAC (this also gives
+you the newer Schlafly and Finkbeiner 2011 maps). To do this run
+"generate_ebv_scratch" and then take the results to:
 
-leda_morphology.txt - type, bar, ring, multiple, compactness, t, e_t
+ irsa.ipac.caltech.edu/applications/DUST/ 
 
-leda_diameter.txt - logd25, e_logd25
 
-leda_orient.txt -  logr25, e_logr25, pa, incl
 
-Alternatively, you might get just the values for your new targets and
-place them in the files by hand (with appropriate delimiters). Order
-doesn't matter. See the gal_data file for the readcol calls.
-
-There are options to overwrite the LEDA parameters and to add to the
-"value-added" parameters. These are still being revised but will be
-updated here.
-
-(5) Get the Milky Way foreground extinction. There are two ways to do
-this. If you have the SFD IDL codebase installed, then you can convert
-your targets to galactic and extract measurements there. To use the
-more recent Schlafly and Finkbeiner maps, the best option that I have
-found is to go to irsa.ipac.caltech.edu/applications/DUST/ and upload
-a list of objects. The program "generate_ebv" will try to do both of
-these for you. You may need to reconfigure your directory if you do
+You may need to reconfigure your directory if you do
 not choose to go the IPAC route.
 
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-DATA FILES
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+(6) Run make_gal_base to generate the binary fits file combining LEDA
+and our override files.
 
-In the gal_data/ directory there are a number of text files holding
-the information on our galaxy sample. These are:
++++ DATA FILES
 
-*** table_dist.txt
 
-The parent file for the galaxy list. Holds a distance in Mpc for each
-galaxy. This is used to make the target list. Convention is lower case
-galaxy names.
++++ FILES MISSED IN THE LEDA BUILD
 
-*** alias.txt
-
-File holding aliases. Not every galaxy needs an entry, but any name in
-the second column should map back to the first column.
-
-*** target_list.txt
-
-A _generated_ file holding the names of all targets. Extracted from
-the table_dist.txt file.
-
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-FILES MISSED IN LEDA (NO VELOCITY)
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+(Mostly these lack a velocity)
 
 PGC39145 == DDO113
 pgc166101 == KK77
 
 
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-TO DO LIST
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
++++ HISTORY
 
-(1) Add "overwrite" files to the LEDA-generated fields in order to
-allow improved estimates to overwrite the database values.
+- Started as "things_galaxies" c. 2008
 
-(2) Add galaxy integrated properties: metallicity, SFR, Mstar, L_B,
-B-V, etc. I'd like to take a step back here and make these as good as
-possible.
+- Revised to include HERACLES+KINGFISH c. 2010
 
-(3) Place some of our own measurements in here: especially the
-parameterized rotation curves.
+- Revised to full nearby volume spring 2014
 
++++ TO DO LIST
+
+- Fold in our own value-added products like parameterized rotation
+  curves, metallicity, SFR, etc.
+
+- Add a separate list of galaxies to be manually included.
+
+- Python access method.
