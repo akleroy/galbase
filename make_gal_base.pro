@@ -177,8 +177,8 @@ pro make_gal_base $
 
 ; ALIASES THAT LEDA KNOWS
   for i = 0L, n_leda-1 do begin
-     if leda[i].hl_names eq '' then continue
-     names = strsplit(leda[i].hl_names, ',', /extract)
+     if strcompress(leda[i].hl_names,/rem) eq '' then continue
+     names = strsplit(strcompress(leda[i].hl_names,/rem), ',', /extract)
      for j = 0, n_elements(names)-1 do begin
         if data[i].alias eq '' then $
            data[i].alias = names[j] $
@@ -235,9 +235,68 @@ pro make_gal_base $
 
   override_files = file_search("gal_data/override_*.txt", count=ct)
 
-  for j = 0, ct-1 do begin
+; BUILD THE INFRASTRUCTURE TO LOOKUP ACROSS ALIASES
+  n_data = n_elements(data)-1
+  n_names = 0
+  for i = 0L, n_data-1 do begin
+     n_names += 1
+     aliases = strsplit(data[i].alias, ';', /extract)     
+     n_names += n_elements(aliases)
+  endfor
 
-     readcol, override_files[j]
+  alias_vec = strarr(n_names)
+  name_vec = strarr(n_names)
+  counter = 0L
+  for i = 0L, n_data-1 do begin
+     counter, i, n_data, " out of "
+
+     alias_vec[counter] = data[i].name
+     name_vec[counter] = data[i].name
+     counter += 1
+     
+     if data[i].alias eq '' then continue
+     aliases = strsplit(data[i].alias, ';', /extract)     
+     n_alias = n_elements(aliases)
+
+     alias_vec[counter:(counter+n_alias-1)] = aliases
+     name_vec[counter:(counter+n_alias-1)] = replicate(data[i].name, n_alias)
+     counter += n_alias
+  endfor
+
+; BUILD THE INFRASTRUCTURE TO LOOK UP TAG NAMES
+  data_tags = tag_names(data)
+
+; LOOP THROUGH THE OVERRIDE FILES
+  for j = 0L, ct-1 do begin
+
+     print, "Applying override file : ", override_files[j]
+
+;    Convention is NAME, FIELD, VALUE, REFERENCE
+;    ... need to generalize to allow strings.
+     readcol, override_files[j], comment="#" $
+              , format="A,A,F" $
+              , galaxy, field, value
+     galaxy = strupcase(strcompress(galaxy, /rem))
+     field = strupcase(strcompress(field, /rem))
+     
+     for k = 0L, n_elements(galaxy)-1 do begin
+
+        tag_ind = where(data_tags eq field[k], tag_ct)
+        if tag_ct eq 0 then begin
+           message, "No match for field "+field[k], /info
+           continue
+        endif
+        
+        name_ind = where(alias_vec eq galaxy[k], name_ct)
+        if name_ct eq 0 then begin
+           message, "No match for name "+galaxy[k], /info
+           continue
+        endif
+        data_ind = where(data.name eq (name_vec[name_ind])[0])
+        data[data_ind].(tag_ind) = value[k]
+
+     endfor
+     
 
   endfor
 
