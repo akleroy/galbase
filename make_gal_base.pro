@@ -274,7 +274,7 @@ pro make_gal_base $
 ;    Convention is NAME, FIELD, VALUE, REFERENCE
 ;    ... need to generalize to allow strings.
      readcol, override_files[j], comment="#" $
-              , format="A,A,F" $
+              , format="A,A,A" $
               , galaxy, field, value
      galaxy = strupcase(strcompress(galaxy, /rem))
      field = strupcase(strcompress(field, /rem))
