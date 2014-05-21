@@ -6,9 +6,7 @@ Nearby Galaxies Database
 A code base to provide infrastructure for working with ISM, structure,
 and star formation in nearby galaxies.
 
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-PROGRAMS TO ACCESS THE DATABASE
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
++++ HOW TO ACCESS THE DATABASE
 
 "gal_data" is your interface. It returns a structure containing
 distance, size, and orientation.
@@ -18,17 +16,6 @@ s = gal_data("ngc1234")
 Use, e.g., "help, s, /str" to see the contents. From there you are on
 your own. The program should be able to handle a vector of galaxies
 and return a vector of structures.
-
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-PROGRAMS TO BUILD THE DATABASE
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-make_target_list : extract the target list from the distance file.
-
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-UPDATING THE DATA BASE
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
 
 +++ HOW TO REBUILD THE DATABASE
 
@@ -54,10 +41,10 @@ you the newer Schlafly and Finkbeiner 2011 maps). To do this run
 
  irsa.ipac.caltech.edu/applications/DUST/ 
 
+Note that you may need to upload several files because IPAC currently
+limits uploads to 20,000 lines apiece (and we have ~50k galaxies).
 
-
-You may need to reconfigure your directory if you do
-not choose to go the IPAC route.
+(FYI - This can take a LONG time on the IPAC side.)
 
 (6) Run make_gal_base to generate the binary fits file combining LEDA
 and our override files.
@@ -72,7 +59,6 @@ and our override files.
 PGC39145 == DDO113
 pgc166101 == KK77
 
-
 +++ HISTORY
 
 - Started as "things_galaxies" c. 2008
@@ -82,6 +68,10 @@ pgc166101 == KK77
 - Revised to full nearby volume spring 2014
 
 +++ TO DO LIST
+
+- Get our override files straight (distance, center).
+
+- Get IPAC interface fully working.
 
 - Fold in our own value-added products like parameterized rotation
   curves, metallicity, SFR, etc.
