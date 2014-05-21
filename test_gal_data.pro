@@ -6,19 +6,10 @@ pro test_gal_data
 ;
 ;-
 
-; DIRECTORY FOR FILES
-  if n_elements(data_dir) eq 0 then begin
-     data_dir = '$MY_IDL/nearby_galaxies/gal_data/'
-  endif
-
-; READ THE FULL LIST
-  readcol, data_dir+"target_list.txt" $
-           , format='A' $
-           , comment="#" $
-           , all_names
-
-; GET THE DATA
-  test = gal_data(all_names)
+  readcol, "gal_data/survey_list.txt", comment="#", format="A,A" $
+           , name, survey
+  ind = where(survey eq 'THINGS', ct)
+  test = gal_data(name[ind])
 
   STOP
 

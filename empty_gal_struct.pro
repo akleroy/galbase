@@ -81,5 +81,7 @@ function empty_gal_struct
 ;          , vrot_r25: nan $
 ;          , vflat_kms: nan $
 ;          , lflat_kpc: nan $  
-  
+  return, empty
+
+
 end
