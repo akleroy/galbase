@@ -2,6 +2,7 @@ function gal_data $
    , name_in $
    , data_dir=data_dir $
    , found=found $
+   , all=all $
    , quiet=quiet
 
 ;+
@@ -81,6 +82,10 @@ function gal_data $
 
   infile = data_dir+"gal_base.fits"
   data = mrdfits(infile, 1, hdr)
+
+  if keyword_set(all) then begin
+     return, data
+  endif
   
 ; BUILD THE INFRASTRUCTURE TO LOOKUP ACROSS ALIASES
 
@@ -117,6 +122,7 @@ function gal_data $
 
   n_names = n_elements(name_in)
   output = replicate(empty_gal_struct(), n_names)
+  found = bytarr(n_names)
   
   name_in = strupcase(strcompress(name_in,/rem))
   name_vec = strupcase(strcompress(name_vec,/rem))
@@ -129,12 +135,13 @@ function gal_data $
      
      if ct eq 0 then begin
         message, "No match for "+name_in[i], /str
+        found[i] = 0B
         continue
      endif
 
      data_ind = where(data_name eq (name_vec[ind])[0], ct)
      output[i] = data[data_ind]
-
+     found[i] = 1B
   endfor
 
   return, output
