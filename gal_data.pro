@@ -63,7 +63,7 @@ function gal_data $
   found = 0B
 
 ; CHECK THAT WE GOT A NAME
-  if n_elements(name_in) eq 0 then begin
+  if n_elements(name_in) eq 0 and keyword_set(all) eq 0 then begin
      message, 'Need a name to find a galaxy. Returning empty structure', /info    
      return, empty_gal_struct()
   endif
