@@ -2,7 +2,6 @@
 Nearby Galaxies Database
 ------------------------
 
-
 A code base to provide infrastructure for working with ISM, structure,
 and star formation in nearby galaxies.
 

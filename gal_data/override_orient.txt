@@ -1,7 +1,6 @@
 # Column 1: galaxy
 # Column 2: field
 # Column 3: value
-# Column 4: reference
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 # DE BLOK '08 ORIENTATION PARAMETERS
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
