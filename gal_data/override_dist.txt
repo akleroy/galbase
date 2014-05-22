@@ -20,8 +20,8 @@ holmbergi     	dist_mpc	3.9
 holmbergi     	ref_dist	KENNICUTT11	
 holmbergii    	dist_mpc	3.05
 holmbergii    	ref_dist	KENNICUTT11	
-ic342		dist_mpc	3.28
-ic342		ref_dist	KENNICUTT11	
+ic0342		dist_mpc	3.28
+ic0342		ref_dist	KENNICUTT11	
 ic2574  	dist_mpc	3.79
 ic2574  	ref_dist	KENNICUTT11	
 pgc023521	dist_mpc	3.6	# m81dwa
@@ -211,8 +211,8 @@ ddo216		dist_mpc	1.1
 ddo216		ref_dist	HUNTER12
 lsbcd564-08	dist_mpc	8.7	# f563-v3
 lsbcd564-08	ref_dist	HUNTER12
-ic10		dist_mpc	0.7
-ic10		ref_dist	HUNTER12
+ic0010		dist_mpc	0.7
+ic0010		ref_dist	HUNTER12
 ic1613		dist_mpc	0.7
 ic1613		ref_dist	HUNTER12
 lgs3		dist_mpc	0.7
@@ -233,14 +233,14 @@ ngc6822		dist_mpc	0.5
 ngc6822		ref_dist	HUNTER12
 sagdig		dist_mpc	1.1
 sagdig		ref_dist	HUNTER12
-ugc8508		dist_mpc	2.6
-ugc8508		ref_dist	HUNTER12
+ugc08508	dist_mpc	2.6
+ugc08508	ref_dist	HUNTER12
 wlm		dist_mpc	1.0
 wlm		ref_dist	HUNTER12
 ugca281		dist_mpc	5.9 # haro29
 ugca281		ref_dist	HUNTER12
-ugc7950		dist_mpc	9.3 # haro36
-ugc7950		ref_dist	HUNTER12
+ugc07950	dist_mpc	9.3 # haro36
+ugc07950	ref_dist	HUNTER12
 mrk178		dist_mpc	3.9
 mrk178		ref_dist	HUNTER12
 viizw403	dist_mpc	4.4
@@ -257,8 +257,8 @@ ddo006		ref_dist	OTT12
 ngc0404		dist_mpc	3.05
 ngc0404		ref_dist	OTT12
 # kkh37		dist_mpc	3.26	# NOT DETECTED
-ugc4483		dist_mpc	3.41
-ugc4483		ref_dist	OTT12
+ugc04483	dist_mpc	3.41
+ugc04483	ref_dist	OTT12
 # kk77		dist_mpc	3.55	#leda166101 # NOT DETECTED
 bk3n		dist_mpc	3.86
 bk3n		ref_dist	OTT12
@@ -289,15 +289,15 @@ ddo125		dist_mpc	2.58
 ddo125		ref_dist	OTT12
 # ugca292	dist_mpc	3.62 - DUPLICATE
 # ddo155	dist_mpc	2.08 - DUPLICATE
-# ugc8508	dist_mpc	2.58 - DUPLICATE
+# ugc08508	dist_mpc	2.58 - DUPLICATE
 ddo181		dist_mpc	3.14
 ddo181		ref_dist	OTT12
 ddo183		dist_mpc	3.22
 ddo183		ref_dist	OTT12
 kkh86		dist_mpc	2.59
 kkh86		ref_dist	OTT12
-ugc8833		dist_mpc	3.08
-ugc8833		ref_dist	OTT12
+ugc08833	dist_mpc	3.08
+ugc08833	ref_dist	OTT12
 kkr03		dist_mpc	1.97	# kk230
 kkr03		ref_dist	OTT12
 # ddo187	dist_mpc	2.21 - DUPLICATE
@@ -364,8 +364,8 @@ maffei2		ref_dist	NED
 ngc1068		dist_mpc	12.25 # KUNO 14.4
 ngc1068		ref_dist	NED
 # ic342		dist_mpc	3.28 # KUNO 3.28 - DUPLICATE
-ugc2855		dist_mpc	15.5 # KUNO 20.3
-ugc2855		ref_dist	NED
+ugc02855	dist_mpc	15.5 # KUNO 20.3
+ugc02855	ref_dist	NED
 # ngc2903 	dist_mpc	# KUNO 6.3 - DUPLICATE
 # ngc3184	dist_mpc	# KUNO 8.7 - DUPLICATE
 # ngc3351 	dist_mpc	# KUNO 10.1 - DUPLICATE
@@ -427,24 +427,24 @@ ngc6217		ref_dist	NED
 #
 ngc0024		dist_mpc	7.6
 ngc0024		ref_dist	WILSON12
-ugc4305		dist_mpc	3.4
-ugc4305		ref_dist	WILSON12
+ugc04305	dist_mpc	3.4
+ugc04305	ref_dist	WILSON12
 ngc4450		dist_mpc	16.7
 ngc4450		ref_dist	WILSON12
 ngc5033		dist_mpc	16.2
 ngc5033		ref_dist	WILSON12
-ugc5336		dist_mpc	3.6
-ugc5336		ref_dist	WILSON12
-ugc5423		dist_mpc	3.6
-ugc5423		ref_dist	WILSON12
+ugc05336	dist_mpc	3.6
+ugc05336	ref_dist	WILSON12
+ugc05423	dist_mpc	3.6
+ugc05423	ref_dist	WILSON12
 ngc3265		dist_mpc	22.7
 ngc3265		ref_dist	WILSON12
-ugc5720		dist_mpc	25.0
-ugc5720		ref_dist	WILSON12
+ugc05720	dist_mpc	25.0
+ugc05720	ref_dist	WILSON12
 ngc4789a	dist_mpc	3.8
 ngc4789a	ref_dist	WILSON12
-ugc8201		dist_mpc	4.6
-ugc8201		ref_dist	WILSON12
+ugc08201	dist_mpc	4.6
+ugc08201	ref_dist	WILSON12
 #
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 # BIMA SONG

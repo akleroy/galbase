@@ -10,6 +10,7 @@ ugc05139	hoi
 ugc05139	holmbergi
 ugc04305	holmbergii	
 ugc04305	hoii
+ic0342		ic342
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 # LITTLE THINGS
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -47,7 +48,7 @@ ddo187
 ddo210
 ddo216
 lsbcd564-08	f563-v3
-ic10
+ic0010		ic10
 ic1613
 lgs3
 m81dwa
@@ -62,8 +63,8 @@ ugc08508
 wlm
 ugca281		haro29
 ugc07950	haro36
-mrk178
-viizw403
+mrk178		ugc06541
+viizw403	ugc06456
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 # VLA ANGST
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

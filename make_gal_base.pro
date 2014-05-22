@@ -63,8 +63,8 @@ pro make_gal_base $
   data.multiple = strupcase(leda.bar) eq 'M'
 
 ; SIZE  
-  data.r25_deg = 10.^(leda.logd25)/10./60.
-  data.e_r25_deg = 10.^(leda.e_logd25)-1.
+  data.r25_deg = 10.^(leda.logd25)/10./60./2.
+  data.e_r25_deg = 10.^(leda.e_logd25)-1. ; TRANSLATE TO A PERCENTAGE ERROR (ROUGHLY)
   
   data.vmaxg_kms = leda.vmaxg
   data.e_vmaxg_kms = leda.e_vmaxg
@@ -88,8 +88,37 @@ pro make_gal_base $
   data.bvtc_mag = leda.bvtc
   data.itc_mag = leda.itc
 
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; EXTINCTION  
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
   data.ext_b = leda.ag
+
+  extinction_files = file_search("gal_data/extinction*.tbl", count=ext_ct)
+
+  data_name = strcompress(data.name, /rem)
+
+; LOOP THROUGH THE EXTINCTION FILES
+  for j = 0L, ext_ct-1 do begin
+
+     print, "Reading extinction file : ", extinction_files[j]
+
+     readcol, extinction_files[j], comment="#" $
+              , format="A,X,X,X,X,F,X,X,X,X,X,F" $
+              , objname, mean_ebv_sf11, mean_ebv_sfd98
+     objname = strupcase(strcompress(objname, /rem))
+     n_obj = n_elements(objname)
+
+     for k = 0, n_obj-1 do begin
+        data_ind = where(data_name eq objname[k], data_ct)
+        if data_ct eq 0 then begin
+           print, "No match for ", objname[k]
+        endif
+        data[data_ind].ext_bmv_sfd98 = mean_ebv_sfd98[k]
+        data[data_ind].ext_bmv_sf11 = mean_ebv_sf11[k]
+     endfor
+
+  endfor     
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; FILL IN ALIASES 
@@ -141,13 +170,6 @@ pro make_gal_base $
      endif
 
   endfor
-
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; EXTINCTION
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-
-; ext_bmv_sfd98
-; ext_bmv_sf11
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; NOW READ IN ANY USER-SUPPLIED OVERRIDE FILES
