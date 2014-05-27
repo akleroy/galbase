@@ -24,7 +24,8 @@ pro generate_ebv_scratch
         printf, 1, "| char      | double | double |" 
      endif
 
-     printf, 1, leda[counter].objname, " ", leda[counter].al2000*15., " ", leda[counter].de2000
+     objname = "pgc"+strcompress(str(leda[counter].pgc),/rem)
+     printf, 1, objname, " ", leda[counter].al2000*15., " ", leda[counter].de2000
 
      sub_counter += 1
      counter += 1 

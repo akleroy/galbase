@@ -96,7 +96,7 @@ pro make_gal_base $
 
   extinction_files = file_search("gal_data/extinction*.tbl", count=ext_ct)
 
-  data_name = strcompress(data.name, /rem)
+  leda_pgc = "PGC"+str(leda.pgc)
 
 ; LOOP THROUGH THE EXTINCTION FILES
   for j = 0L, ext_ct-1 do begin
@@ -105,14 +105,14 @@ pro make_gal_base $
 
      readcol, extinction_files[j], comment="#" $
               , format="A,X,X,X,X,F,X,X,X,X,X,F" $
-              , objname, mean_ebv_sf11, mean_ebv_sfd98
-     objname = strupcase(strcompress(objname, /rem))
-     n_obj = n_elements(objname)
+              , pgcname, mean_ebv_sf11, mean_ebv_sfd98
+     pgcname = strupcase(strcompress(pgcname, /rem))
+     n_obj = n_elements(pgcname)
 
      for k = 0, n_obj-1 do begin
-        data_ind = where(data_name eq objname[k], data_ct)
+        data_ind = where(leda_pgc eq pgcname[k], data_ct)
         if data_ct eq 0 then begin
-           print, "No match for ", objname[k]
+           print, "No match for ", pgcname[k]
         endif
         data[data_ind].ext_bmv_sfd98 = mean_ebv_sfd98[k]
         data[data_ind].ext_bmv_sf11 = mean_ebv_sf11[k]
