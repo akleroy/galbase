@@ -124,6 +124,27 @@ pro make_gal_base $
 ; FILL IN ALIASES 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
+; STRIP LEADING ZEROS FROM NGC, UGC, AND IC ENTRIES
+  for i = 0L, n_leda-1 do begin
+     this_name = data[i].name
+
+     if strpos(this_name, "NGC") ne -1 then begin
+        this_alias = "NGC"+str(long(strmid(this_name,3)))
+     endif else if strpos(this_name, "UGC") ne -1 then begin
+        this_alias = "UGC"+str(long(strmid(this_name,3)))
+     endif else if strpos(this_name, "IC") ne -1 then begin
+        this_alias = "IC"+str(long(strmid(this_name,2)))
+     endif else begin
+        continue
+     endelse
+
+     if data[i].alias eq '' then $
+        data[i].alias = this_alias $
+     else $
+        data[i].alias += ';'+this_alias
+
+  endfor
+
 ; ALIASES THAT LEDA KNOWS
   for i = 0L, n_leda-1 do begin
      if strcompress(leda[i].hl_names,/rem) eq '' then continue
