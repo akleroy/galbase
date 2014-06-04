@@ -134,7 +134,7 @@ function gal_data $
      ind = where(alias_vec eq name_in[i], ct)
      
      if ct eq 0 then begin
-        message, "No match for "+name_in[i], /str
+        message, "No match for "+name_in[i], /info
         found[i] = 0B
         continue
      endif
