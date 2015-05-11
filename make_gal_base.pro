@@ -75,7 +75,7 @@ pro make_gal_base $
 ; LUMINOSITIES/FLUXES
 
 ; ... HI
-  data.hi_msun = 10.^((leda.m21 - 17.4)/2.5)*(2.36d5*data.dist_mpc^2)
+  data.hi_msun = 10.^((leda.m21 - 17.4)/(-1.*2.5))*(2.36d5*data.dist_mpc^2)
 
 ; ... IR
   lsun = 3.862d33
