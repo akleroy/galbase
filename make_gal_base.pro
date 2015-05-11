@@ -128,11 +128,16 @@ pro make_gal_base $
   for i = 0L, n_leda-1 do begin
      this_name = data[i].name
 
-     if strpos(this_name, "NGC") ne -1 then begin
+     if strpos(this_name, "NGC") eq 0 then begin
         this_alias = "NGC"+str(long(strmid(this_name,3)))
-     endif else if strpos(this_name, "UGC") ne -1 then begin
-        this_alias = "UGC"+str(long(strmid(this_name,3)))
-     endif else if strpos(this_name, "IC") ne -1 then begin
+     endif else if strpos(this_name, "UGCA") eq 0 then begin
+        this_alias = "UGCA"+str(long(strmid(this_name,4)))
+     endif else if strpos(this_name, "UGC") eq 0 then begin
+        if total(strmid(this_name,3,1) eq $
+                 strcompress(string(indgen(10)), /rem)) then begin
+           this_alias = "UGC"+str(long(strmid(this_name,3)))
+        endif
+     endif else if strpos(this_name, "IC") eq 0 then begin
         this_alias = "IC"+str(long(strmid(this_name,2)))
      endif else begin
         continue
