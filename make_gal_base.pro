@@ -1,6 +1,8 @@
 pro make_gal_base $
    , data_dir = data_dir
 
+  digit = ['0','1','2','3','4','5','6','7','8','9']
+  
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; INITIALIZE
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
@@ -75,7 +77,7 @@ pro make_gal_base $
 ; LUMINOSITIES/FLUXES
 
 ; ... HI
-  data.hi_msun = 10.^((leda.m21 - 17.4)/2.5)*(2.36d5*data.dist_mpc^2)
+  data.hi_msun = 10.^((leda.m21 - 17.4)/(-1.*2.5))*(2.36d5*data.dist_mpc^2)
 
 ; ... IR
   lsun = 3.862d33
@@ -124,24 +126,42 @@ pro make_gal_base $
 ; FILL IN ALIASES 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
-; STRIP LEADING ZEROS FROM NGC, UGC, AND IC ENTRIES
+; STRIP LEADING ZEROS FROM NGC, UGC, AND IC ENTRIES (PATCHED TO AVOID
+; SUPRRESSING POST-NAME LETTERS)
+
   for i = 0L, n_leda-1 do begin
      this_name = data[i].name
 
-     if strpos(this_name, "NGC") ne -1 then begin
-        this_alias = "NGC"+str(long(strmid(this_name,3)))
-     endif else if strpos(this_name, "UGC") ne -1 then begin
-        this_alias = "UGC"+str(long(strmid(this_name,3)))
-     endif else if strpos(this_name, "IC") ne -1 then begin
-        this_alias = "IC"+str(long(strmid(this_name,2)))
+     if (strpos(this_name, "NGC") eq 0) or $
+        (strpos(this_name, "UGCA") eq 0) or $
+        (strpos(this_name, "UGC") eq 0) or $         
+        (strpos(this_name, "IC") eq 0) then begin
+        this_alias = ""
+        leading_digit = 1B
+        was_zero = 0B
+        for zz = 0, strlen(this_name)-1 do begin
+           token = strmid(this_name,zz,1)
+           if total(token eq digit) eq 1 then begin
+              if leading_digit and token eq '0' then begin
+                 was_zero = 1B
+                 continue
+              endif
+              leading_digit = 0B
+              this_alias += token
+           endif else begin
+              this_alias += token
+           endelse
+        endfor
+        if was_zero then begin
+           print, "I added alias: ", this_alias, " for ", this_name
+           if data[i].alias eq '' then $
+              data[i].alias = this_alias $
+           else $
+              data[i].alias += ';'+this_alias           
+        endif
      endif else begin
         continue
      endelse
-
-     if data[i].alias eq '' then $
-        data[i].alias = this_alias $
-     else $
-        data[i].alias += ';'+this_alias
 
   endfor
 
