@@ -70,10 +70,9 @@ function gal_data $
 
 ; DIRECTORY FOR THE DATABASE
   if n_elements(data_dir) eq 0 then begin
-     help,/trace,output=strs
-     progpos = stregex(strs[0],'gal_data.pro')
-     slashpos = stregex(strs[0],'/')
-     data_dir = strmid(strs[0],slashpos,progpos-slashpos)+'/gal_data/'
+     result = routine_info('gal_data',/function,/source)
+     progpos = stregex(result.path,'gal_data.pro')
+     data_dir = strmid(result.path,0,progpos)+'gal_data/'
   endif
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
