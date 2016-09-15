@@ -70,8 +70,10 @@ function gal_data $
 
 ; DIRECTORY FOR THE DATABASE
   if n_elements(data_dir) eq 0 then begin
-;     data_dir = '$MY_IDL/nearby_galaxies/gal_data/'
-     data_dir = '~/idl/nearby_galaxies/gal_data/'
+     help,/trace,output=strs
+     progpos = stregex(strs[0],'gal_data.pro')
+     slashpos = stregex(strs[0],'/')
+     data_dir = strmid(strs[0],slashpos,progpos-slashpos)+'/gal_data/'
   endif
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
