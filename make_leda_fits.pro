@@ -15,7 +15,7 @@ pro make_leda_fits $
                    ", logd25, e_logd25, vmaxg, e_vmaxg, vrot, e_vrot"+$
                    ", m21, e_m21, mfir"+$
                    ", ag, btc, ubtc, bvtc, itc"+$
-                   " where v < 3500"
+                   " where v < 5000 and objtype='G'"
      
      print, "HyperLEDA SQL string was: ", leda_string
      
@@ -26,7 +26,8 @@ pro make_leda_fits $
 ; BUILD THE STRUCTURE
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
-  infile = "gal_data/leda_vlsr3500.txt"
+;  infile = "gal_data/leda_vlsr3500.txt"
+  infile = "gal_data/leda_vlsr5000.txt"
 
   readcol, infile, comment="#", delim="|" $
            , objname, hl_names, pgc $
@@ -146,7 +147,7 @@ pro make_leda_fits $
 ; OUTPUT
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
-  outfile = "gal_data/leda_vlsr3500.fits"
+  outfile = "gal_data/leda_vlsr5000.fits"
   spawn, "rm "+outfile
   mwrfits, data, outfile, hdr
 
