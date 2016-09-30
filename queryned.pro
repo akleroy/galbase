@@ -1,5 +1,6 @@
 pro queryned $
    , list $
+   , found=found $
    , MU=mu $
    , ERRMU=errmu $
    , DIST=D $
@@ -12,7 +13,7 @@ pro queryned $
    , RADEG=ra_deg $
    , DECDEG=dec_deg $
    , AV=av $
-   , STRUCT=outstruct $
+   , STRUCT=struct $ 
    , OUTLINES=outlines $
    , HEADER=header $
    , OUTFILE=outfile $
@@ -60,16 +61,24 @@ pro queryned $
   av      = dblarr(n_list)*nan
 
 ; Loop over list entries
+  found = bytarr(n_list)*0B
 
   for i=0, n_list-1 do begin
 
      if keyword_set(quiet) eq 0 then $
         print,"----- "+list[i]+"-----"
 
+     spawn,"rm -rf tmp_ned.out"
      spawn,"wget --quiet -O tmp_ned.out http://nedwww.ipac.caltech.edu/cgi-bin/nph-objsearch\?objname="+strtrim(list[i])+$
            "\&extend=no\&hconst=73\&omegam=0.27\&omegav=0.73\&corr_z=3"+$
            "\&out_csys=Equatorial\&out_equinox=J2000.0\&obj_sort=RA+or+Longitude"+$
            "\&of=pre_text\&zv_breaker=30000.0\&list_limit=5\&img_stamp=NO"
+     dummy = file_search('tmp_ned.out', count=ct)
+     if ct ne 1 then begin
+        message, "No match for WGET attempt. Proceeding.", /info        
+        continue
+     endif
+     found[i] = 1B
 
                                 ; ...redshift distance
    ;;;

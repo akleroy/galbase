@@ -37,7 +37,14 @@ appears to remove GAMA, SDSS, and various HI-defined galaxies - so
 far, not something we would need and droppping these makes the queries
 run faster. We can change this if it becomes relevant.
 
-(5) Get the Milky Way foreground extinction. LEDA ships with SFD98
+TBD: We need to be able to supplement this with a list of
+targets. This is doable "by hand" right now - we can do better. At least a script that generates a crude SQL query of objname("BLAH") or objname("BLAH2")
+
+- THIS NEXT STEP IS CHANGING. STAY TUNED - NOW PART OF NED QUERY
+
+(5) Will be NED QUERY.
+
+(5) WAS: get the Milky Way foreground extinction. LEDA ships with SFD98
 estimates, but it may still be useful to query IPAC (this also gives
 you the newer Schlafly and Finkbeiner 2011 maps). To do this run
 "generate_ebv_scratch" and then take the results to:

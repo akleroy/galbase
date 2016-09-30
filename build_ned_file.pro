@@ -40,9 +40,15 @@ pro build_ned_file $
      endif
 
      queryned, list[ii] $
+               , found=found $
                , header=header $
                , outline=line
      
+     if found eq 0 then begin
+        message, "Skipping "+list[ii], /info
+        continue
+     endif
+
      if keyword_set(rebuild) and first then begin
         for kk = 0, n_elements(header)-1 do $
            printf, unit, header[kk]
