@@ -26,7 +26,7 @@ pro make_leda_fits $
 ; BUILD THE STRUCTURE
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
-;  infile = "gal_data/leda_vlsr3500.txt"
+; WAS: infile = "gal_data/leda_vlsr3500.txt"
   infile = "gal_data/leda_vlsr5000.txt"
 
   readcol, infile, comment="#", delim="|" $
@@ -144,11 +144,23 @@ pro make_leda_fits $
   endfor
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; PARE DOWN TO A SUBSAMPLE THAT WE CARE ABOUT
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+; Require some apparent magnitude
+
+  keep = where(finite(data.btc) or $
+               finite(data.itc), keep_ct)
+
+  message, "Keeping "+str(keep_ct)+" of "+str(n_elements(data))+" because they have optical magnitudes.", /info
+
+  data = data[keep]
+
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; OUTPUT
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
   outfile = "gal_data/leda_vlsr5000.fits"
-  spawn, "rm "+outfile
-  mwrfits, data, outfile, hdr
+  mwrfits, data, outfile, hdr, /create
 
 end

@@ -27,11 +27,15 @@ query.
 this. Choose | as a delimiter and NaN as the undefined string.
 
 (3) Download the results to the gal_data directory and rename them to
-leda_lvsr3500.txt. Edit the file to comment the header line (with a #)
+leda_lvsr5000.txt. Edit the file to comment the header line (with a #)
 and remove blank lines.
 
 (4) Run make_leda_fits to generate a binary FITS table out of the LEDA
-file.
+file. This step currently includes a downselect to consider only
+galaxies that have a B or I band magnitude in LEDA. The downselect
+appears to remove GAMA, SDSS, and various HI-defined galaxies - so
+far, not something we would need and droppping these makes the queries
+run faster. We can change this if it becomes relevant.
 
 (5) Get the Milky Way foreground extinction. LEDA ships with SFD98
 estimates, but it may still be useful to query IPAC (this also gives
