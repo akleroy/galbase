@@ -25,6 +25,10 @@ pro queryned $
 ; the Schlafly+ A_V value. Other minor modifications (NaN default
 ; values and traps the case of no error on the heliocentric velocity).
 ;
+; TBD - it may make sense to use ONLY PGC numbers for a LEDA-based
+;       query. There are a few cases (some ESO names) where other
+;       systems fail.
+;
 ;-
 
 ; Check inputs
@@ -78,6 +82,13 @@ pro queryned $
         message, "No match for WGET attempt. Proceeding.", /info        
         continue
      endif
+     fail_string = "There is no object with this name in NED."
+     spawn, 'grep "'+fail_string+'" tmp_ned.out', dummy
+     if strpos(dummy, fail_string) ne -1 then begin
+        message, "Object not found in NED. Proceeding.", /info        
+        continue
+     endif
+        
      found[i] = 1B
 
                                 ; ...redshift distance
@@ -141,6 +152,11 @@ pro queryned $
      endfor
 
      spawn,"grep '<tr><td>A<sub>&lambda;</sub>' tmp_ned.out -m 1", strext
+     if n_elements(vnum) eq 0 then begin
+        message, 'No V-band extinction found. Skipping.', /info
+        continue
+        stop
+     endif
      for kk = 0, vnum do begin
         next_pos = strpos(strext, '<td>')
         strext = strmid(strext, next_pos+4)
