@@ -9,6 +9,8 @@ function empty_gal_struct
           name:'' $
           , pgc: 0L $
           , alias:'' $
+;         SURVEY MEMBERSHIP
+          , tags:'' $
 ;         DISTANCE AND RECESSIONAL VELOCITY
           , dist_mpc: nan $
           , e_dist: nan $
@@ -46,13 +48,12 @@ function empty_gal_struct
           , multiple: 0B $
           , ref_morph: 'LEDA' $
 ;         EXTINCTION
-          , ext_b: nan $
-          , ext_bmv_sfd98: nan $
-          , ext_bmv_sf11: nan $
-;         SIZES AND ROTATION CURVE
+          , av_sf11: nan $
+;         SIZES
           , r25_deg: nan $
           , e_r25_deg: nan $
           , ref_r25: 'LEDA' $
+;         ROTATION CURVE
           , vmaxg_kms: nan $
           , e_vmaxg_kms: nan $
           , ref_vmaxg: 'LEDA' $
@@ -74,13 +75,6 @@ function empty_gal_struct
           , ref_itc: 'LEDA' $
           }
 
-; ADD LATER
-;          , lstar_kpc: nan $
-;          , l3p6_as: nan $
-;          , vrot_kms: nan $
-;          , vrot_r25: nan $
-;          , vflat_kms: nan $
-;          , lflat_kpc: nan $  
   return, empty
 
 

@@ -1,8 +1,10 @@
 function gal_data $
    , name_in $
-   , data_dir=data_dir $
+   , dir=data_dir $
+   , data=data $
    , found=found $
    , all=all $
+   , tag=tag $
    , quiet=quiet
 
 ;+
@@ -63,7 +65,9 @@ function gal_data $
   found = 0B
 
 ; CHECK THAT WE GOT A NAME
-  if n_elements(name_in) eq 0 and keyword_set(all) eq 0 then begin
+  if n_elements(name_in) eq 0 and $
+     keyword_set(all) eq 0 and $
+     n_elements(tag) eq 0 then begin
      message, 'Need a name to find a galaxy. Returning empty structure', /info    
      return, empty_gal_struct()
   endif
@@ -74,78 +78,75 @@ function gal_data $
      progpos = stregex(result.path,'gal_data.pro')
      data_dir = strmid(result.path,0,progpos)+'gal_data/'
   endif
-
+     
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; READ THE DATA BASE
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
-; N.B. - could make this faster by saving the ALIASES + NAMES (as an
-;        IDL file?) but this breaks FITS generality. Mull.
+     if n_elements(data) eq 0 then begin
+        infile = data_dir+"gal_base.fits"
+        data = mrdfits(infile, 1, hdr)
+     endif
 
-  infile = data_dir+"gal_base.fits"
-  data = mrdfits(infile, 1, hdr)
-
-  if keyword_set(all) then begin
-     return, data
-  endif
-  
-; BUILD THE INFRASTRUCTURE TO LOOKUP ACROSS ALIASES
-
-  n_data = n_elements(data)-1
-  n_names = 0
-  for i = 0L, n_data-1 do begin
-     n_names += 1
-     aliases = strsplit(data[i].alias, ';', /extract)     
-     n_names += n_elements(aliases)
-  endfor
-
-  alias_vec = strarr(n_names)
-  name_vec = strarr(n_names)
-  counter = 0L
-  for i = 0L, n_data-1 do begin
-     alias_vec[counter] = data[i].name
-     name_vec[counter] = data[i].name
-     counter += 1
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; TREAT THE CASE WHERE A SURVEY OR ALL DATA ARE DESIRED
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
      
-     if data[i].alias eq '' then continue
-     aliases = strsplit(data[i].alias, ';', /extract)     
-     n_alias = n_elements(aliases)
+     if keyword_set(all) then $
+        return, data
 
-     alias_vec[counter:(counter+n_alias-1)] = aliases
-     name_vec[counter:(counter+n_alias-1)] = replicate(data[i].name, n_alias)
-     counter += n_alias
-  endfor
+     if n_elements(tag) gt 0 then begin
+        n_data = n_elements(data)
+        keep = bytarr(n_data)+1B
+        for ii = 0, n_data-1 do begin
+           this_tag = strsplit(strcompress(data[ii].tags,/rem), ';', /extract)
+           for jj = 0, n_elements(tag)-1 do $
+              keep[ii] = keep[ii]*total(this_tag eq tag[jj])
+        endfor
+        if total(keep) eq 0 then begin
+           message, 'No targets found with that tag combination. Returning an empty structure.', /info
+           return, empty_gal_struct()
+        endif
+        return, data[where(keep)]
+     endif
 
-; WE NOW HAVE A PAIRED LIST OF {ALIAS, NAME} - A PSUEDODICTIONARY
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; TREAT THE CASE OF A NAME OR LIST OF NAMES
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+     readcol, data_dir+'gal_base_alias.txt', format='A,A', comment='#' $
+              , alias_vec, name_vec
+     alias_vec = strupcase(strcompress(alias_vec,/rem))
+     name_vec = strupcase(strcompress(name_vec,/rem))
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; IDENTIFY THE GALAXY
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
-  n_names = n_elements(name_in)
-  output = replicate(empty_gal_struct(), n_names)
-  found = bytarr(n_names)
-  
-  name_in = strupcase(strcompress(name_in,/rem))
-  name_vec = strupcase(strcompress(name_vec,/rem))
-  alias_vec = strupcase(strcompress(alias_vec,/rem))
-  data_name = strupcase(strcompress(data.name,/rem))
-
-  for i = 0, n_names-1 do begin
-
-     ind = where(alias_vec eq name_in[i], ct)
+     n_names = n_elements(name_in)
+     output = replicate(empty_gal_struct(), n_names)
+     found = bytarr(n_names)
      
-     if ct eq 0 then begin
-        message, "No match for "+name_in[i], /info
-        found[i] = 0B
-        continue
-     endif
+     name_in = strupcase(strcompress(name_in,/rem))
+     name_vec = strupcase(strcompress(name_vec,/rem))
+     alias_vec = strupcase(strcompress(alias_vec,/rem))
+     data_name = strupcase(strcompress(data.name,/rem))
 
-     data_ind = where(data_name eq (name_vec[ind])[0], ct)
-     output[i] = data[data_ind]
-     found[i] = 1B
-  endfor
+     for i = 0, n_names-1 do begin
 
-  return, output
+        ind = where(alias_vec eq name_in[i], ct)
+        
+        if ct eq 0 then begin
+           message, "No match for "+name_in[i], /info
+           found[i] = 0B
+           continue
+        endif
 
-end                             ; of gal_data
+        data_ind = where(data_name eq (name_vec[ind])[0], ct)
+        output[i] = data[data_ind]
+        found[i] = 1B
+     endfor
+
+     return, output
+
+  end                           ; of gal_data

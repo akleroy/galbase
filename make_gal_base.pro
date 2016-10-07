@@ -1,133 +1,123 @@
 pro make_gal_base $
    , data_dir = data_dir
 
-  digit = ['0','1','2','3','4','5','6','7','8','9']
-  
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; INITIALIZE
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
+  digit = ['0','1','2','3','4','5','6','7','8','9']
+
+  data_dir = "gal_data/"
+
   empty = empty_gal_struct()
+
+  leda_files = ["leda_vlsr5000.fits"]
+  n_leda_files = n_elements(leda_files)
+
+  lsun = 3.862d33
+  pc = 3.0857000d18
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; BUILD THE BASIC DATABASE USING LEDA
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
-  data_dir = "gal_data/"
+  message, "... reading LEDA files.", /info
 
-  infile = data_dir+"leda_vlsr3500.fits"
-  leda = mrdfits(infile, 1, hdr)
+  for jj = 0, n_leda_files-1 do begin
 
-  n_leda = n_elements(leda)
-  data = replicate(empty, n_leda)
+     infile = data_dir+leda_files[jj]
+     leda = mrdfits(infile, 1, hdr)
 
-;    -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-;    FILL IN LEDA INFORMATION
-;    -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+     n_leda = n_elements(leda)
+     this_data = replicate(empty, n_leda)
 
-  data.name = strupcase(strcompress(leda.objname,/rem))
-  data.pgc = strupcase(strcompress(leda.pgc,/rem))
+; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+; FILL IN LEDA INFORMATION
+; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-  has_modz = where(finite(leda.modz), ct)
-  if ct gt 0 then data[has_modz].dist_mpc = 10.^(leda[has_modz].modz/5.+1.)/1d6
-  
-; PREFER MOD0 - THIS IS A MEASUREMENT
-  has_mod0 = where(finite(leda.mod0), ct)
-  if ct gt 0 then data[has_mod0].dist_mpc = 10.^(leda[has_mod0].mod0/5.+1.)/1d6
+     this_data.name = strupcase(strcompress(leda.objname,/rem))
+     this_data.pgc = strupcase(strcompress(leda.pgc,/rem))
 
-; RECESSIONAL VELOCITY
-  data.vhel_kms = leda.v
-  data.e_vhel_kms = leda.e_v
-  
-  data.vrad_kms = leda.vrad
-  data.e_vrad_kms = leda.e_vrad
-  
-  data.vvir_kms = leda.vvir
-  
-; POSITION
-  data.ra_deg = leda.al2000*15.0
-  data.dec_deg = leda.de2000
-  
-; ORIENTATION
-  data.posang_deg = leda.pa
-  data.incl_deg = leda.incl
-  
-  data.log_raxis = leda.logr25
-  data.e_log_raxis = leda.e_logr25
-  
-; MORPHOLOGY
-  data.t = leda.t
-  data.e_t = leda.e_t
-    
-  data.morph = leda.type
-  data.bar = strupcase(leda.bar) eq 'B'
-  data.ring = strupcase(leda.bar) eq 'R'
-  data.multiple = strupcase(leda.bar) eq 'M'
+     has_modz = where(finite(leda.modz), ct)
+     if ct gt 0 then this_data[has_modz].dist_mpc = 10.^(leda[has_modz].modz/5.+1.)/1d6
+     
+;    PREFER MOD0 - THIS IS A MEASUREMENT
+     has_mod0 = where(finite(leda.mod0), ct)
+     if ct gt 0 then this_data[has_mod0].dist_mpc = 10.^(leda[has_mod0].mod0/5.+1.)/1d6
 
-; SIZE  
-  data.r25_deg = 10.^(leda.logd25)/10./60./2.
-  data.e_r25_deg = 10.^(leda.e_logd25)-1. ; TRANSLATE TO A PERCENTAGE ERROR (ROUGHLY)
-  
-  data.vmaxg_kms = leda.vmaxg
-  data.e_vmaxg_kms = leda.e_vmaxg
+;    RECESSIONAL VELOCITY
+     this_data.vhel_kms = leda.v
+     this_data.e_vhel_kms = leda.e_v
+     
+     this_data.vrad_kms = leda.vrad
+     this_data.e_vrad_kms = leda.e_vrad
+     
+     this_data.vvir_kms = leda.vvir
+     
+;    POSITION
+     this_data.ra_deg = leda.al2000*15.0
+     this_data.dec_deg = leda.de2000
+     
+;    ORIENTATION
+     this_data.posang_deg = leda.pa
+     this_data.incl_deg = leda.incl
+     
+     this_data.log_raxis = leda.logr25
+     this_data.e_log_raxis = leda.e_logr25
+     
+;    MORPHOLOGY
+     this_data.t = leda.t
+     this_data.e_t = leda.e_t
+     
+     this_data.morph = leda.type
+     this_data.bar = strupcase(leda.bar) eq 'B'
+     this_data.ring = strupcase(leda.bar) eq 'R'
+     this_data.multiple = strupcase(leda.bar) eq 'M'
 
-  data.vrot_kms = leda.vrot
-  data.e_vrot_kms = leda.e_vrot
+;    SIZE  
+     this_data.r25_deg = 10.^(leda.logd25)/10./60./2.
+     this_data.e_r25_deg = 10.^(leda.e_logd25)-1. ; TRANSLATE TO A PERCENTAGE ERROR (ROUGHLY)
+     
+;    ROTATION CURVES
+     this_data.vmaxg_kms = leda.vmaxg
+     this_data.e_vmaxg_kms = leda.e_vmaxg
 
-; LUMINOSITIES/FLUXES
+     this_data.vrot_kms = leda.vrot
+     this_data.e_vrot_kms = leda.e_vrot
 
-; ... HI
-  data.hi_msun = 10.^((leda.m21 - 17.4)/(-1.*2.5))*(2.36d5*data.dist_mpc^2)
+;    LUMINOSITIES/FLUXES
 
-; ... IR
-  lsun = 3.862d33
-  pc = 3.0857000d18
-  data.lfir_lsun = 10.^((leda.mfir -14.75)/(-2.5))*1.26d-14*1d3*(4.0*!pi*(data.dist_mpc*1d6*pc)^2)/lsun
-  
-; ... OPTICAL
-  data.btc_mag = leda.btc
-  data.ubtc_mag = leda.ubtc
-  data.bvtc_mag = leda.bvtc
-  data.itc_mag = leda.itc
+;    ... HI
+     this_data.hi_msun = $
+        10.^((leda.m21 - 17.4)/(-1.*2.5))*(2.36d5*this_data.dist_mpc^2)
 
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; EXTINCTION  
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+;    ... IR
+     this_data.lfir_lsun = 10.^((leda.mfir -14.75)/(-2.5))*1.26d-14*1d3* $
+                           (4.0*!pi*(this_data.dist_mpc*1d6*pc)^2)/lsun
+     
+;    ... OPTICAL
+     this_data.btc_mag = leda.btc
+     this_data.ubtc_mag = leda.ubtc
+     this_data.bvtc_mag = leda.bvtc
+     this_data.itc_mag = leda.itc
 
-  data.ext_b = leda.ag
+;    COMPILE
+     if n_elements(data) gt 0 then begin
+        data = [data, this_data]
+     endif else begin
+        data = this_data
+     endelse
 
-  extinction_files = file_search("gal_data/extinction*.tbl", count=ext_ct)
-
-  leda_pgc = "PGC"+str(leda.pgc)
-
-; LOOP THROUGH THE EXTINCTION FILES
-  for j = 0L, ext_ct-1 do begin
-
-     print, "Reading extinction file : ", extinction_files[j]
-
-     readcol, extinction_files[j], comment="#" $
-              , format="A,X,X,X,X,F,X,X,X,X,X,F" $
-              , pgcname, mean_ebv_sf11, mean_ebv_sfd98
-     pgcname = strupcase(strcompress(pgcname, /rem))
-     n_obj = n_elements(pgcname)
-
-     for k = 0, n_obj-1 do begin
-        data_ind = where(leda_pgc eq pgcname[k], data_ct)
-        if data_ct eq 0 then begin
-           print, "No match for ", pgcname[k]
-        endif
-        data[data_ind].ext_bmv_sfd98 = mean_ebv_sfd98[k]
-        data[data_ind].ext_bmv_sf11 = mean_ebv_sf11[k]
-     endfor
-
-  endfor     
+  endfor
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; FILL IN ALIASES 
+; FILL IN ALIASES
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
 ; STRIP LEADING ZEROS FROM NGC, UGC, AND IC ENTRIES (PATCHED TO AVOID
 ; SUPRRESSING POST-NAME LETTERS)
+
+  message, "... compiling ALIAS list.", /info
 
   for i = 0L, n_leda-1 do begin
      this_name = data[i].name
@@ -153,7 +143,7 @@ pro make_gal_base $
            endelse
         endfor
         if was_zero then begin
-           print, "I added alias: ", this_alias, " for ", this_name
+;           print, "I added alias: ", this_alias, " for ", this_name
            if data[i].alias eq '' then $
               data[i].alias = this_alias $
            else $
@@ -213,12 +203,9 @@ pro make_gal_base $
   endfor
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; NOW READ IN ANY USER-SUPPLIED OVERRIDE FILES
+; MAKE THE PAIRED ALIAS/NAME VECTOR
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
-  override_files = file_search("gal_data/override_*.txt", count=ct)
-
-; BUILD THE INFRASTRUCTURE TO LOOKUP ACROSS ALIASES
   n_data = n_elements(data)-1
   n_names = 0
   for i = 0L, n_data-1 do begin
@@ -231,8 +218,6 @@ pro make_gal_base $
   name_vec = strarr(n_names)
   counter = 0L
   for i = 0L, n_data-1 do begin
-     counter, i, n_data, " out of "
-
      alias_vec[counter] = data[i].name
      name_vec[counter] = data[i].name
      counter += 1
@@ -245,6 +230,64 @@ pro make_gal_base $
      name_vec[counter:(counter+n_alias-1)] = replicate(data[i].name, n_alias)
      counter += n_alias
   endfor
+
+; WE NOW HAVE A PAIRED LIST OF {ALIAS, NAME}. SAVING THIS AS PART OF
+; AN IDL OR PICKLE FILE MAKES LOOKUP FASTER.
+
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; MATCH TO NED
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+  message, "... matching to NED information.", /info
+
+; Read our NED query data. All kept in one file.
+
+  nedfile = data_dir+'ned_data.txt'
+  readcol $
+     , nedfile, commen='#', delim='|' $
+     , format = 'A,F,F,F,F,F,F,F,F,F,F,F' $
+     , ned_name, ned_ra, ned_dec, ned_distmod, e_ned_distmod $
+     , ned_d, e_ned_d, ned_mind, ned_maxd, ned_vhel, ned_vhel_err $
+     , ned_av
+
+  ned_name = strupcase(strcompress(ned_name,/rem))
+  n_ned = n_elements(ned_name)
+  for ii = 0, n_ned-1 do begin
+     counter, ii, n_ned-1, "Matching NED line "
+     match_ind = where(alias_vec eq ned_name[ii], match_ct)
+     if match_ct eq 2 then $
+        match_ind = match_ind[0]
+     if match_ct eq 0 then continue
+     if match_ct gt 2 then begin
+        message, "Something seems wrong with the alias lookup. Stopping for debugging.", /info
+        stop
+     endif    
+     ind = where(data.name eq name_vec[match_ind], ct)
+     if ct eq 0 then begin
+        message, "Something seems wrong with the data. Stopping for debugging.", /info
+        stop
+     endif
+     data[ind].av_sf11 = ned_av[ii]
+
+     if finite(ned_d[ii]) then begin
+        old_d = data[ind].dist_mpc
+        data[ind].dist_mpc = ned_d[ii]
+        data[ind].e_dist = e_ned_d[ii]
+        data[ind].ref_dist = 'NED'
+
+        data[ind].lfir_lsun = data[ind].lfir_lsun*(ned_d[ii]/old_d)^2
+        data[ind].hi_msun = data[ind].hi_msun*(ned_d[ii]/old_d)^2
+     endif
+        
+  endfor
+
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; NOW READ IN ANY USER-SUPPLIED OVERRIDE FILES
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+  message, "... applying user overrides.", /info
+
+  override_files = file_search("gal_data/override_*.txt", count=ct)
 
 ; BUILD THE INFRASTRUCTURE TO LOOK UP TAG NAMES
   data_tags = tag_names(data)
@@ -280,7 +323,46 @@ pro make_gal_base $
 
      endfor
      
+  endfor
 
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; TAG SURVEY MEMBERSHIP
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+  message, "... tagging survey membership.", /info
+
+  survey_files = file_search("gal_data/survey_*.txt", count=ct)
+
+; LOOP THROUGH THE SURVEY FILES
+  for j = 0L, ct-1 do begin
+
+     survey_name = strmid(survey_files[j] $
+                          , 0, strlen(survey_files[j])-4)
+     survey_name = strupcase(survey_name)
+     survey_name = $
+        (strmid(survey_name, strpos(survey_name,'SURVEY_')+strlen('SURVEY_')))
+
+     print, "Applying survey file : ", survey_files[j], " as survey ", survey_name
+
+     readcol, survey_files[j], comment="#" $
+              , format="A" $
+              , galaxy
+     galaxy = strupcase(strcompress(galaxy, /rem))
+     
+     for k = 0L, n_elements(galaxy)-1 do begin
+        
+        name_ind = where(alias_vec eq galaxy[k], name_ct)
+        if name_ct eq 0 then begin
+           message, "No match for name "+galaxy[k], /info
+           continue
+        endif
+        data_ind = where(data.name eq (name_vec[name_ind])[0])
+        tags = data[data_ind].tags
+        tags += ';'+survey_name+';'
+        data[data_ind].tags = tags
+
+     endfor
+     
   endfor
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
@@ -288,9 +370,14 @@ pro make_gal_base $
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
   
   outfile = "gal_data/gal_base.fits"
-  spawn, "rm "+outfile
-  mwrfits, data, outfile, hdr
+  mwrfits, data, outfile, hdr, /create
 
-  stop
+  openw, unit, "gal_data/gal_base_alias.txt", /get_lun
+  printf, unit, '# Column 1: alias'
+  printf, unit, '# Column 2: name in database'
+  for ii = 0, n_elements(name_vec)-1 do begin
+     printf, unit, alias_vec[ii]+" "+name_vec[ii]
+  endfor
+  close, unit
 
 end
