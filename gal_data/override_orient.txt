@@ -126,9 +126,11 @@ ngc5457		ref_posang	SOFUE99
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 # HISTORICAL HERACLES/THINGS VALUES
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-hoi		incl_deg	12	NONE
+hoi		incl_deg	12	
+hoi		ref_incl	HERACLES
 hoi		posang_deg	50	NONE
 ngc0337		incl_deg	51	NONE
+ngc0337		ref_incl	HERACLES
 ngc0337		posang_deg	90	NONE
 ngc1569		incl_deg	63	NONE
 ngc1569		posang_deg	112	NONE
