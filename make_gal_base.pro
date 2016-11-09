@@ -76,7 +76,7 @@ pro make_gal_base $
 
 ;    SIZE  
      this_data.r25_deg = 10.^(leda.logd25)/10./60./2.
-     this_data.e_r25_deg = 10.^(leda.e_logd25)-1. ; TRANSLATE TO A PERCENTAGE ERROR (ROUGHLY)
+     this_data.e_r25_deg = (10.^(leda.e_logd25)-1.)*this_data.r25_deg
      
 ;    ROTATION CURVES
      this_data.vmaxg_kms = leda.vmaxg
