@@ -1,4 +1,5 @@
 import astropy.io.fits as fits
+from astropy.table import Table
 import numpy as np
 
 def gal_data(name_in=None, all_=False, tag=None):
@@ -10,12 +11,10 @@ def gal_data(name_in=None, all_=False, tag=None):
         raise ValueError('Need a name to find a galaxy. Returning empty \
                           structure')
                           
-    # SET STRINGS to LIST
-    if type(name_in) == str:
-        name_in = [name_in]
-    if type(tag) == str:
-        tag = [tag]    
-
+    # SET INPUTS TO NUMPY ARRAYS
+    name_in = np.array(name_in)
+    tag = np.array(tag)
+    
     # DIRECTORY FOR THE DATABASE
     data_dir = "gal_data/"
     
@@ -24,10 +23,13 @@ def gal_data(name_in=None, all_=False, tag=None):
     """
     fname = data_dir + "gal_base.fits"
     hdulist = fits.open(fname)
-    data = hdulist[1].data
+    data = Table(hdulist[1].data)
     hdulist.close()
     n_data = len(data)
-    
+    for i in range(n_data):
+        data['NAME'][i] = data['NAME'][i].strip(' ')
+        data['TAGS'][i] = data['TAGS'][i].strip(' ')
+        data['MORPH'][i] = data['MORPH'][i].strip(' ')
     """
     TREAT THE CASE WHERE A SURVEY OR ALL DATA ARE DESIRED
     """
@@ -37,7 +39,7 @@ def gal_data(name_in=None, all_=False, tag=None):
     if tag:
         keep = np.ones(n_data, dtype=bool)
         for i in range(n_data):
-            this_tag = [temp for temp in data[i].field("tags").split(";")]
+            this_tag = [temp for temp in data['TAGS'][i].split(";")]
             for t in tag:
                 if t not in this_tag:
                     keep[i] = False
