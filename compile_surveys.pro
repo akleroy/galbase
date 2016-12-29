@@ -7,6 +7,41 @@ pro compile_surveys
 ; programs.
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; ULTRAVIOLET
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+; GALEX NGS
+  
+  
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; OPTICAL
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+; ATLAS 3D
+  readcol, 'gal_data/atlas3d_release.txt', comment='#', format='A' $
+           , atlas3d_name
+  atlas3d_name = strupcase(strcompress(atlas3d_name,/rem))
+  atlas3d_name = atlas3d_name[sort(atlas3d_name)]
+  atlas3d_name = atlas3d_name[uniq(atlas3d_name)]
+
+  openw,1, 'gal_data/survey_atlas3d.txt'
+  for ii = 0, n_elements(atlas3d_name)-1 do $
+     printf,1,atlas3d_name[ii]
+  close,1
+
+; CALIFA DR3  
+  readcol, 'gal_data/califa_dr3_release.txt', comment='#', format='A' $
+           , califa_name
+  califa_name = strupcase(strcompress(califa_name,/rem))
+  califa_name = califa_name[sort(califa_name)]
+  califa_name = califa_name[uniq(califa_name)]
+
+  openw,1, 'gal_data/survey_califa.txt'
+  for ii = 0, n_elements(califa_name)-1 do $
+     printf,1,califa_name[ii]
+  close,1
+
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; NEAR-IR SURVEYS
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
   
@@ -23,6 +58,16 @@ pro compile_surveys
   close,1
 
 ; 2MASS LGA
+  readcol, 'gal_data/lga2mass_release.txt' $
+           , comment='#', format='A', lga_name
+  lga_name = strupcase(strcompress(lga_name,/rem))
+  lga_name = lga_name[sort(lga_name)]
+  lga_name = lga_name[uniq(lga_name)]
+  
+  openw,1, 'gal_data/survey_lga2mass.txt'
+  for ii = 0, n_elements(lga_name)-1 do $
+     printf,1,lga_name[ii]
+  close,1
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; FAR-IR SURVEYS
@@ -129,8 +174,5 @@ pro compile_surveys
 ; THINGS
 
 ; WHISP
-
-
-  
 
 end
