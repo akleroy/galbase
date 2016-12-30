@@ -5,10 +5,14 @@ Nearby Galaxies Database
 A code base to provide infrastructure for working with ISM, structure,
 and star formation in nearby galaxies.
 
-+++ HOW TO ACCESS THE DATABASE
+################################################################
+HOW TO ACCESS THE DATABASE
+################################################################
+
+IN IDL
 
 "gal_data" is your interface. It returns a structure containing
-distance, size, and orientation.
+distance, size, orientation, etc.
 
 s = gal_data("ngc1234")
 
@@ -16,58 +20,56 @@ Use, e.g., "help, s, /str" to see the contents. From there you are on
 your own. The program should be able to handle a vector of galaxies
 and return a vector of structures.
 
-+++ HOW TO REBUILD THE DATABASE
+IN PYTHON
 
-To add a galaxy: 
+"gal_data" is also your interface here. Right now it will return a
+FITS record read using astropy.
 
-(1) In IDL run make_leda_fits, /print_query to generate the LEDA SQL
-query. 
+################################################################
+HOW TO ADD NEW INFORMATION FOR INDIVIDUAL SYSTEMS
+################################################################
 
-(2) Go to http://leda.univ-lyon1.fr/leda/fullsql.html and enter
-this. Choose | as a delimiter and NaN as the undefined string.
+We use a system of "override" tables to change the values for any
+parameter in the structure. The idea is that override_###.txt will be
+read in, comments (#) ignored, and then lines interpretted as:
 
-(3) Download the results to the gal_data directory and rename them to
-leda_lvsr5000.txt. Edit the file to comment the header line (with a #)
-and remove blank lines.
+SOURCE	 FIELD	  VALUE
 
-(4) Run make_leda_fits to generate a binary FITS table out of the LEDA
-file. This step currently includes a downselect to consider only
-galaxies that have a B or I band magnitude in LEDA. The downselect
-appears to remove GAMA, SDSS, and various HI-defined galaxies - so
-far, not something we would need and droppping these makes the queries
-run faster. We can change this if it becomes relevant.
+Where FIELD for SOURCE will be replaced with VALUE. Don't forget to
+override the references if needed. These are folded in at creation of
+the database (make_gal_base), so you need to rerun that to fold these
+in. But you don't need to do anything more upstream than that.
 
-TBD: We need to be able to supplement this with a list of
-targets. This is doable "by hand" right now - we can do better. At least a script that generates a crude SQL query of objname("BLAH") or objname("BLAH2")
+################################################################
+HOW TO REBUILD THE DATABASE
+################################################################
 
-- THIS NEXT STEP IS CHANGING. STAY TUNED - NOW PART OF NED QUERY
+The core of the database mostly reskins LEDA with organization and
+value added, particularly NED distances and user-supplied
+overrides. This is evolving with time, with a main goal being SFR,
+Mstar, and structural parameters. Right now the process of creating
+the database runs in IDL and is summarized in
 
-(5) Will be NED QUERY.
+master_script
 
-(5) WAS: get the Milky Way foreground extinction. LEDA ships with SFD98
-estimates, but it may still be useful to query IPAC (this also gives
-you the newer Schlafly and Finkbeiner 2011 maps). To do this run
-"generate_ebv_scratch" and then take the results to:
+At a high level the process goes like this:
 
- irsa.ipac.caltech.edu/applications/DUST/ 
+- [Optional] Compile the list of surveys that we are interested in.
 
-Note that you may need to upload several files because IPAC currently
-limits uploads to 20,000 lines apiece (and we have ~50k galaxies).
+- Build LEDA SQL queries, feed these in to hyperleda, and make text
+  files. To do this, go to http://leda.univ-lyon1.fr/leda/fullsql.html
+  . Choose | as a delimiter and NaN as the undefined string.
 
-(FYI - This can take a LONG time on the IPAC side.)
+- Compile the LEDA text files into FITS files.
 
-(6) Run make_gal_base to generate the binary fits file combining LEDA
-and our override files.
+- Run the NED query to make sure that we have a distance from NED for
+  each target.
 
-+++ DATA FILES
+- Run the galaxy database constructor (make_gal_base) to put
+  everything together. 
 
-
-+++ FILES MISSED IN THE LEDA BUILD
-
-(Mostly these lack a velocity)
-
-PGC39145 == DDO113
-pgc166101 == KK77
+- Re-run this constructor to incorporate the latest override values as
+  needed.
 
 +++ HISTORY
 
@@ -77,17 +79,6 @@ pgc166101 == KK77
 
 - Revised to full nearby volume spring 2014
 
-+++ TO DO LIST
+- Python accessor, refactor, upgrades 2016.
 
-- Add survey membership as a field?
-
-- Get our override files straight (distance, center).
-
-- Get IPAC interface fully working.
-
-- Fold in our own value-added products like parameterized rotation
-  curves, metallicity, SFR, etc.
-
-- Add a separate list of galaxies to be manually included.
-
-- Python access method.
+- Issues and history now captured in github, this section closed.
