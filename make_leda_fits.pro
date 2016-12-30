@@ -82,6 +82,8 @@ pro make_leda_fits $
         infile = "gal_data/leda_vlsr5000.txt"
         outfile = "gal_data/leda_vlsr5000.fits"
      endif else begin
+        infile = sample_file
+        outfile = strmid(sample_file,0,strlen(sample_file)-4)+'.fits'
      endelse
 
      readcol, infile, comment="#", delim="|" $
