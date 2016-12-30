@@ -11,7 +11,14 @@ pro make_gal_base $
 
   empty = empty_gal_struct()
 
-  leda_files = ["leda_vlsr5000.fits"]
+  leda_files = $
+     ["leda_vlsr5000.fits" $
+      ,"leda_atlas3d.fits" $
+      ,"leda_califa.fits" $
+      ,"leda_s4g.fits" $
+      ,"leda_lga2mass.fits" $      
+      ,"leda_sings.fits" $ 
+     ]
   n_leda_files = n_elements(leda_files)
 
   lsun = 3.862d33
@@ -36,7 +43,8 @@ pro make_gal_base $
 ; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
      this_data.name = strupcase(strcompress(leda.objname,/rem))
-     this_data.pgc = strupcase(strcompress(leda.pgc,/rem))
+     this_data.pgc = leda.pgc
+     this_data.pgcname = 'PGC'+strupcase(strcompress(str(leda.pgc),/rem))
 
      has_modz = where(finite(leda.modz), ct)
      if ct gt 0 then this_data[has_modz].dist_mpc = 10.^(leda[has_modz].modz/5.+1.)/1d6
@@ -101,7 +109,90 @@ pro make_gal_base $
      this_data.bvtc_mag = leda.bvtc
      this_data.itc_mag = leda.itc
 
-;    COMPILE
+;    ... WORK OUT ALIASES THAT LEDA KNOWS
+     for i = 0L, n_leda-1 do begin
+        if strcompress(leda[i].hl_names,/rem) eq '' then continue
+        names = strsplit(strcompress(leda[i].hl_names,/rem), ',', /extract)
+        for j = 0, n_elements(names)-1 do begin
+           if this_data[i].alias eq '' then $
+              this_data[i].alias = names[j] $
+           else $
+              this_data[i].alias += ';'+names[j]
+        endfor
+     endfor
+     
+;    ... STRIP LEADING ZEROS FROM NGC, UGC, PGC, AND IC ENTRIES
+
+     for i = 0L, n_elements(this_data)-1 do begin
+
+        this_names = strsplit(this_data[i].alias, ';', /extract)
+        n_names = n_elements(this_names)
+
+        for kk = 0, n_names-1 do begin
+
+           this_name = this_names[kk]
+        
+           if (strpos(this_name, "NGC") eq 0) or $
+              (strpos(this_name, "UGCA") eq 0) or $
+              (strpos(this_name, "UGC") eq 0) or $         
+              (strpos(this_name, "IC") eq 0) or $
+              (strpos(this_name, "PGC") eq 0) or $
+              (strpos(this_name, "MESSIER") eq 0) $
+           then begin
+              this_alias = ""
+              leading_digit = 1B
+              was_zero = 0B
+
+              for zz = 0, strlen(this_name)-1 do begin
+                 token = strmid(this_name,zz,1)
+                 if total(token eq digit) eq 1 then begin
+                    if leading_digit and token eq '0' then begin
+                       was_zero = 1B
+                       continue
+                    endif
+                    leading_digit = 0B
+                    this_alias += token
+                 endif else begin
+                    this_alias += token
+                 endelse
+              endfor
+
+              if was_zero and $
+                 (total(this_names eq this_alias) eq 0) then begin
+                 if this_data[i].alias eq '' then $
+                    this_data[i].alias = this_alias $
+                 else $
+                    this_data[i].alias += ';'+this_alias           
+              endif
+           endif
+           
+        endfor
+
+;       HANDLE THE MESSIER <-> M
+
+        this_names = strsplit(this_data[i].alias, ';', /extract)
+        n_names = n_elements(this_names)
+
+        for kk = 0, n_names-1 do begin
+           
+           this_name = this_names[kk]
+           
+           if (strpos(this_name, "MESSIER") eq 0) then begin
+              this_alias = str_replace(this_name,'MESSIER','M')
+              if total(this_names eq this_alias) eq 0 then begin
+                 if this_data[i].alias eq '' then $
+                    this_data[i].alias = this_alias $
+                 else $
+                    this_data[i].alias += ';'+this_alias
+              endif
+           endif
+
+        endfor
+        
+     endfor
+
+;    COMPILE DATA STRUCTURE
+
      if n_elements(data) gt 0 then begin
         data = [data, this_data]
      endif else begin
@@ -111,63 +202,19 @@ pro make_gal_base $
   endfor
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; FILL IN ALIASES
+; REMOVE DUPLICATIONS BASED ON PGC NUMBER
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
-; STRIP LEADING ZEROS FROM NGC, UGC, AND IC ENTRIES (PATCHED TO AVOID
-; SUPRRESSING POST-NAME LETTERS)
+  message, "... removing duplicates", /info
+  uniq_ind = uniq(data.pgc, sort(data.pgc))
+  data = data[uniq_ind]
 
-  message, "... compiling ALIAS list.", /info
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; FILL IN USER SUPPLIED ALIASES
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
-  for i = 0L, n_leda-1 do begin
-     this_name = data[i].name
+  message, "... adding user supplied aliases", /info
 
-     if (strpos(this_name, "NGC") eq 0) or $
-        (strpos(this_name, "UGCA") eq 0) or $
-        (strpos(this_name, "UGC") eq 0) or $         
-        (strpos(this_name, "IC") eq 0) then begin
-        this_alias = ""
-        leading_digit = 1B
-        was_zero = 0B
-        for zz = 0, strlen(this_name)-1 do begin
-           token = strmid(this_name,zz,1)
-           if total(token eq digit) eq 1 then begin
-              if leading_digit and token eq '0' then begin
-                 was_zero = 1B
-                 continue
-              endif
-              leading_digit = 0B
-              this_alias += token
-           endif else begin
-              this_alias += token
-           endelse
-        endfor
-        if was_zero then begin
-;           print, "I added alias: ", this_alias, " for ", this_name
-           if data[i].alias eq '' then $
-              data[i].alias = this_alias $
-           else $
-              data[i].alias += ';'+this_alias           
-        endif
-     endif else begin
-        continue
-     endelse
-
-  endfor
-
-; ALIASES THAT LEDA KNOWS
-  for i = 0L, n_leda-1 do begin
-     if strcompress(leda[i].hl_names,/rem) eq '' then continue
-     names = strsplit(strcompress(leda[i].hl_names,/rem), ',', /extract)
-     for j = 0, n_elements(names)-1 do begin
-        if data[i].alias eq '' then $
-           data[i].alias = names[j] $
-        else $
-           data[i].alias += ';'+names[j]
-     endfor
-  endfor
-
-; USER INPUT ALIASES
   readcol, data_dir+"alias.txt", format="A,A" $
            , comment="#", name, alias, /silent
   name = strupcase(strcompress(name,/rem))
@@ -184,10 +231,10 @@ pro make_gal_base $
               ind = j
               match_ct = 1
               break
-           endif           
+           endif
         endfor
         if match_ct eq 0 then begin
-           print, "No matches for "+name[i]
+           print, "USER SUPPLIED ALIAS: No match for "+name[i]
            continue
         endif
      endif
@@ -252,21 +299,20 @@ pro make_gal_base $
 
   ned_name = strupcase(strcompress(ned_name,/rem))
   n_ned = n_elements(ned_name)
+
+  pgc_name_vec = "PGC"+str(data.pgc)
+
   for ii = 0, n_ned-1 do begin
      counter, ii, n_ned-1, "Matching NED line "
-     match_ind = where(alias_vec eq ned_name[ii], match_ct)
+     ind = where(pgc_name_vec eq ned_name[ii], match_ct)
      if match_ct eq 2 then $
-        match_ind = match_ind[0]
+        ind = ind[0]
      if match_ct eq 0 then continue
      if match_ct gt 2 then begin
         message, "Something seems wrong with the alias lookup. Stopping for debugging.", /info
         stop
      endif    
-     ind = where(data.name eq name_vec[match_ind], ct)
-     if ct eq 0 then begin
-        message, "Something seems wrong with the data. Stopping for debugging.", /info
-        stop
-     endif
+
      data[ind].av_sf11 = ned_av[ii]
 
      if finite(ned_d[ii]) then begin
@@ -278,7 +324,7 @@ pro make_gal_base $
         data[ind].lfir_lsun = data[ind].lfir_lsun*(ned_d[ii]/old_d)^2
         data[ind].hi_msun = data[ind].hi_msun*(ned_d[ii]/old_d)^2
      endif
-        
+     
   endfor
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
@@ -309,7 +355,7 @@ pro make_gal_base $
 
         tag_ind = where(data_tags eq field[k], tag_ct)
         if tag_ct eq 0 then begin
-           message, "No match for field "+field[k], /info
+           message, "OVERRIDE FILE: "+override_files[j]+" No match for field "+field[k], /info
            continue
         endif
         
@@ -353,7 +399,7 @@ pro make_gal_base $
         
         name_ind = where(alias_vec eq galaxy[k], name_ct)
         if name_ct eq 0 then begin
-           message, "No match for name "+galaxy[k], /info
+           message, "SURVEY "+survey_files[j]+" No match for name "+galaxy[k], /info
            continue
         endif
         data_ind = where(data.name eq (name_vec[name_ind])[0])

@@ -8,6 +8,7 @@ function empty_gal_struct
 ;         NAMES
           name:'' $
           , pgc: 0L $
+          , pgcname:'' $
           , alias:'' $
 ;         SURVEY MEMBERSHIP
           , tags:'' $
