@@ -25,7 +25,7 @@ pro print_unwise_cutout_call
   for ii = 0, n_gals-1 do begin
      this_tag = strupcase(strsplit(strcompress(data[ii].tags,/rem), ';', /extract))
      if total(this_tag eq 'S4G') eq 1 or $
-        total(this_tag eq 'ATLAS3d') then $
+        total(this_tag eq 'ATLAS3D') then $
            keep[ii] = 1B
   endfor
 
