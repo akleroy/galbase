@@ -83,10 +83,10 @@ ngc7793		ref_posang	DEBLOK08
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 # OTHER LITERATURE PARAMETERS
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-ngc0628		incl_deg	7
-ngc0628		ref_incl	DAIGLE06
-ngc0628		posang_deg	20
-ngc0628		ref_posang	DAIGLE06
+#ngc0628		incl_deg	7
+#ngc0628		ref_incl	DAIGLE06
+#ngc0628		posang_deg	20
+#ngc0628		ref_posang	DAIGLE06
 ngc3938		incl_deg	14
 ngc3938		ref_incl	MUNOZMATEOS09
 ngc3938		posang_deg	195
@@ -156,8 +156,8 @@ ngc3190		incl_deg	90	NONE
 ngc3190		posang_deg	305	NONE
 ngc3184		incl_deg	16	NONE
 ngc3184		posang_deg	179	NONE
-ngc3351		incl_deg	41	NONE
-ngc3351		posang_deg	192	NONE
+#ngc3351	incl_deg	41	NONE
+#ngc3351	posang_deg	192	NONE
 ngc4236		incl_deg	75	NONE
 ngc4236		posang_deg	162	NONE
 ngc4536		incl_deg	59	NONE
@@ -180,3 +180,92 @@ ngc5474		incl_deg	50	NONE
 ngc5474		posang_deg	130	NONE
 ngc5713		incl_deg	48	NONE
 ngc5713		posang_deg	191	NONE
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# PHANGS APPROVED VALUES
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\
+# m31
+ngc0224		posang_deg	38	NONE
+ngc0224		ref_posang	CORBELLI10	
+ngc0224		incl_deg	77.7	NONE
+ngc0224		ref_incl	CORBELLI10
+# m33
+ngc0598		posang_deg	200	NONE
+ngc0598		ref_posang	KOCH17
+ngc0598		incl_deg	58	NONE
+ngc0598		ref_incl	KOCH17
+#ic5332		posang_deg	???	NONE
+#ic5332		ref_posang	???
+#ic5332		incl_deg	???	NONE
+#ic5332		ref_incl	???
+ngc0628		posang_deg	19	NONE
+ngc0628		ref_posang	FATHI07
+ngc0628		incl_deg	6.5	NONE
+ngc0628		ref_incl	FATHI07
+#ngc1087	posang_deg	???	NONE
+#ngc1087	ref_posang	???
+#ngc1087	incl_deg	???	NONE
+#ngc1087	ref_incl	???
+#ngc1300	posang_deg	???	NONE
+#ngc1300	ref_posang	???
+#ngc1300	incl_deg	???	NONE
+#ngc1300	ref_incl	???
+#ngc1385	posang_deg	???	NONE
+#ngc1385	ref_posang	???
+#ngc1385	incl_deg	???	NONE
+#ngc1385	ref_incl	???
+#ngc1433	posang_deg	???	NONE
+#ngc1433	ref_posang	???
+#ngc1433	incl_deg	???	NONE
+#ngc1433	ref_incl	???
+#ngc1512	posang_deg	???	NONE
+#ngc1512	ref_posang	???
+#ngc1512	incl_deg	???	NONE
+#ngc1512	ref_incl	???
+#ngc1566	posang_deg	???	NONE
+#ngc1566	ref_posang	???
+#ngc1566	incl_deg	???	NONE
+#ngc1566	ref_incl	???
+ngc1672		posang_deg	124.	NONE
+ngc1672		ref_posang	DIAZ99
+ngc1672		incl_deg	40.	NONE
+ngc1672		ref_incl	DIAZ99
+#ngc2835	posang_deg	???	NONE
+#ngc2835	ref_posang	???
+#ngc2835	incl_deg	???	NONE
+#ngc2835	ref_incl	???
+ngc3351		posang_deg	193.	NONE
+ngc3351		ref_posang	DICAIRE08
+ngc3351		incl_deg	41.	NONE
+ngc3351		ref_incl	DICAIRE08
+ngc3627		incl_deg	62
+ngc3627		ref_incl	DEBLOK08
+ngc3627		posang_deg	173
+ngc3627		ref_posang	DEBLOK08
+ngc4254		incl_deg	27
+ngc4254		ref_incl	GUHATHAKURTA88
+ngc4254		posang_deg	62
+ngc4254		ref_posang	GUHATHAKURTA88
+ngc4303		posang_deg	318	NONE
+ngc4303		ref_posang	SCHINNERER02
+ngc4303		incl_deg	25	NONE
+ngc4303		ref_incl	SCHINNERER02
+ngc4321		posang_deg	153	NONE
+ngc4321		ref_posang	GUHATHAKURTA88
+ngc4321		incl_deg	27	NONE
+ngc4321		ref_incl	GUHATHAKURTA88
+ngc4535		posang_deg	177	NONE
+ngc4535		ref_posang	GUHATHAKURTA88
+ngc4535		incl_deg	40	NONE
+ngc4535		ref_incl	GUHATHAKURTA88
+ngc5194		posang_deg	173	NONE
+ngc5194		ref_posang	COLOMBO14
+ngc5194		incl_deg	21	NONE
+ngc5194		ref_incl	COLOMBO14
+#ngc5068	posang_deg	???	NONE
+#ngc5068	ref_posang	???
+#ngc5068	incl_deg	???	NONE
+#ngc5068	ref_incl	???
+ngc6744		posang_deg	16	NONE
+ngc6744		ref_posang	RYDER99
+ngc6744		incl_deg	40	NONE
+ngc6744		ref_incl	RYDER99
