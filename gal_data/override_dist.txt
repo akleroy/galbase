@@ -34,8 +34,9 @@ ngc0584		dist_mpc	20.8
 ngc0584		ref_dist	KENNICUTT11	
 #ngc0628 	dist_mpc	7.2
 #ngc0628 	ref_dist	KENNICUTT11	
-ngc0628		dist_mpc	10.1
+ngc0628		dist_mpc	9.6
 ngc0628		ref_dist	KRECKEL16
+ngc0628		e_dist		0.4
 ngc0855		dist_mpc	9.73
 ngc0855		ref_dist	KENNICUTT11	
 ngc0925 	dist_mpc	9.12
