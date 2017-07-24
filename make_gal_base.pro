@@ -221,11 +221,12 @@ pro make_gal_base $
   alias = strupcase(strcompress(alias, /rem))
 
   n_alias = n_elements(alias)
+  n_data = n_elements(data)
 
   for i = 0L, n_alias-1 do begin
      ind = where(data.name eq name[i], match_ct)
      if match_ct eq 0 then begin
-        for j = 0L, n_leda-1 do begin
+        for j = 0L, n_data-1 do begin
            names = strsplit(data[j].alias, ';', /extract)
            if total(strupcase(names) eq name[i]) eq 1 then begin
               ind = j

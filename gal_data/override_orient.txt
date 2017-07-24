@@ -107,10 +107,10 @@ ngc4214		incl_deg	44
 ngc4214		ref_incl	WALTER01
 ngc4214		posang_deg	65
 ngc4214		ref_posang	WALTER01
-ngc4254		incl_deg	32
-ngc4254		ref_incl	BOISSIER03
-ngc4254		posang_deg	55
-ngc4254		ref_posang	BOISSIER03
+#ngc4254		incl_deg	32
+#ngc4254		ref_incl	BOISSIER03
+#ngc4254		posang_deg	55
+#ngc4254		ref_posang	BOISSIER03
 ngc5194		incl_deg	20
 ngc5194		ref_incl	CALZETTI05
 ngc5194		posang_deg	172
