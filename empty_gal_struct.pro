@@ -17,6 +17,8 @@ function empty_gal_struct
           , e_dist: nan $
           , ref_dist: 'LEDA' $
           , vhel_kms: nan $
+          , edd_dist_mpc: nan $
+          , e_edd_dist: nan $
           , e_vhel_kms: nan $
           , ref_vhel: 'LEDA' $
           , vrad_kms: nan $

@@ -329,6 +329,27 @@ pro make_gal_base $
   endfor
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; MATCH TO EXTRAGALACTIC DISTANCE DATABASE
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+  message, "... reading in EDD distances.", /info
+
+  readcol, 'gal_data/EDDtable14Sep2017125531.txt', skip = 3, delim='|' $
+           , edd_pgc, edd_dist, edd_ndist, edd_dm, edd_edm $
+           , format='L,F,L,F,F'
+
+  n_data = n_elements(data)
+  for ii = 0, n_data-1 do begin
+     ind = where(edd_pgc eq data[ii].pgc, ct)
+     if ct eq 0 then continue
+     if ct gt 1 then stop
+     data[ii].edd_dist_mpc = (edd_dist[ind])[0]
+     if abs(edd_dist[ind] - data[ii].edd_dist_mpc) gt 1d2 then stop
+     err = (edd_dist[ind]*(10.^(edd_edm[ind]/5.)-1.d))[0]
+     data[ii].e_edd_dist = err
+  endfor
+
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; NOW READ IN ANY USER-SUPPLIED OVERRIDE FILES
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
