@@ -12,13 +12,22 @@ function empty_gal_struct
           , alias:'' $
 ;         SURVEY MEMBERSHIP
           , tags:'' $
-;         DISTANCE AND RECESSIONAL VELOCITY
+;         DISTANCES
           , dist_mpc: nan $
           , e_dist: nan $
           , ref_dist: 'LEDA' $
-          , vhel_kms: nan $
+          , leda_vdist_mpc: nan $
+          , e_leda_vdist: nan $
+          , leda_dist_mpc: nan $
+          , e_leda_dist: nan $
           , edd_dist_mpc: nan $
           , e_edd_dist: nan $
+          , cf_dist_mpc: nan $
+          , e_cf_dist: nan $
+          , ned_dist_mpc: nan $
+          , e_ned_dist: nan $
+;         RECESSIONAL VELOCITY
+          , vhel_kms: nan $
           , e_vhel_kms: nan $
           , ref_vhel: 'LEDA' $
           , vrad_kms: nan $

@@ -47,11 +47,20 @@ pro make_gal_base $
      this_data.pgcname = 'PGC'+strupcase(strcompress(str(leda.pgc),/rem))
 
      has_modz = where(finite(leda.modz), ct)
-     if ct gt 0 then this_data[has_modz].dist_mpc = 10.^(leda[has_modz].modz/5.+1.)/1d6
-     
-;    PREFER MOD0 - THIS IS A MEASUREMENT
-     has_mod0 = where(finite(leda.mod0), ct)
-     if ct gt 0 then this_data[has_mod0].dist_mpc = 10.^(leda[has_mod0].mod0/5.+1.)/1d6
+     if ct gt 0 then begin
+        this_data[has_modz].leda_vdist_mpc = 10.^(leda[has_modz].modz/5.+1.)/1d6
+        this_data[has_modz].e_leda_vdist = !values.f_nan
+        this_data[has_modz].dist_mpc = this_data[has_modz].leda_vdist_mpc
+        this_data[has_modz].ref_dist = 'LEDA_VFLOW'
+     endif
+
+     has_mod0 = where(finite(leda.mod0), ct)     
+     if ct gt 0 then begin        
+        this_data[has_mod0].leda_dist_mpc = 10.^(leda[has_mod0].mod0/5.+1.)/1d6
+        this_data[has_mod0].e_leda_dist = 10.^(leda[has_mod0].mod0/5.+1.)/1d6
+        this_data[has_mod0].dist_mpc = this_data[has_mod0].leda_dist_mpc
+        this_data[has_mod0].ref_dist = 'LEDA'
+     endif
 
 ;    RECESSIONAL VELOCITY
      this_data.vhel_kms = leda.v
@@ -317,15 +326,51 @@ pro make_gal_base $
      data[ind].av_sf11 = ned_av[ii]
 
      if finite(ned_d[ii]) then begin
+        data[ind].ned_dist_mpc = ned_d[ii]
+        data[ind].e_ned_dist = e_ned_d[ii]
+
         old_d = data[ind].dist_mpc
+
         data[ind].dist_mpc = ned_d[ii]
         data[ind].e_dist = e_ned_d[ii]
         data[ind].ref_dist = 'NED'
 
-        data[ind].lfir_lsun = data[ind].lfir_lsun*(ned_d[ii]/old_d)^2
-        data[ind].hi_msun = data[ind].hi_msun*(ned_d[ii]/old_d)^2
+        data[ind].lfir_lsun = data[ind].lfir_lsun*(data[ind].dist_mpc/old_d)^2
+        data[ind].hi_msun = data[ind].hi_msun*(data[ind].dist_mpc/old_d)^2
      endif
      
+  endfor
+
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; MATCH TO COSMIC FLOWS DATABASE
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+  message, "... reading in CosmicFlows 3 distances.", /info
+
+  readcol, 'gal_data/EDD_CF3_2017Sep14.txt', skip = 3, delim='|' $
+           , cf3_pgc, cf3_dist, cf3_ndist, cf3_dm, cf3_edm $
+           , format='L,F,L,F,F'
+
+  n_data = n_elements(data)
+  for ii = 0, n_data-1 do begin
+     ind = where(cf3_pgc eq data[ii].pgc, ct)
+     if ct eq 0 then continue
+     if ct gt 1 then stop
+
+     data[ii].cf_dist_mpc = (cf3_dist[ind])[0]
+     if abs(cf3_dist[ind] - data[ii].cf_dist_mpc) gt 1d2 then stop
+     err = (cf3_dist[ind]*(10.^(cf3_edm[ind]/5.)-1.d))[0]
+     data[ii].e_cf_dist = err
+
+     old_d = data[ind].dist_mpc
+     
+     data[ii].dist_mpc = data[ii].cf_dist_mpc
+     data[ii].e_dist = data[ii].e_cf_dist
+     data[ii].ref_dist = 'CF3'
+
+     data[ii].lfir_lsun = data[ii].lfir_lsun*(data[ii].dist_mpc/old_d)^2
+     data[ii].hi_msun = data[ii].hi_msun*(data[ii].dist_mpc/old_d)^2
+
   endfor
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
@@ -334,19 +379,30 @@ pro make_gal_base $
 
   message, "... reading in EDD distances.", /info
 
-  readcol, 'gal_data/EDDtable14Sep2017125531.txt', skip = 3, delim='|' $
-           , edd_pgc, edd_dist, edd_ndist, edd_dm, edd_edm $
-           , format='L,F,L,F,F'
+  readcol, 'gal_data/EDD_EDD_2017Sep27.txt', comment='#', delim='|' $
+           , edd_pgc, edd_dist, edd_edist $
+           , format='L,X,F,F'
 
   n_data = n_elements(data)
   for ii = 0, n_data-1 do begin
      ind = where(edd_pgc eq data[ii].pgc, ct)
      if ct eq 0 then continue
      if ct gt 1 then stop
+
      data[ii].edd_dist_mpc = (edd_dist[ind])[0]
      if abs(edd_dist[ind] - data[ii].edd_dist_mpc) gt 1d2 then stop
-     err = (edd_dist[ind]*(10.^(edd_edm[ind]/5.)-1.d))[0]
+     err = (edd_edist[ind])[0]
      data[ii].e_edd_dist = err
+
+     old_d = data[ind].dist_mpc
+     
+     data[ii].dist_mpc = data[ii].edd_dist_mpc
+     data[ii].e_dist = data[ii].e_edd_dist
+     data[ii].ref_dist = 'EDD'
+
+     data[ii].lfir_lsun = data[ii].lfir_lsun*(data[ii].dist_mpc/old_d)^2
+     data[ii].hi_msun = data[ii].hi_msun*(data[ii].dist_mpc/old_d)^2
+
   endfor
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
@@ -387,7 +443,17 @@ pro make_gal_base $
            continue
         endif
         data_ind = where(data.name eq (name_vec[name_ind])[0])
+
+        if strupcase(field[k] eq 'DIST_MPC') then begin          
+           old_d = data[data_ind].dist_mpc    
+        endif
+
         data[data_ind].(tag_ind) = value[k]
+
+        if strupcase(field[k] eq 'DIST_MPC') then begin          
+           data[data_ind].lfir_lsun = data[data_ind].lfir_lsun*(data[data_ind].dist_mpc/old_d)^2
+           data[data_ind].hi_msun = data[data_ind].hi_msun*(data[data_ind].dist_mpc/old_d)^2
+        endif
 
      endfor
      
