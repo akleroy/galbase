@@ -288,9 +288,6 @@ pro make_gal_base $
      counter += n_alias
   endfor
 
-; WE NOW HAVE A PAIRED LIST OF {ALIAS, NAME}. SAVING THIS AS PART OF
-; AN IDL OR PICKLE FILE MAKES LOOKUP FASTER.
-
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; MATCH TO NED
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
@@ -313,43 +310,80 @@ pro make_gal_base $
   pgc_name_vec = "PGC"+str(data.pgc)
 
   for ii = 0, n_ned-1 do begin
+
      counter, ii, n_ned-1, "Matching NED line "
      ind = where(pgc_name_vec eq ned_name[ii], match_ct)
+
      if match_ct eq 2 then $
         ind = ind[0]
      if match_ct eq 0 then continue
      if match_ct gt 2 then begin
         message, "Something seems wrong with the alias lookup. Stopping for debugging.", /info
         stop
-     endif    
+     endif
 
      data[ind].av_sf11 = ned_av[ii]
 
      if finite(ned_d[ii]) then begin
         data[ind].ned_dist_mpc = ned_d[ii]
         data[ind].e_ned_dist = e_ned_d[ii]
-
-        old_d = data[ind].dist_mpc
-
-        data[ind].dist_mpc = ned_d[ii]
-        data[ind].e_dist = e_ned_d[ii]
-        data[ind].ref_dist = 'NED'
-
-        data[ind].lfir_lsun = data[ind].lfir_lsun*(data[ind].dist_mpc/old_d)^2
-        data[ind].hi_msun = data[ind].hi_msun*(data[ind].dist_mpc/old_d)^2
      endif
      
   endfor
 
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; MATCH TO S4G TABLE
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+  message, "...cross-matching with S4G.", /info
+
+  s4g = read_ipac_table('gal_data/s4g_ipac_table.txt')
+  n_s4g = n_elements(s4g.object)
+
+  s4g_matches = 0
+  for ii = 0, n_s4g-1 do begin
+
+     ind = where(s4g.object[ii] eq alias_vec, ct)
+     if ct eq 0 then continue
+
+     this_name = name_vec[ind[0]]
+     ind = where(data.name eq this_name, ct)
+     if ct eq 0 then continue
+
+     data[ind].s4g_pa = $
+        s4g.pa1_25p5[ii]+(180.)*(s4g.pa1_25p5[ii] lt 0.)
+
+     data[ind].s4g_ellip = s4g.ellip1_25p5[ii]
+     q = 0.22
+     s4g_rat = (1.0-data[ind].s4g_ellip)
+     data[ind].s4g_incl = acos(sqrt((s4g_rat^2 - q^2)/(1.-q^2)))/!dtor
+
+     ;s4g_r0 = (data[ind].t gt 7)*0.38 + $
+     ;         (data[ind].t le 7 and data[ind].t gt -5.)* $
+     ;         (data[ind].t*0.053+0.43)              
+     ;s4g_incl = asin(sqrt((1.-10.^(-2.*s4g_logr25))/(1.-10.^(-2.*s4g_r0))))
+     ;data[ind].s4g_incl = s4g_incl     
+
+     data[ind].s4g_i3p6_mag = s4g.mag1[ii]
+     data[ind].s4g_i4p5_mag = s4g.mag2[ii]
+     data[ind].s4g_mstar = s4g.mstar[ii]
+     data[ind].s4g_dist_mpc = s4g.dmean[ii]
+     data[ind].s4g_semimaj = s4g.sma1_25p5[ii]
+
+     s4g_matches += 1
+
+  endfor
+  
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; MATCH TO COSMIC FLOWS DATABASE
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
   message, "... reading in CosmicFlows 3 distances.", /info
 
-  readcol, 'gal_data/EDD_CF3_2017Sep14.txt', skip = 3, delim='|' $
-           , cf3_pgc, cf3_dist, cf3_ndist, cf3_dm, cf3_edm $
-           , format='L,F,L,F,F'
+  readcol, 'gal_data/EDD_CF3_2017Sep28.txt', delim='|', comment='#' $
+           , cf3_pgc, cf3_dist, cf3_ndist, cf3_dm, cf3_edm, cf3_dmgrp, cf3_edgmgrp $
+           , format='L,F,L,F,F,F,F', /nan
+  cf3_group_dist = 10.^(cf3_dmgrp/5.+1.)/1d6
 
   n_data = n_elements(data)
   for ii = 0, n_data-1 do begin
@@ -358,6 +392,7 @@ pro make_gal_base $
      if ct gt 1 then stop
 
      data[ii].cf_dist_mpc = (cf3_dist[ind])[0]
+     data[ii].cf_grp_dist = (cf3_group_dist[ind])[0]
      if abs(cf3_dist[ind] - data[ii].cf_dist_mpc) gt 1d2 then stop
      err = (cf3_dist[ind]*(10.^(cf3_edm[ind]/5.)-1.d))[0]
      data[ii].e_cf_dist = err
@@ -380,8 +415,8 @@ pro make_gal_base $
   message, "... reading in EDD distances.", /info
 
   readcol, 'gal_data/EDD_EDD_2017Sep27.txt', comment='#', delim='|' $
-           , edd_pgc, edd_dist, edd_edist $
-           , format='L,X,F,F'
+           , edd_pgc, edd_dist, edd_edist, edd_source $
+           , format='L,X,F,F,X,X,X,X,X,X,X,X,X,X,L', /nan
 
   n_data = n_elements(data)
   for ii = 0, n_data-1 do begin
@@ -393,6 +428,7 @@ pro make_gal_base $
      if abs(edd_dist[ind] - data[ii].edd_dist_mpc) gt 1d2 then stop
      err = (edd_edist[ind])[0]
      data[ii].e_edd_dist = err
+     data[ii].edd_code = (edd_source[ind])[0]
 
      old_d = data[ind].dist_mpc
      

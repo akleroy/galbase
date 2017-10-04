@@ -22,10 +22,13 @@ function empty_gal_struct
           , e_leda_dist: nan $
           , edd_dist_mpc: nan $
           , e_edd_dist: nan $
+          , edd_code: -1L $
           , cf_dist_mpc: nan $
           , e_cf_dist: nan $
+          , cf_grp_dist: nan $
           , ned_dist_mpc: nan $
           , e_ned_dist: nan $
+          , s4g_dist_mpc: nan $
 ;         RECESSIONAL VELOCITY
           , vhel_kms: nan $
           , e_vhel_kms: nan $
@@ -36,17 +39,22 @@ function empty_gal_struct
           , vvir_kms: nan $
           , e_vvir_kms: nan $
           , ref_vvir: 'LEDA' $
-;         POSITION
+;         CENTER ON SKY
           , ra_deg: nan $
           , dec_deg: nan $
           , ref_pos: 'LEDA' $
-;         ORIENTATION
+;         POSITION ANGLE
           , posang_deg: nan $
           , e_posang: nan $
           , ref_posang: 'LEDA' $
+          , s4g_pa: nan $
+;         INCLINATION AND AXIS RATIO
           , incl_deg: nan $
           , e_incl: nan $
           , ref_incl: 'LEDA' $
+          , s4g_incl: nan $
+          , s4g_ellip: nan $
+          , leda_incl: nan $
           , log_raxis: nan $
           , e_log_raxis: nan $
           , ref_log_raxis: 'LEDA' $
@@ -62,21 +70,30 @@ function empty_gal_struct
 ;         EXTINCTION
           , av_sf11: nan $
 ;         SIZES
+          , reff_deg: nan $
+          , e_reff_deg: nan $
           , r25_deg: nan $
           , e_r25_deg: nan $
           , ref_r25: 'LEDA' $
-;         ROTATION CURVE
+          , s4g_semimaj: nan $                   
+;         ROTATION AND LINE WIDTH
           , vmaxg_kms: nan $
           , e_vmaxg_kms: nan $
           , ref_vmaxg: 'LEDA' $
           , vrot_kms: nan $
           , e_vrot_kms: nan $
           , ref_vrot: 'LEDA' $
-;         PHOTOMETRY
-          , hi_msun: nan $
-          , ref_hi: 'LEDA' $
+;         STELLAR MASS
+          , s4g_mstar: nan $         
+;         STAR FORMATION RATE
           , lfir_lsun: nan $
           , ref_ir: 'LEDA' $
+;         GAS MASS
+          , hi_msun: nan $
+          , ref_hi: 'LEDA' $
+;         PHOTOMETRY
+          , s4g_i3p6_mag: nan $
+          , s4g_i4p5_mag: nan $
           , btc_mag: nan $
           , ref_btc: 'LEDA' $
           , ubtc_mag: nan $
