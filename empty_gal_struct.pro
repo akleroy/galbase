@@ -85,15 +85,30 @@ function empty_gal_struct
           , ref_vrot: 'LEDA' $
 ;         STELLAR MASS
           , s4g_mstar: nan $         
-;         STAR FORMATION RATE
-          , lfir_lsun: nan $
-          , ref_ir: 'LEDA' $
+          , s4g_mass_code: -1 $
+          , z0mgs_mstar: nan $
+          , e_z0mgs_mstar: nan $
+;         STAR FORMATION RATE INDICATORS
+          , leda_mfir: nan $    
+          , leda_lfir: nan $
+          , rgbs_lir_40_400: nan $
+          , rgbs_lir_8_1000: nan $
 ;         GAS MASS
-          , hi_msun: nan $
-          , ref_hi: 'LEDA' $
+          , leda_m21cm: nan $       
+          , leda_mhi: nan $
 ;         PHOTOMETRY
-          , s4g_i3p6_mag: nan $
-          , s4g_i4p5_mag: nan $
+          , z0mgs_w1: nan $
+          , z0mgs_ew1: nan $
+          , z0mgs_w2: nan $
+          , z0mgs_ew2: nan $
+          , z0mgs_w3: nan $
+          , z0mgs_ew3: nan $
+          , z0mgs_w4: nan $
+          , z0mgs_ew4: nan $
+          , z0mgs_fuv: nan $
+          , z0mgs_efuv: nan $
+          , z0mgs_nuv: nan $
+          , z0mgs_enuv: nan $
           , btc_mag: nan $
           , ref_btc: 'LEDA' $
           , ubtc_mag: nan $
@@ -102,6 +117,8 @@ function empty_gal_struct
           , ref_bvtc: 'LEDA' $
           , itc_mag: nan $
           , ref_itc: 'LEDA' $
+          , s4g_i3p6_mag: nan $
+          , s4g_i4p5_mag: nan $
           }
 
   return, empty
