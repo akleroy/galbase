@@ -105,12 +105,10 @@ pro make_gal_base $
 ;    LUMINOSITIES/FLUXES
 
 ;    ... HI
-     this_data.hi_msun = $
-        10.^((leda.m21 - 17.4)/(-1.*2.5))*(2.36d5*this_data.dist_mpc^2)
+     this_data.leda_m21cm = leda.m21
 
 ;    ... IR
-     this_data.lfir_lsun = 10.^((leda.mfir -14.75)/(-2.5))*1.26d-14*1d3* $
-                           (4.0*!pi*(this_data.dist_mpc*1d6*pc)^2)/lsun
+     this_data.leda_mfir = leda.mfir
      
 ;    ... OPTICAL
      this_data.btc_mag = leda.btc
@@ -120,6 +118,7 @@ pro make_gal_base $
 
 ;    ... WORK OUT ALIASES THAT LEDA KNOWS
      for i = 0L, n_leda-1 do begin
+        this_data[i].alias = this_data[i].pgcname
         if strcompress(leda[i].hl_names,/rem) eq '' then continue
         names = strsplit(strcompress(leda[i].hl_names,/rem), ',', /extract)
         for j = 0, n_elements(names)-1 do begin
@@ -332,49 +331,6 @@ pro make_gal_base $
   endfor
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; MATCH TO S4G TABLE
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-
-  message, "...cross-matching with S4G.", /info
-
-  s4g = read_ipac_table('gal_data/s4g_ipac_table.txt')
-  n_s4g = n_elements(s4g.object)
-
-  s4g_matches = 0
-  for ii = 0, n_s4g-1 do begin
-
-     ind = where(s4g.object[ii] eq alias_vec, ct)
-     if ct eq 0 then continue
-
-     this_name = name_vec[ind[0]]
-     ind = where(data.name eq this_name, ct)
-     if ct eq 0 then continue
-
-     data[ind].s4g_pa = $
-        s4g.pa1_25p5[ii]+(180.)*(s4g.pa1_25p5[ii] lt 0.)
-
-     data[ind].s4g_ellip = s4g.ellip1_25p5[ii]
-     q = 0.22
-     s4g_rat = (1.0-data[ind].s4g_ellip)
-     data[ind].s4g_incl = acos(sqrt((s4g_rat^2 - q^2)/(1.-q^2)))/!dtor
-
-     ;s4g_r0 = (data[ind].t gt 7)*0.38 + $
-     ;         (data[ind].t le 7 and data[ind].t gt -5.)* $
-     ;         (data[ind].t*0.053+0.43)              
-     ;s4g_incl = asin(sqrt((1.-10.^(-2.*s4g_logr25))/(1.-10.^(-2.*s4g_r0))))
-     ;data[ind].s4g_incl = s4g_incl     
-
-     data[ind].s4g_i3p6_mag = s4g.mag1[ii]
-     data[ind].s4g_i4p5_mag = s4g.mag2[ii]
-     data[ind].s4g_mstar = s4g.mstar[ii]
-     data[ind].s4g_dist_mpc = s4g.dmean[ii]
-     data[ind].s4g_semimaj = s4g.sma1_25p5[ii]
-
-     s4g_matches += 1
-
-  endfor
-  
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; MATCH TO COSMIC FLOWS DATABASE
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
@@ -397,14 +353,9 @@ pro make_gal_base $
      err = (cf3_dist[ind]*(10.^(cf3_edm[ind]/5.)-1.d))[0]
      data[ii].e_cf_dist = err
 
-     old_d = data[ind].dist_mpc
-     
      data[ii].dist_mpc = data[ii].cf_dist_mpc
      data[ii].e_dist = data[ii].e_cf_dist
      data[ii].ref_dist = 'CF3'
-
-     data[ii].lfir_lsun = data[ii].lfir_lsun*(data[ii].dist_mpc/old_d)^2
-     data[ii].hi_msun = data[ii].hi_msun*(data[ii].dist_mpc/old_d)^2
 
   endfor
 
@@ -430,14 +381,9 @@ pro make_gal_base $
      data[ii].e_edd_dist = err
      data[ii].edd_code = (edd_source[ind])[0]
 
-     old_d = data[ind].dist_mpc
-     
      data[ii].dist_mpc = data[ii].edd_dist_mpc
      data[ii].e_dist = data[ii].e_edd_dist
      data[ii].ref_dist = 'EDD'
-
-     data[ii].lfir_lsun = data[ii].lfir_lsun*(data[ii].dist_mpc/old_d)^2
-     data[ii].hi_msun = data[ii].hi_msun*(data[ii].dist_mpc/old_d)^2
 
   endfor
 
@@ -480,16 +426,7 @@ pro make_gal_base $
         endif
         data_ind = where(data.name eq (name_vec[name_ind])[0])
 
-        if strupcase(field[k] eq 'DIST_MPC') then begin          
-           old_d = data[data_ind].dist_mpc    
-        endif
-
         data[data_ind].(tag_ind) = value[k]
-
-        if strupcase(field[k] eq 'DIST_MPC') then begin          
-           data[data_ind].lfir_lsun = data[data_ind].lfir_lsun*(data[data_ind].dist_mpc/old_d)^2
-           data[data_ind].hi_msun = data[data_ind].hi_msun*(data[data_ind].dist_mpc/old_d)^2
-        endif
 
      endfor
      
@@ -535,6 +472,148 @@ pro make_gal_base $
      
   endfor
 
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; MATCH TO S4G TABLE
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+  message, "...cross-matching with S4G.", /info
+
+  readcol, 'gal_data/S4G_stellar_masses.txt' $
+           , format='A,F,X,X,F,I' $
+           , s4g_name, s4g_mass, s4g_dist, s4g_t
+  n_s4g = n_elements(s4g_name)
+  
+  readcol, 'gal_data/S4G_P5_table.txt' $
+           , format='A,I' $
+           , s4g_p5_name, s4g_p5_code
+
+  s4g_mass_matches = 0
+  for ii = 0, n_s4g-1 do begin
+     code_ind = where(s4g_p5_name eq s4g_name[ii])
+     this_s4g_name = strcompress(strupcase(s4g_name[ii]),/rem)
+     ind = where(this_s4g_name eq alias_vec, ct)
+     if ct eq 0 then continue
+
+     this_name = name_vec[ind[0]]
+     ind = where(data.name eq this_name, ct)
+     if ct eq 0 then continue
+     
+     this_s4g_mass = s4g_mass[ii]*(data[ind].dist_mpc^2/s4g_dist[ii]^2)
+
+     data[ind].s4g_mstar = this_s4g_mass
+     data[ind].s4g_mass_code = s4g_p5_code[code_ind[0]]
+     
+     s4g_mass_matches += 1
+  endfor
+
+  ;s4g = read_ipac_table('gal_data/s4g_ipac_table.txt')
+  ;n_s4g = n_elements(s4g.object)
+
+  ;s4g_matches = 0
+  ;for ii = 0, n_s4g-1 do begin
+
+     ;ind = where(s4g.object[ii] eq alias_vec, ct)
+     ;if ct eq 0 then continue
+
+     ;this_name = name_vec[ind[0]]
+     ;ind = where(data.name eq this_name, ct)
+     ;if ct eq 0 then continue
+
+     ;data[ind].s4g_pa = $
+     ;   s4g.pa1_25p5[ii]+(180.)*(s4g.pa1_25p5[ii] lt 0.)
+
+     ;data[ind].s4g_ellip = s4g.ellip1_25p5[ii]
+     ;q = 0.22
+     ;s4g_rat = (1.0-data[ind].s4g_ellip)
+     ;data[ind].s4g_incl = acos(sqrt((s4g_rat^2 - q^2)/(1.-q^2)))/!dtor
+
+     ;s4g_r0 = (data[ind].t gt 7)*0.38 + $
+     ;         (data[ind].t le 7 and data[ind].t gt -5.)* $
+     ;         (data[ind].t*0.053+0.43)              
+     ;s4g_incl = asin(sqrt((1.-10.^(-2.*s4g_logr25))/(1.-10.^(-2.*s4g_r0))))
+     ;data[ind].s4g_incl = s4g_incl     
+
+     ;data[ind].s4g_i3p6_mag = s4g.mag1[ii]
+     ;data[ind].s4g_i4p5_mag = s4g.mag2[ii]
+     ;data[ind].s4g_mstar = s4g.mstar[ii]
+     ;data[ind].s4g_dist_mpc = s4g.dmean[ii]
+     ;data[ind].s4g_semimaj = s4g.sma1_25p5[ii]
+
+     ;s4g_matches += 1
+
+  ;endfor  
+
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; IRAS CROSS-MATCHING
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+  rgbs = read_fmr('gal_data/iras_rgbs.txt')
+  n_rgbs = n_elements(rgbs.data.cname)
+  
+  rgbs_ct = 0
+  for ii = 0, n_rgbs-1 do begin
+     this_name = strupcase(strcompress(rgbs.data.cname[ii], /rem))
+     ind = where(this_name eq alias_vec, ct)
+     if ct eq 0 then continue
+
+     this_name = name_vec[ind[0]]
+     ind = where(data.name eq this_name, ct)
+     if ct eq 0 then continue
+     
+     rgbs_ct += 1
+     
+     data[ind].rgbs_lir_40_400 = $
+        10.^(rgbs.data.lir1[ii])*(data[ind].dist_mpc^2/rgbs.data.dist[ii]^2)
+     data[ind].rgbs_lir_8_1000 = $
+        10.^(rgbs.data.lir2[ii])*(data[ind].dist_mpc^2/rgbs.data.dist[ii]^2)
+
+  endfor 
+
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; Z0MGS PHOTOMETRY
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+  readcol $
+     , 'gal_data/z0mgs_photometry.txt' $
+     , format='A,F,F,F,F,F,F,F,F,F,F,F,F' $
+     , z0mgs_pgc $
+     , w1_flux, w1_medflux, w2_flux, w2_medflux $
+     , w3_flux, w3_medflux, w4_flux, w4_medflux $
+     , nuv_flux, nuv_medflux, fuv_flux, fuv_medflux
+     
+  n_z0mgs = n_elements(z0mgs_pgc)
+  z0mgs_ct = 0
+  for ii = 0, n_z0mgs-1 do begin
+
+     this_name = strupcase(strcompress(z0mgs_pgc[ii], /rem))
+     ind = where(this_name eq alias_vec, ct)
+     if ct eq 0 then continue
+
+     this_name = name_vec[ind[0]]
+     ind = where(data.name eq this_name, ct)
+     if ct eq 0 then continue
+     
+     z0mgs_ct += 1
+     
+     data[ind].z0mgs_w1 = w1_medflux[ii]
+     data[ind].z0mgs_w2 = w2_medflux[ii]
+     data[ind].z0mgs_w3 = w3_medflux[ii]
+     data[ind].z0mgs_w4 = w4_medflux[ii]
+     data[ind].z0mgs_nuv = nuv_medflux[ii]
+     data[ind].z0mgs_fuv = fuv_medflux[ii]
+
+  endfor
+
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; SOME LUMINOSITY CALCULATIONS NOW THAT DISTANCE IS FIXED
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+  data.leda_mhi = $
+     10.^((data.leda_m21cm - 17.4)/(-1.*2.5))*(2.36d5*data.dist_mpc^2)
+  
+  data.leda_lfir = 10.^((data.leda_mfir -14.75)/(-2.5))*1.26d-14*1d3* $
+                   (4.0*!pi*(data.dist_mpc*1d6*pc)^2)/lsun
+  
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; WRITE TO DISK
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
