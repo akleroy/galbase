@@ -544,8 +544,27 @@ pro make_gal_base $
   ;endfor  
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; SOME LUMINOSITY / DISTANCE CALCULATIONS NOW THAT DISTANCE IS FIXED
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+  data.distmod = 5.*alog10(data.dist_mpc*1d6)-5.0
+
+  data.leda_mhi = $
+     10.^((data.leda_m21cm - 17.4)/(-1.*2.5))*(2.36d5*data.dist_mpc^2)
+  
+  data.leda_lfir = 10.^((data.leda_mfir -14.75)/(-2.5))*1.26d-14*1d3* $
+                   (4.0*!pi*(data.dist_mpc*1d6*pc)^2)/lsun
+
+  data.babs_mag = data.btc_mag + data.distmod
+  data.uabs_mag = data.btc_mag + data.distmod
+  data.iabs_mag = data.btc_mag + data.distmod
+
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; IRAS CROSS-MATCHING
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+; Also read in the revised bright galaxy survey. This complements the
+; existing LEDA infrared data.
 
   rgbs = read_fmr('gal_data/iras_rgbs.txt')
   n_rgbs = n_elements(rgbs.data.cname)
@@ -568,6 +587,188 @@ pro make_gal_base $
         10.^(rgbs.data.lir2[ii])*(data[ind].dist_mpc^2/rgbs.data.dist[ii]^2)
 
   endfor 
+
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; HALPHA FLUXES
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+  
+; This section reads a series of literature tables that present Ha+NII
+; fluxes for galaxies. We want the (NII corrected) Halpha flux for the
+; whole galaxy and process the tables to try to get that. The numbers
+; are aggregated at the end into a single preferred value with a
+; source based on a judgment-call based ranking (approximately time
+; since publication).
+
+  tab = read_fmr('gal_data/kennicutt08_datafile3.txt')
+  n_k08 = n_elements(tab.data.name)
+  k08_ct = 0
+  for ii = 0, n_k08-1 do begin
+     if tab.data.l_logf[ii] eq '<' then $
+        continue
+     this_name = strupcase(strcompress(tab.data.name[ii], /rem))
+     ind = where(this_name eq alias_vec, ct)
+     if ct eq 0 then continue
+
+     this_name = name_vec[ind[0]]
+     ind = where(data.name eq this_name, ct)
+     if ct eq 0 then continue     
+     k08_ct += 1
+     
+     this_niiha = tab.data.nii_ha[ii]
+     this_ha = 10.d^tab.data.logf[ii]
+     this_hacorr = this_ha / (1.0+this_niiha)
+
+     data[ind].k08_logha = alog10(this_hacorr)
+     data[ind].k08_elogha = tab.data.e_logf[ii]        
+  endfor 
+
+  readcol, 'gal_data/kennicutt09_table1.txt', comment='#' $
+           , format='A,F,F,F,F,F,F,F,F' $
+           , k09_name, k09_dist, k09_logha, k09_e_logha $
+           , k09_ha_hb, k09_e_ha_hb, k09_nii_ha, k09_e_nii_ha $
+           , k09_f25, /silent
+  n_k09 = n_elements(k09_name)
+  k09a_ct = 0
+  for ii = 0, n_k09-1 do begin
+     this_name = k09_name[ii]
+     ind = where(this_name eq alias_vec, ct)
+     if ct eq 0 then continue
+
+     this_name = name_vec[ind[0]]
+     ind = where(data.name eq this_name, ct)
+     if ct eq 0 then continue     
+     k09a_ct += 1
+     
+     this_ha = 10.d^(k09_logha[ii])
+     this_nhii_ha = k09_nii_ha[ii]
+     this_hacorr = this_ha / (1.0+this_niiha)
+     this_elogha = sqrt(k09_e_logha[ii]^2 + alog10(k09_e_nii_ha[ii]/k09_nii_ha[ii]+1.)^2)
+
+     data[ind].k09_logha = alog10(this_hacorr)
+     data[ind].k09_elogha = this_elogha
+  endfor   
+
+  tab = read_fmr('gal_data/kennicutt09_table2.txt')
+  n_k09 = n_elements(tab.data.name)
+  k09b_ct = 0
+  for ii = 0, n_k09-1 do begin
+     this_name = strupcase(strcompress(tab.data.name[ii], /rem))
+     ind = where(this_name eq alias_vec, ct)
+     if ct eq 0 then continue
+
+     this_name = name_vec[ind[0]]
+     ind = where(data.name eq this_name, ct)
+     if ct eq 0 then continue     
+     k09b_ct += 1
+     
+     this_ha = tab.data.haflux[ii]*1.d-15*1d7/1d3/1d4
+     data[ind].mk06_logha = alog10(this_ha)
+     data[ind].mk06_elogha = alog10(tab.data.e_haflux[ii]/tab.data.haflux[ii]+1.)
+  endfor 
+  
+  readcol, 'gal_data/sanchezgallego_jcmtha.txt', comment='#' $
+           , format='A,X,X,X,X,X,X,X,X,X,F,F,X,F' $
+           , sg12_name, sg12_fhanii, sg12_efhanii, sg12_niiha $
+           , /silent
+  n_sg12 = n_elements(sg12_name)
+  sg12_ct = 0
+  for ii = 0, n_sg12-1 do begin
+     this_name = sg12_name[ii]
+     ind = where(this_name eq alias_vec, ct)
+     if ct eq 0 then continue
+
+     this_name = name_vec[ind[0]]
+     ind = where(data.name eq this_name, ct)
+     if ct eq 0 then continue     
+     sg12_ct += 1
+     
+     this_ha = sg12_fhanii[ii]*1d-13
+     this_nhii_ha = sg12_niiha[ii]
+     this_hacorr = this_ha / (1.0+this_niiha)
+     this_elogha = alog10(sg12_efhanii[ii]/this_ha+1.)
+
+     data[ind].sg12_logha = alog10(this_hacorr)
+     data[ind].sg12_elogha = this_elogha
+  endfor   
+
+  readcol, 'gal_data/knapen2004_table3.dat', comment='#' $
+           , format='A,X,X,X,X,X,X,X,F,F' $
+           , k04_name, k04_fhanii, k04_efhanii $
+           , /silent
+  n_k04 = n_elements(k04_name)
+  k04_ct = 0
+  for ii = 0, n_k04-1 do begin
+     this_name = k04_name[ii]
+     ind = where(this_name eq alias_vec, ct)
+     if ct eq 0 then continue
+
+     this_name = name_vec[ind[0]]
+     ind = where(data.name eq this_name, ct)
+     if ct eq 0 then continue     
+     k04_ct += 1
+     
+     this_ha = k04_fhanii[ii]*1d-16*1d7/1d4
+;    kennicutt 08 relation
+     this_nhii_ha = $
+        (data[ind].babs_mag lt -21.)*0.54 + $
+        (data[ind].babs_mag gt -21.)*(-0.173*data[ind].babs_mag - 3.903)
+     this_hacorr = this_ha / (1.0+this_niiha)
+     this_elogha = alog10(k04_efhanii[ii]/this_ha+1.)
+
+     data[ind].k04_logha = alog10(this_hacorr)
+     data[ind].k04_elogha = this_elogha
+  endfor   
+
+; COLLAPSE TO ONE HALPHA FLUX
+
+  for ii = 0, n_elements(data)-1 do begin
+
+     this_data = data[ii]
+     this_logha = !values.f_nan
+     this_elogha = !values.f_nan
+     this_source = 'NONE'
+
+     if finite(this_data.b15_logha) then begin
+        this_logha = this_data.b15_logha
+        this_elogha = this_data.b15_elogha
+        this_source = 'BOSELLI2015'
+     endif
+
+     if finite(this_data.k04_logha) then begin
+        this_logha = this_data.k04_logha
+        this_elogha = this_data.k04_elogha
+        this_source = 'KNAPEN2004-HAGS'
+     endif
+
+     if finite(this_data.mk06_logha) then begin
+        this_logha = this_data.mk06_logha
+        this_elogha = this_data.mk06_elogha
+        this_source = 'KENNICUTT2009-MK06'
+     endif
+
+     if finite(this_data.k09_logha) then begin
+        this_logha = this_data.k09_logha
+        this_elogha = this_data.k09_elogha
+        this_source = 'KENNICUTT2009-SINGS'
+     endif
+
+     if finite(this_data.k08_logha) then begin
+        this_logha = this_data.k08_logha
+        this_elogha = this_data.k08_elogha
+        this_source = 'KENNICUTT2008'
+     endif
+
+     if finite(this_data.sg12_logha) then begin
+        this_logha = this_data.sg12_logha
+        this_elogha = this_data.sg12_elogha
+        this_source = 'SANCHEZGALLEGO12'
+     endif
+
+     data[ii].logha = this_logha
+     data[ii].elogha = this_elogha
+     data[ii].hasource = this_source
+
+  endfor
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; Z0MGS PHOTOMETRY
@@ -603,16 +804,6 @@ pro make_gal_base $
      data[ind].z0mgs_fuv = fuv_medflux[ii]
 
   endfor
-
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; SOME LUMINOSITY CALCULATIONS NOW THAT DISTANCE IS FIXED
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-
-  data.leda_mhi = $
-     10.^((data.leda_m21cm - 17.4)/(-1.*2.5))*(2.36d5*data.dist_mpc^2)
-  
-  data.leda_lfir = 10.^((data.leda_mfir -14.75)/(-2.5))*1.26d-14*1d3* $
-                   (4.0*!pi*(data.dist_mpc*1d6*pc)^2)/lsun
   
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; WRITE TO DISK

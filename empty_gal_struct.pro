@@ -15,6 +15,7 @@ function empty_gal_struct
 ;         DISTANCES
           , dist_mpc: nan $
           , e_dist: nan $
+          , distmod: nan $
           , ref_dist: 'LEDA' $
           , leda_vdist_mpc: nan $
           , e_leda_vdist: nan $
@@ -83,20 +84,29 @@ function empty_gal_struct
           , vrot_kms: nan $
           , e_vrot_kms: nan $
           , ref_vrot: 'LEDA' $
-;         STELLAR MASS
-          , s4g_mstar: nan $         
-          , s4g_mass_code: -1 $
-          , z0mgs_mstar: nan $
-          , e_z0mgs_mstar: nan $
 ;         STAR FORMATION RATE INDICATORS
+;         ... IRAS BASED FIR
           , leda_mfir: nan $    
           , leda_lfir: nan $
           , rgbs_lir_40_400: nan $
           , rgbs_lir_8_1000: nan $
-;         GAS MASS
-          , leda_m21cm: nan $       
-          , leda_mhi: nan $
-;         PHOTOMETRY
+;         ... HALPHA
+          , logha: nan $
+          , elogha: nan $
+          , hasource: 'NONE' $
+          , mk06_logha: nan $
+          , mk06_elogha: nan $
+          , k08_logha: nan $
+          , k08_elogha: nan $
+          , k09_logha: nan $
+          , k09_elogha: nan $
+          , k04_logha: nan $
+          , k04_elogha: nan $
+          , b15_logha: nan $
+          , b15_elogha: nan $
+          , sg12_logha: nan $
+          , sg12_elogha: nan $
+;         ... UNWISE AND GALEX PHOTOMETRY
           , z0mgs_w1: nan $
           , z0mgs_ew1: nan $
           , z0mgs_w2: nan $
@@ -109,16 +119,30 @@ function empty_gal_struct
           , z0mgs_efuv: nan $
           , z0mgs_nuv: nan $
           , z0mgs_enuv: nan $
+;         STARLIGHT
+;         ... LEDA MAGNITUDES
+          , babs_mag: nan $
           , btc_mag: nan $
           , ref_btc: 'LEDA' $
+          , uabs_mag: nan $
           , ubtc_mag: nan $
           , ref_ubtc: 'LEDA' $
-          , bvtc_mag: nan $
-          , ref_bvtc: 'LEDA' $
+          , iabs_mag: nan $
           , itc_mag: nan $
           , ref_itc: 'LEDA' $
+          , bvtc_mag: nan $
+          , ref_bvtc: 'LEDA' $
+;         ... S4G CATALOG VALUES
           , s4g_i3p6_mag: nan $
           , s4g_i4p5_mag: nan $
+;         ... STELLAR MASS
+          , s4g_mstar: nan $         
+          , s4g_mass_code: -1 $
+          , z0mgs_mstar: nan $
+          , e_z0mgs_mstar: nan $
+;         GAS MASS
+          , leda_m21cm: nan $       
+          , leda_mhi: nan $
           }
 
   return, empty
