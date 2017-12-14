@@ -130,16 +130,11 @@ pro make_gal_base $
      endfor
      
 ;    ... STRIP LEADING ZEROS FROM NGC, UGC, PGC, AND IC ENTRIES
-
      for i = 0L, n_elements(this_data)-1 do begin
-
         this_names = strsplit(this_data[i].alias, ';', /extract)
         n_names = n_elements(this_names)
-
         for kk = 0, n_names-1 do begin
-
-           this_name = this_names[kk]
-        
+           this_name = this_names[kk]      
            if (strpos(this_name, "NGC") eq 0) or $
               (strpos(this_name, "UGCA") eq 0) or $
               (strpos(this_name, "UGC") eq 0) or $         
@@ -150,7 +145,7 @@ pro make_gal_base $
               this_alias = ""
               leading_digit = 1B
               was_zero = 0B
-
+              
               for zz = 0, strlen(this_name)-1 do begin
                  token = strmid(this_name,zz,1)
                  if total(token eq digit) eq 1 then begin
@@ -257,6 +252,38 @@ pro make_gal_base $
      endif
 
   endfor
+
+; Add the Herschel Reference Survey number scheme as aliases
+  readcol, 'gal_data/hrs_names.txt', comment='#', format='I,A' $
+           , hrs_num, hrs_name
+  n_hrs = n_elements(hrs_num)
+  for ii = 0L, n_hrs-1 do begin
+     ind = where(data.name eq hrs_name[ii], match_ct)
+     if match_ct eq 0 then begin
+        for j = 0L, n_data-1 do begin
+           names = strsplit(data[j].alias, ';', /extract)
+           if total(strupcase(names) eq hrs_name[ii]) eq 1 then begin
+              ind = j
+              match_ct = 1
+              break
+           endif
+        endfor
+        if match_ct eq 0 then begin
+           print, "HERSCHEL REFERENCE SURVEY: No match for "+hrs_name[ii]
+           continue
+        endif
+     endif
+     
+     this_alias = 'HRS'+str(hrs_num[ii])
+     names = strsplit(data[ind].alias, ';', /extract)
+     if total(strupcase(this_alias) eq strupcase(names)) eq 0 then begin
+        if data[ind].alias eq '' then $
+           data[ind].alias = this_alias $
+        else $
+           data[ind].alias += ';'+this_alias
+     endif
+
+  endfor  
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; MAKE THE PAIRED ALIAS/NAME VECTOR
@@ -717,6 +744,34 @@ pro make_gal_base $
 
      data[ind].k04_logha = alog10(this_hacorr)
      data[ind].k04_elogha = this_elogha
+  endfor   
+
+  readcol, 'gal_data/boselli2015_table3.dat', comment='#' $
+           , format='I,X,X,F,F' $
+           , b15_hrsnum, b15_fhanii, b15_efhanii $
+           , /silent
+  n_b15 = n_elements(b15_hrsnum)
+  b15_ct = 0
+  for ii = 0, n_b15-1 do begin
+     this_name = 'HRS'+str(b15_hrsnum[ii])
+     ind = where(this_name eq alias_vec, ct)
+     if ct eq 0 then continue
+
+     this_name = name_vec[ind[0]]
+     ind = where(data.name eq this_name, ct)
+     if ct eq 0 then continue     
+     b15_ct += 1
+     
+     this_ha = 10.^(b15_fhanii[ii])
+;    kennicutt 08 relation
+     this_nhii_ha = $
+        (data[ind].babs_mag lt -21.)*0.54 + $
+        (data[ind].babs_mag gt -21.)*(-0.173*data[ind].babs_mag - 3.903)
+     this_hacorr = this_ha / (1.0+this_niiha)
+     this_elogha = b15_efhanii[ii]
+
+     data[ind].b15_logha = alog10(this_hacorr)
+     data[ind].b15_elogha = this_elogha
   endfor   
 
 ; COLLAPSE TO ONE HALPHA FLUX
