@@ -94,16 +94,22 @@ function empty_gal_struct
           , logha: nan $
           , elogha: nan $
           , hasource: 'NONE' $
-          , mk06_logha: nan $
-          , mk06_elogha: nan $
+          , b15_logha: nan $
+          , b15_elogha: nan $
+          , e08_logha: nan $
+          , e08_elogha: nan $
+          , k04_logha: nan $
+          , k04_elogha: nan $
           , k08_logha: nan $
           , k08_elogha: nan $
           , k09_logha: nan $
           , k09_elogha: nan $
-          , k04_logha: nan $
-          , k04_elogha: nan $
-          , b15_logha: nan $
-          , b15_elogha: nan $
+          , lvg_logha: nan $
+          , lvg_elogha: nan $
+          , meu06_logha: nan $
+          , meu06_elogha: nan $
+          , mk06_logha: nan $
+          , mk06_elogha: nan $
           , sg12_logha: nan $
           , sg12_elogha: nan $
 ;         ... UNWISE AND GALEX PHOTOMETRY

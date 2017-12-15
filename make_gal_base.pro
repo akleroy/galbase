@@ -774,6 +774,90 @@ pro make_gal_base $
      data[ind].b15_elogha = this_elogha
   endfor   
 
+; Meurer - corrected for Galactic extinction already so we undo this.
+  name_tab = read_fmr('gal_data/meurer06_datafile6.txt')
+  tab = read_fmr('gal_data/meurer06_datafile7.txt')
+  corrtab = read_fmr('gal_data/meurer06_datafile8.txt')
+  n_m06 = n_elements(tab.data.id)
+  m06_ct = 0  
+  for ii = 0, n_m06-1 do begin
+     this_name = strupcase(strcompress(name_tab.data.oid[ii], /rem))
+     if this_name eq '' or this_name eq 'NEW' then $
+        this_name = strupcase(strcompress(tab.data.id[ii], /rem))
+
+     ind = where(this_name eq alias_vec, ct)
+     if ct eq 0 then continue
+
+     this_name = name_vec[ind[0]]
+     ind = where(data.name eq this_name, ct)
+     if ct eq 0 then continue     
+     m06_ct += 1
+          
+     data[ind].meu06_logha = tab.data.logha[ii]-corrtab.data.a_ha[ii]/2.5
+     data[ind].meu06_elogha = tab.data.e_logha[ii]
+     
+  endfor
+
+; Karachentsev - local volume
+  tab = read_fmr('gal_data/lvg_table1.dat')
+  n_lvg = n_elements(tab.data.name)
+  lvg_ct = 0  
+  for ii = 0, n_lvg-1 do begin
+     this_name = strupcase(strcompress(tab.data.name[ii], /rem))
+
+     ind = where(this_name eq alias_vec, ct)
+     if ct eq 0 then continue
+
+     this_name = name_vec[ind[0]]
+     ind = where(data.name eq this_name, ct)
+     if ct eq 0 then continue     
+     lvg_ct += 1
+          
+     if tab.data.l_hamag[ii] eq '>' then continue
+     this_ha = 10.^((tab.data.hamag[ii]+13.64)/(-2.5))
+     this_nhii_ha = $
+        (data[ind].babs_mag lt -21.)*0.54 + $
+        (data[ind].babs_mag gt -21.)*(-0.173*data[ind].babs_mag - 3.903)
+     this_hacorr = this_ha / (1.0+this_niiha)
+
+     data[ind].lvg_logha = this_hacorr
+     data[ind].lvg_elogha = 0.10
+     
+  endfor
+
+; Epinat - GHASP They aren't super clear about what they're doing so
+;          rank this low. But assume that NII is not a consideration
+;          given the Fabry-Perot cubes. However the scaling to Knapen
+;          worries me. Look into this more.
+
+  readcol, 'gal_data/epinat2008_tableb1.txt', comment='#' $
+           , format='A,F,F' $
+           , e08_name, e08_fha, e08_efha $
+           , /silent
+  n_e08 = n_elements(e08_name)
+  e08_ct = 0
+  for ii = 0, n_e08-1 do begin
+     this_name = e08_name[ii]
+     ind = where(this_name eq alias_vec, ct)
+     if ct eq 0 then continue
+
+     this_name = name_vec[ind[0]]
+     ind = where(data.name eq this_name, ct)
+     if ct eq 0 then continue     
+     e08_ct += 1
+     
+;    Require 3sigma
+     if e08_fha[ii] lt 3.0*e08_efha[ii] then $
+        continue
+
+     this_ha = e08_fha[ii]*1d-16*1d7/1d4     
+     this_eha = e08_efha[ii]*1d-16*1d7/1d4     
+
+     data[ind].e08_logha = alog10(this_ha)
+     data[ind].e08_elogha = alog10(this_eha/this_ha+1.0)
+  endfor   
+
+
 ; COLLAPSE TO ONE HALPHA FLUX
 
   for ii = 0, n_elements(data)-1 do begin
@@ -782,6 +866,18 @@ pro make_gal_base $
      this_logha = !values.f_nan
      this_elogha = !values.f_nan
      this_source = 'NONE'
+
+     if finite(this_data.e08_logha) then begin
+        this_logha = this_data.e08_logha
+        this_elogha = this_data.e08_elogha
+        this_source = 'EPINAT08-GHASP'
+     endif
+
+     if finite(this_data.lvg_logha) then begin
+        this_logha = this_data.lvg_logha
+        this_elogha = this_data.lvg_elogha
+        this_source = 'KARACHENSEV2013-LVG'
+     endif
 
      if finite(this_data.b15_logha) then begin
         this_logha = this_data.b15_logha
@@ -793,6 +889,12 @@ pro make_gal_base $
         this_logha = this_data.k04_logha
         this_elogha = this_data.k04_elogha
         this_source = 'KNAPEN2004-HAGS'
+     endif
+
+     if finite(this_data.meu06_logha) then begin
+        this_logha = this_data.meu06_logha
+        this_elogha = this_data.meu06_elogha
+        this_source = 'MEURER06-SINGG'
      endif
 
      if finite(this_data.mk06_logha) then begin
