@@ -69,7 +69,7 @@ function empty_gal_struct
           , multiple: 0B $
           , ref_morph: 'LEDA' $
 ;         EXTINCTION
-          , av_sf11: nan $
+          , av_sf11: nan $         
 ;         SIZES
           , reff_deg: nan $
           , e_reff_deg: nan $
@@ -91,6 +91,7 @@ function empty_gal_struct
           , rgbs_lir_40_400: nan $
           , rgbs_lir_8_1000: nan $
 ;         ... HALPHA
+;         IN ERG/S/CM^2
           , logha: nan $
           , elogha: nan $
           , hasource: 'NONE' $
@@ -113,6 +114,7 @@ function empty_gal_struct
           , sg12_logha: nan $
           , sg12_elogha: nan $
 ;         ... UNWISE AND GALEX PHOTOMETRY
+;         IN JANSKIES
           , z0mgs_w1: nan $
           , z0mgs_ew1: nan $
           , z0mgs_w2: nan $
@@ -125,6 +127,29 @@ function empty_gal_struct
           , z0mgs_efuv: nan $
           , z0mgs_nuv: nan $
           , z0mgs_enuv: nan $
+;         ... STAR FORMATION RELATED LUMINOSITIES
+          , lum_ha: nan $
+          , lum_fuv: nan $
+          , lum_nuv: nan $
+          , lum_w1: nan $
+          , lum_w2: nan $
+          , lum_w3: nan $
+          , lum_w4: nan $
+          , lum_tir: nan $
+          , tirsource: '' $
+;         ... STAR FORMATION RATE ESTIMATES
+          , sfr_ha_ke12: nan $
+          , sfr_fuv_ke12: nan $
+          , sfr_nuv_ke12: nan $
+          , sfr_tir_ke12: nan $
+          , sfr_w3_j13: nan $
+          , sfr_w4_j13: nan $
+          , sfr_xcg: nan $
+          , sfr_fuvw4_ke12: nan $
+          , sfr_fuvtir_ke12: nan $
+          , sfr_nuvtir_ke12: nan $
+          , sfr_haw4_ke12: nan $
+          , sfr_hatir_ke12: nan $
 ;         STARLIGHT
 ;         ... LEDA MAGNITUDES
           , babs_mag: nan $

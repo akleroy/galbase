@@ -1,6 +1,8 @@
 pro make_gal_base $
    , data_dir = data_dir
 
+  @constants.bat
+
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; INITIALIZE
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
@@ -820,7 +822,7 @@ pro make_gal_base $
         (data[ind].babs_mag gt -21.)*(-0.173*data[ind].babs_mag - 3.903)
      this_hacorr = this_ha / (1.0+this_niiha)
 
-     data[ind].lvg_logha = this_hacorr
+     data[ind].lvg_logha = alog10(this_hacorr)
      data[ind].lvg_elogha = 0.10
      
   endfor
@@ -962,6 +964,79 @@ pro make_gal_base $
 
   endfor
   
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; LUMINOSITIES AND SFR ESTIMATES
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+  dist_pc = data.dist_mpc*1d6
+
+  data.lum_ha = 4.*!pi*(dist_pc*pc)^2*10.^(data.logha)
+
+  nu_fuv = c/(155.d-9*1d2)
+  data.lum_fuv = 4.*!pi*(dist_pc*pc)^2*nu_fuv*1d-23*data.z0mgs_fuv
+
+  nu_nuv = c/(230.d-9*1d2)
+  data.lum_nuv = 4.*!pi*(dist_pc*pc)^2*nu_nuv*1d-23*data.z0mgs_nuv
+
+  nu_w1 = c/(3.6d-6*1d2)
+  data.lum_w1 = 4.*!pi*(dist_pc*pc)^2*nu_w1*1d-23*data.z0mgs_w1
+
+  nu_w2 = c/(4.5d-6*1d2)
+  data.lum_w2 = 4.*!pi*(dist_pc*pc)^2*nu_w2*1d-23*data.z0mgs_w2
+
+  nu_w3 = c/(12.d-6*1d2)
+  data.lum_w3 = 4.*!pi*(dist_pc*pc)^2*nu_w3*1d-23*data.z0mgs_w3
+
+  nu_w4 = c/(22.d-6*1d2)
+  data.lum_w4 = 4.*!pi*(dist_pc*pc)^2*nu_w4*1d-23*data.z0mgs_w4
+
+  data.lum_tir = $
+     2.05*data.leda_lfir*lsun
+  ind = where(finite(data.leda_lfir))
+  data[ind].tirsource = 'IRAS LEDA'
+  ind = where(finite(data.leda_lfir) eq 0 and $
+              finite(data.rgbs_lir_8_1000))
+  data[ind].lum_tir = $
+     data[ind].rgbs_lir_8_1000*lsun
+  data[ind].tirsource = 'IRAS RGBS'
+
+  data.sfr_ha_ke12 = $
+     lum_to_sfr(band='HA', cal='KE12', lum=data.lum_ha)
+  data.sfr_fuv_ke12 = $
+     lum_to_sfr(band='FUV', cal='KE12', lum=data.lum_fuv)
+  data.sfr_nuv_ke12 = $
+     lum_to_sfr(band='NUV', cal='KE12', lum=data.lum_nuv)
+  data.sfr_tir_ke12 = $
+     lum_to_sfr(band='TIR', cal='KE12', lum=data.lum_tir)
+  data.sfr_w3_j13 = $
+     lum_to_sfr(band='WISE3', cal='J13', lum=data.lum_w3)
+  data.sfr_w4_j13 = $
+     lum_to_sfr(band='WISE4', cal='J13', lum=data.lum_w4)
+
+  data.sfr_xcg = $
+     lum_to_sfr(band='NUV', cal='S07', lum=data.lum_nuv) + $
+     lum_to_sfr(band='WISE3', cal='J13', lum=data.lum_w3)
+
+  data.sfr_fuvw4_ke12 = $
+     lum_to_sfr(band='FUV', cal='KE12' $
+                , lum=(data.lum_fuv + 3.89*data.lum_w4))  
+  
+  data.sfr_fuvtir_ke12 = $
+     lum_to_sfr(band='FUV', cal='KE12' $
+                , lum=(data.lum_fuv + 0.46*data.lum_tir))  
+
+  data.sfr_nuvtir_ke12 = $
+     lum_to_sfr(band='NUV', cal='KE12' $
+                , lum=(data.lum_nuv + 0.27*data.lum_tir))  
+  
+  data.sfr_haw4_ke12 = $
+     lum_to_sfr(band='HA', cal='KE12' $
+                , lum=(data.lum_ha + 0.020*data.lum_tir))  
+  
+  data.sfr_hatir_ke12 = $
+     lum_to_sfr(band='HA', cal='KE12' $
+                , lum=(data.lum_ha + 0.0024*data.lum_tir))       
+
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; WRITE TO DISK
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
