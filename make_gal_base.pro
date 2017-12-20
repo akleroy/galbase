@@ -1031,7 +1031,7 @@ pro make_gal_base $
   
   data.sfr_haw4_ke12 = $
      lum_to_sfr(band='HA', cal='KE12' $
-                , lum=(data.lum_ha + 0.020*data.lum_tir))  
+                , lum=(data.lum_ha + 0.020*data.lum_w4))  
   
   data.sfr_hatir_ke12 = $
      lum_to_sfr(band='HA', cal='KE12' $
