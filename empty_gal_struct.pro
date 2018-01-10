@@ -43,6 +43,8 @@ function empty_gal_struct
 ;         CENTER ON SKY
           , ra_deg: nan $
           , dec_deg: nan $
+          , gl_deg: nan $
+          , gb_deg: nan $
           , ref_pos: 'LEDA' $
 ;         POSITION ANGLE
           , posang_deg: nan $

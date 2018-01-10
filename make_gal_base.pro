@@ -535,21 +535,21 @@ pro make_gal_base $
      s4g_mass_matches += 1
   endfor
 
-  ;s4g = read_ipac_table('gal_data/s4g_ipac_table.txt')
-  ;n_s4g = n_elements(s4g.object)
+  s4g = read_ipac_table('gal_data/s4g_ipac_table.txt')
+  n_s4g = n_elements(s4g.object)
 
-  ;s4g_matches = 0
-  ;for ii = 0, n_s4g-1 do begin
+  s4g_matches = 0
+  for ii = 0, n_s4g-1 do begin
 
-     ;ind = where(s4g.object[ii] eq alias_vec, ct)
-     ;if ct eq 0 then continue
+     ind = where(s4g.object[ii] eq alias_vec, ct)
+     if ct eq 0 then continue
 
-     ;this_name = name_vec[ind[0]]
-     ;ind = where(data.name eq this_name, ct)
-     ;if ct eq 0 then continue
+     this_name = name_vec[ind[0]]
+     ind = where(data.name eq this_name, ct)
+     if ct eq 0 then continue
 
-     ;data[ind].s4g_pa = $
-     ;   s4g.pa1_25p5[ii]+(180.)*(s4g.pa1_25p5[ii] lt 0.)
+     data[ind].s4g_pa = $
+        s4g.pa1_25p5[ii]+(180.)*(s4g.pa1_25p5[ii] lt 0.)
 
      ;data[ind].s4g_ellip = s4g.ellip1_25p5[ii]
      ;q = 0.22
@@ -568,9 +568,9 @@ pro make_gal_base $
      ;data[ind].s4g_dist_mpc = s4g.dmean[ii]
      ;data[ind].s4g_semimaj = s4g.sma1_25p5[ii]
 
-     ;s4g_matches += 1
+     s4g_matches += 1
 
-  ;endfor  
+  endfor  
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; SOME LUMINOSITY / DISTANCE CALCULATIONS NOW THAT DISTANCE IS FIXED
@@ -972,10 +972,10 @@ pro make_gal_base $
 
   data.lum_ha = 4.*!pi*(dist_pc*pc)^2*10.^(data.logha)
 
-  nu_fuv = c/(155.d-9*1d2)
+  nu_fuv = c/(154.d-9*1d2)
   data.lum_fuv = 4.*!pi*(dist_pc*pc)^2*nu_fuv*1d-23*data.z0mgs_fuv
 
-  nu_nuv = c/(230.d-9*1d2)
+  nu_nuv = c/(231.d-9*1d2)
   data.lum_nuv = 4.*!pi*(dist_pc*pc)^2*nu_nuv*1d-23*data.z0mgs_nuv
 
   nu_w1 = c/(3.6d-6*1d2)
@@ -1036,6 +1036,14 @@ pro make_gal_base $
   data.sfr_hatir_ke12 = $
      lum_to_sfr(band='HA', cal='KE12' $
                 , lum=(data.lum_ha + 0.0024*data.lum_tir))       
+
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; FILL IN GALACTIC COORDINATES
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+  glactc, data.ra_deg, data.dec_deg, 2000., l, b, 1, /degree
+  data.gl_deg = l
+  data.gb_deg = b
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; WRITE TO DISK

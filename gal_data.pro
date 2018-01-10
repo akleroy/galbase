@@ -101,7 +101,7 @@ function gal_data $
         for ii = 0, n_data-1 do begin
            this_tag = strsplit(strcompress(data[ii].tags,/rem), ';', /extract)
            for jj = 0, n_elements(tag)-1 do $
-              keep[ii] = keep[ii]*total(this_tag eq tag[jj])
+              keep[ii] = keep[ii]*total(this_tag eq strupcase(tag[jj]))
         endfor
         if total(keep) eq 0 then begin
            message, 'No targets found with that tag combination. Returning an empty structure.', /info
