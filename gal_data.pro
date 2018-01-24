@@ -30,7 +30,7 @@ function gal_data $
 ;
 ; OPTIONAL INPUTS:
 ;
-; data_dir : the location of structure
+; dir : the location of structure
 ;
 ; KEYWORD PARAMETERS:
 ;
