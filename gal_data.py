@@ -57,21 +57,16 @@ def gal_data(names=None, data=None, all=False, data_dir=None, tag=None):
     # NAME OR NAMES of GALAXIES
     if type(names) == str:
         names = [names]
-    # keep = np.zeros(len(data), dtype=bool)
     indices = []
 
     # SEARCH FOR GALAXIES
     for name in names:
         name_a = aliases[name.replace(' ', '').upper()]
-        # ind = data.field('NAME') == name_a
         ind = np.where(data.field('NAME') == name_a)[0]
 
-        # if sum(ind) == 0:
         if len(ind) == 0:
             print('No match for ' + name)
         else:
-            # keep += ind
             indices += ind.tolist()
 
-    # return data[keep]
     return data[(indices,)]
