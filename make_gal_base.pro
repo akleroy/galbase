@@ -59,7 +59,7 @@ pro make_gal_base $
      has_mod0 = where(finite(leda.mod0), ct)     
      if ct gt 0 then begin        
         this_data[has_mod0].leda_dist_mpc = 10.^(leda[has_mod0].mod0/5.+1.)/1d6
-        this_data[has_mod0].e_leda_dist = 10.^(leda[has_mod0].mod0/5.+1.)/1d6
+        this_data[has_mod0].e_leda_dist = !values.f_nan
         this_data[has_mod0].dist_mpc = this_data[has_mod0].leda_dist_mpc
         this_data[has_mod0].ref_dist = 'LEDA'
      endif

@@ -57,7 +57,7 @@ function lum_to_sfr $
      message, 'Calibration not recognized.', /info
   endif
 
-  return, lum_ergs*coef
+  return, double(lum_ergs)*double(coef)
      
 end
 
