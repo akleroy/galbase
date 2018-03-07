@@ -71,7 +71,8 @@ function empty_gal_struct
           , multiple: 0B $
           , ref_morph: 'LEDA' $
 ;         EXTINCTION
-          , av_sf11: nan $         
+          , av_sf11: nan $  
+          , av_sfd98: nan $
 ;         SIZES
           , reff_deg: nan $
           , e_reff_deg: nan $

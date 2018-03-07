@@ -1044,6 +1044,10 @@ pro make_gal_base $
   glactc, data.ra_deg, data.dec_deg, 2000., l, b, 1, /degree
   data.gl_deg = l
   data.gb_deg = b
+ 
+  data.av_sfd98 = $
+     dust_getval(data.gl_deg, data.gb_deg $
+                 , ipath='~/idl/dustmaps/maps/', /interp, /noloop)*3.1
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; WRITE TO DISK
