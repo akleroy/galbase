@@ -204,17 +204,19 @@ function sf11_avtox $
 ; 0.2, WHICH SEEMS TO BE THE UPPER END OF THEIR FIT
 
   if band eq 'GALEXFUV' then begin
-     ebv = (av/3.1) < 0.2
-     peek_afuv = 10.47*ebv+8.59*ebv^2-82.8*ebv^3.
-     afuv = peek_afuv
-     band_to_av = afuv/av
+;     ebv = (av/3.1) < 0.2
+;     peek_afuv = 10.47*ebv+8.59*ebv^2-82.8*ebv^3.
+;     afuv = peek_afuv
+;     band_to_av = afuv/av
+     band_to_av = !values.f_nan
   endif
 
   if band eq 'GALEXNUV' then begin
-     ebv = (av/3.1) < 0.2
-     peek_anuv = 8.36*ebv+14.3*ebv^2-82.8*ebv^3.
-     anuv = peek_anuv
-     band_to_av = anuv/av     
+;     ebv = (av/3.1) < 0.2
+;     peek_anuv = 8.36*ebv+14.3*ebv^2-82.8*ebv^3.
+;     anuv = peek_anuv
+;     band_to_av = anuv/av     
+     band_to_av = !values.f_nan
   endif
 
 ; ... YUAN ET AL EMPIRICAL VALUES

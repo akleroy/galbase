@@ -7,12 +7,14 @@ function calc_afuv $
 ;
 ;-
 
-  thresh = 0.266
+  thresh = 0.2
 
-  afuv = $
-     (10.47*(ebv < thresh) $
-      + 8.59*(ebv < thresh)^2 $
-      - 82.8*(ebv < thresh)^3)
+  rfuv = $
+     (10.47 $
+      + 8.59*(ebv < thresh) $
+      - 82.8*(ebv < thresh)^2)
+
+  afuv = rfuv*ebv
 
   return, afuv
 

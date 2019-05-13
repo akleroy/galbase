@@ -7,12 +7,14 @@ function calc_anuv $
 ;
 ;-
 
-  thresh = 0.251
+  thresh = 0.2
 
-  anuv = $
-     (8.36*(ebv < thresh) $
-      + 14.3*(ebv < thresh)^2 $
-      - 82.8*(ebv < thresh)^3)
+  rnuv = $
+     (8.36 $
+      + 14.3*(ebv < thresh) $
+      - 82.8*(ebv < thresh)^2)
+
+  anuv = rnuv*ebv
 
   return, anuv
 

@@ -1,72 +1,120 @@
-import astropy.io.fits as pyfits
 import os
 import numpy as np
-from pdb import set_trace
+import pandas as pd
+from astropy.table import Table
 
-def gal_data(names=None, data=None, all=False, data_dir=None, tag=None):
 
-    if not names and not all and not tag:
-        print('Need a name to find a galaxy. Returning empty structure')
-        return None
+def gal_data(names=None, pgc=None, keep_length=False,
+             all=False, tag=None, tag_type='outer',
+             data=None, data_dir='', full=False,
+             force_gen_pkl=False, quiet=True):
+
+    if names is None and pgc is None and tag is None and not all:
+        if not quiet:
+            print('Need a name or a PGC number to find a galaxy, '
+                  'or a tag to find galaxies in a specific survey. ')
+        return Table()
+
+    use_pgc = (names is None) and (pgc is not None)
+
+    if keep_length:
+        how = 'left'
+    else:
+        how = 'inner'
 
     if not data_dir:
-        galbase_dir, this_filename = os.path.split(__file__)
-        galdata_dir = os.path.join(galbase_dir, "gal_data")
+        galbase_dir, _ = os.path.split(__file__)
+        data_dir = os.path.join(galbase_dir, "gal_data")
 
     # READ IN THE DATA
     if data is None:
-        dbfile = os.path.join(galdata_dir, 'gal_base.fits')
-        hdulist = pyfits.open(dbfile)
-        data = hdulist[1].data
-        hdulist.close()
-
+        if full:
+            pklfile = os.path.join(data_dir, 'gal_base.pkl')
+            fitsfile = os.path.join(data_dir, 'gal_base.fits')
+        else:
+            pklfile = os.path.join(data_dir, 'gal_base_local.pkl')
+            fitsfile = os.path.join(data_dir, 'gal_base_local.fits')
+        if (not os.path.isfile(pklfile)) or force_gen_pkl:
+            print('Generating PKL file for the galaxy database '
+                  '(this is just a one-time operation)')
+            df_original = Table.read(fitsfile).to_pandas()
+            # convert the 'TAGS' field into seperate bool-type fields
+            from glob import glob
+            surveyfile = os.path.join(data_dir, 'survey_*.txt')
+            flist = glob(surveyfile)
+            tags = []
+            for f in flist:
+                tags += [f[len(data_dir)+8:-4].upper()]
+                df_original['TAG['+tags[-1]+']'] = False
+            def convert_tags(s, tags):
+                for tag in tags:
+                    if (';'+tag+';').encode() in s['TAGS']:
+                        s['TAG['+tag+']'] = True
+                return s
+            df = df_original.apply(convert_tags, axis=1, args=(tags,),
+                                   result_type='broadcast')
+            for col in df_original.columns:
+                df[col] = df[col].astype(df_original[col].dtype)
+            for t in tags:
+                df['TAG['+t+']'] = df['TAG['+t+']'].astype('?')
+            df.to_pickle(pklfile)
+        if not quiet:
+            print('Reading PKL file for galaxy database')
+        df = pd.read_pickle(pklfile)
+    else:
+        df = pd.DataFrame(data)
 
     # ALL DATA ARE DESIRED
     if all:
-        return data
+        return Table.from_pandas(df)
 
-    # A SPECIFIC SURVEY IS USED
+    # TARGETS WITH SOME TAGS ARE DESIRED
     if tag is not None:
-        n_data = len(data)
-        keep = np.ones(n_data)
-        # survey_file = os.path.join(galdata_dir, 'survey_' + tag.lower() + '.txt')
-        # gals = np.genfromtxt(survey_file, dtype='string')
-
-        for i in range(n_data):
-            this_tag = data['tags'][i].strip(';').split(';;')
-            keep[i] = sum(np.in1d(tag, this_tag))
-
-        if np.sum(keep) == 0:
-            print('No targets found with that tag combination.')
-            return None
-
-        good_data = data[np.where(keep)]
-
-        return good_data
-
-    # BUILD ALIAS DICTIONARY
-    aliases = {}
-    fname = os.path.join(galdata_dir, "gal_base_alias.txt")
-    f = open(fname)
-    f.readline()
-    f.readline()
-    for line in f:
-        s = [temp for temp in line.strip('\n').split(' ')]
-        aliases[s[0].replace(' ', '').upper()] = s[1].replace(' ', '').upper()
-
-    # NAME OR NAMES of GALAXIES
-    if type(names) == str:
-        names = [names]
-    indices = []
-
-    # SEARCH FOR GALAXIES
-    for name in names:
-        name_a = aliases[name.replace(' ', '').upper()]
-        ind = np.where(data.field('NAME') == name_a)[0]
-
-        if len(ind) == 0:
-            print('No match for ' + name)
+        tags = np.atleast_1d(tag)
+        if tag_type == 'inner':
+            mask = np.ones(len(df)).astype('?')
+        elif tag_type == 'outer':
+            mask = np.zeros(len(df)).astype('?')
         else:
-            indices += ind.tolist()
+            raise ValueError('Unknown tag selection type: {}'
+                             ''.format(tag_type))
+        for t in tags:
+            if tag_type == 'inner':
+                mask &= df['TAG['+t.upper()+']']
+            else:
+                mask |= df['TAG['+t.upper()+']']
+        return Table.from_pandas(df[mask])
 
-    return data[(indices,)]
+    # SPECIFIC TARGETS ARE DESIRED
+    if use_pgc:
+        df_pgc = pd.DataFrame(np.squeeze(pgc).astype('int'),
+                             columns=['PGC'])
+    else:
+        pklfile = os.path.join(data_dir, 'superset_alias.pkl')
+        if (not os.path.isfile(pklfile)) or force_gen_pkl:
+            print('Generating PKL file for the alias dictionary '
+                  '(this is just a one-time operation)')
+            txtfile = os.path.join(data_dir, 'superset_alias.txt')
+            df_dict = pd.read_csv(txtfile, sep=' ', skiprows=2,
+                                   names=['alias', 'PGC'])
+            df_dict.to_pickle(pklfile)
+        else:
+            if not quiet:
+                print('Reading PKL file for galaxy aliases')
+            df_dict = pd.read_pickle(pklfile)
+        df_names = pd.DataFrame(np.atleast_1d(names),
+                                columns=['alias'])
+        if not quiet:
+            print('Translating aliases to PGC names')
+        df_pgc = pd.DataFrame(pd.merge(df_names, df_dict,
+                                       on='alias', how=how)['PGC'])
+        if keep_length:
+            df_pgc['PGC'] = df_pgc['PGC'].fillna(-1).astype(df_dict['PGC'].dtype)
+
+    if not quiet:
+        print('Extracting corresponding rows from the database')
+    t_desired = Table.from_pandas(pd.merge(df_pgc, df,
+                                           on='PGC', how=how))
+    if keep_length:
+        t_desired['PGC'].mask = (t_desired['PGC'] == -1)
+    return t_desired
