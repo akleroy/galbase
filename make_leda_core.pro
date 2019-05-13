@@ -1,224 +1,172 @@
-pro make_leda_fits $
-   , print_query = print_query $
-   , parse_query = parse_query $
-   , for_sample = sample_file
+pro make_leda_core $
+   , for_sample = sample_file $
+   , send = do_send $
+   , parse = do_parse
   
+;+
+;
+; Makes the core LEDA database that underpins the galbase. In the
+; refactored version, we will pull EVERY galaxy within a velocity and
+; a 'galaxy' type with v < 30,000 km/s.
+;
+;-
+
+  nan = !values.f_nan
+  empty_struct = $
+     { $
+     pgc:-1L $
+     ,objname:'' $
+     ,hl_names:'' $
+     ,modz:nan $
+     ,e_modz:nan $
+     ,mod0:nan $
+     ,e_mod0:nan $
+     ,modbest:nan $
+     ,e_modbest:nan $
+     ,al2000:nan $
+     ,de2000:nan $
+     ,logd25: nan $
+     ,e_logd25: nan $
+     ,logr25: nan $
+     ,e_logr25: nan $
+     ,v:nan $
+     ,e_v:nan $
+     ,vrad:nan $
+     ,e_vrad:nan $
+     ,vopt:nan $
+     ,e_vopt:nan $
+     ,vvir:nan $
+     ,pa: nan $
+     ,incl: nan $
+     ,vrot:nan $
+     ,e_vrot:nan $
+     ,vmaxg:nan $
+     ,e_vmaxg:nan $
+     ,vmaxs:nan $
+     ,e_vmaxs:nan $
+     ,vdis:nan $
+     ,e_vdis:nan $
+     ,ut:nan $
+     ,e_ut:nan $
+     ,bt:nan $
+     ,e_bt:nan $
+     ,btc:nan $
+     ,vt:nan $
+     ,e_vt:nan $
+     ,it:nan $
+     ,e_it:nan $
+     ,kt:nan $
+     ,e_kt:nan $
+     ,m21:nan $
+     ,e_m21:nan $
+     ,mfir:nan $
+     ,t:nan $
+     ,e_t:nan $
+     ,type:'' $
+     ,bar:'' $
+     ,ring:'' $
+     ,multiple:'' $
+     ,agnclass:'' $
+     }
+       
+  fields_to_query = tag_names(empty_struct)
+  ind = where(fields_to_query eq 'HL_NAMES')
+  fields_to_query[ind] = 'HL_NAMES(PGC)'
+  n_fields = n_elements(fields_to_query)
+
+  out_file = 'gal_data/leda_scratch.txt'
+  fits_file = 'gal_data/leda_database.fits'
+
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; DEFAULTS & DEFINITIONS
+; DEFINE THE QUERY
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+  
+  url_base = 'http://leda.univ-lyon1.fr/fG.cgi?n=meandata&c=o&of=1,leda,ned&nra=l&nakd=1'
+ 
+  url_fields = 'd='
+  for ii = 0, n_fields-1 do begin
+     if ii gt 0 then url_fields += '%2C'
+     url_fields += fields_to_query[ii]
+  endfor
+  
+  url_format = 'ob=&a=csv%5B%7C%5D'
+ 
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; DEFINE THE SELECTION
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
-  if keyword_set(print_query) then begin
+; Adjust this to change the redshift selection
+  vcut = '30000'
 
-;    If requested for a specific sample, then build for that. Else
-;    find all galaxies with recessional velocities less than 5000
-;    km/s.
+  url_select = 'sql=v%20%3C%20'+vcut+'%20and%20objtype%3D%27G%27&'
 
-     if n_elements(sample_file) eq 0 then begin
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; ASSEMBLE AND SEND THE QUERY
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
-        print, "Printing query for all galaxies with v < 5000 km/s"
-        print, ""
+  whole_url = url_base + '&' + url_fields + '&' + url_select + '&' + url_format
 
-        leda_string = "select objname, hl_names(pgc), pgc"+ $
-                      ", modz, mod0, al2000, de2000"+ $
-                      ", v, e_v, vrad, e_vrad, vvir"+ $
-                      ", pa, incl, logr25, e_logr25"+$
-                      ", type, bar, ring, multiple, compactness, t, e_t"+$ 
-                      ", logd25, e_logd25, vmaxg, e_vmaxg, vrot, e_vrot"+$
-                      ", m21, e_m21, mfir"+$
-                      ", ag, btc, ubtc, bvtc, itc"+$
-                      " where v < 5000 and objtype='G'"
-        
-        print, "HyperLEDA SQL string was: ", leda_string
+  print, "HyperLEDA SQL query URL was: ", whole_url
+  
+  if keyword_set(do_send) then begin
 
-     endif else begin
-
-        readcol $
-           , sample_file $
-           , format='A' $
-           , obj_names $
-           , comment='#'
-        n_obj = n_elements(obj_names)
-
-        objname_string = ""
-        for ii = 0, n_obj-1 do begin
-           if ii eq 0 then $
-              objname_string += "objname=objname('"+obj_names[ii]+"')" $
-           else $
-              objname_string += " or objname=objname('"+obj_names[ii]+"')"
-        endfor
-
-        leda_string = "select objname, hl_names(pgc), pgc"+ $
-                      ", modz, mod0, al2000, de2000"+ $
-                      ", v, e_v, vrad, e_vrad, vvir"+ $
-                      ", pa, incl, logr25, e_logr25"+$
-                      ", type, bar, ring, multiple, compactness, t, e_t"+$ 
-                      ", logd25, e_logd25, vmaxg, e_vmaxg, vrot, e_vrot"+$
-                      ", m21, e_m21, mfir"+$
-                      ", ag, btc, ubtc, bvtc, itc"+$
-                      " where "+objname_string
-
-        print, "HyperLEDA SQL string was: ", leda_string
-
-     endelse
+     spawn, 'rm -rf '+out_file
+     spawn, 'wget -O '+out_file+' "'+whole_url+'"'
+     spawn, 'cat '+out_file
      
-     return
   endif
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; QUERY LEDA
+; PARSE THE OUTPUT
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+   
+  if keyword_set(do_parse) then begin
+
+     print, "Counting lines in the file."
+
+     get_lun, lun
+     openr, lun, out_file
+     n_entry = 0L
+     while not eof(lun) do begin
+        line = ''
+        readf, lun, line
+        if strmid(line,0,1) eq '#' then continue
+        if strmid(line,0,1) eq '-' then continue
+        if strupcase(strmid(line,0,1)) eq 'P' then continue
+        n_entry += 1
+     endwhile
+     close, 1
+
+     print, "Found "+string(n_entry)+" lines."
+
+     data = replicate(empty_struct, n_entry)
+
+     print, "Parsing the file."
+
+     get_lun, lun
+     openr, lun, out_file
+     this_entry = 0L
+     while not eof(lun) do begin
+        counter, this_entry, n_entry, 'Reading line '
+        line = ''
+        readf, lun, line
+        if strmid(line,0,1) eq '#' then continue
+        if strmid(line,0,1) eq '-' then continue
+        if strupcase(strmid(line,0,1)) eq 'P' then continue
+        tokens = strsplit(line,'|',/extract,/preserve_null)
+        n_tokens = n_elements(tokens)
+        for jj = 0, n_elements(tokens)-1 do begin
+           if tokens[jj] eq '' then continue
+           data[this_entry].(jj) = tokens[jj]
+        endfor
+        this_entry += 1
+     endwhile
+     close, 1
+    
+     mwrfits, data, fits_file, hdr, /create
   
-; This part goes by hand. Take the SQL query and go to LEDA, then pull
-; down the results into a text file.
-
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; BUILD THE STRUCTURE
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-
-  if keyword_set(parse_query) then begin
-
-     if n_elements(sample_file) eq 0 then begin
-; WAS: infile = "gal_data/leda_vlsr3500.txt"
-        infile = "gal_data/leda_vlsr5000.txt"
-        outfile = "gal_data/leda_vlsr5000.fits"
-     endif else begin
-        infile = sample_file
-        outfile = strmid(sample_file,0,strlen(sample_file)-4)+'.fits'
-     endelse
-
-     readcol, infile, comment="#", delim="|" $
-              , objname, hl_names, pgc $
-              , modz, mod0, al2000, de2000 $
-              , v, e_v, vrad, e_vrad, vvir $
-              , pa, incl, logr25, e_logr25 $
-              , format = $
-              "A,A,L"+ $
-              ",F,F,F,F"+ $
-              ",F,F,F,F,F" + $
-              ",F,F,F,F"+ $
-              ",X,X,X,X,X,X,X"+ $
-              ",X,X,X,X,X,X"+ $
-              ",X,X,X"+ $           
-              ",X,X,X,X,X"
-
-     readcol, infile, comment="#", delim="|" $
-              , type, bar, ring, multiple, compactness, t, e_t $           
-              , logd25, e_logd25, vmaxg, e_vmaxg, vrot, e_vrot $
-              , m21, e_m21, mfir $
-              , ag, btc, ubtc, bvtc, itc $
-              , format = $
-              "X,X,X"+ $
-              ",X,X,X,X"+ $
-              ",X,X,X,X,X" + $
-              ",X,X,X,X"+ $
-              ",A,A,A,A,A,F,F"+ $
-              ",F,F,F,F,F,F"+ $
-              ",F,F,F"+ $
-              ",F,F,F,F,F"
-
-     nan = !values.f_nan
-     empty = { $
-             objname: "", $
-             hl_names: "", $
-             pgc: 0L, $          
-             modz: nan, $
-             mod0: nan, $
-             al2000: nan, $
-             de2000: nan, $
-             v: nan, $
-             e_v: nan, $
-             vrad: nan, $
-             e_vrad: nan, $
-             vvir: nan, $
-             pa: nan, $
-             incl: nan, $
-             logr25: nan, $
-             e_logr25: nan, $
-             type: "", $
-             bar: "", $
-             ring: "", $
-             multiple: "", $  
-             compactness: "", $
-             t: nan, $
-             e_t: nan, $
-             logd25: nan, $
-             e_logd25: nan, $
-             vmaxg: nan, $
-             e_vmaxg: nan, $
-             vrot: nan, $
-             e_vrot: nan, $
-             m21: nan, $
-             e_m21: nan, $
-             mfir: nan, $
-             ag: nan, $
-             btc: nan, $
-             ubtc: nan, $
-             bvtc: nan, $
-             itc: nan $
-             }
-
-     n_leda = n_elements(objname)
-     data = replicate(empty,n_leda)
-     for i = 0L, n_leda-1 do begin
-        counter, i, n_leda, " out of "
-        data[i].objname = strcompress(objname[i], /rem)
-        data[i].hl_names = strcompress(hl_names[i], /rem)
-        data[i].pgc = strcompress(pgc[i], /rem)
-        data[i].modz = modz[i]
-        data[i].mod0 = mod0[i]
-        data[i].al2000 = al2000[i]
-        data[i].de2000 = de2000[i]
-        data[i].v = v[i]
-        data[i].e_v = e_v[i]
-        data[i].vrad = vrad[i]
-        data[i].e_vrad = e_vrad[i]
-        data[i].vvir = vvir[i]
-        data[i].pa = pa[i]
-        data[i].incl = incl[i]
-        data[i].logr25 = logr25[i]
-        data[i].e_logr25 = e_logr25[i]
-        data[i].type = strcompress(type[i], /rem)
-        data[i].bar = strcompress(bar[i], /rem)
-        data[i].ring = strcompress(ring[i], /rem)
-        data[i].multiple = strcompress(multiple[i], /rem)
-        data[i].compactness = strcompress(compactness[i], /rem)
-        data[i].t = t[i]
-        data[i].e_t = e_t[i]
-        data[i].logd25 = logd25[i]
-        data[i].e_logd25 = e_logd25[i]
-        data[i].vmaxg = vmaxg[i]
-        data[i].e_vmaxg = e_vmaxg[i]
-        data[i].vrot = vrot[i]
-        data[i].e_vrot = e_vrot[i]
-        data[i].m21 = m21[i]
-        data[i].e_m21 = e_m21[i]
-        data[i].mfir = mfir[i]
-        data[i].ag = ag[i]
-        data[i].btc = btc[i]
-        data[i].ubtc = ubtc[i]
-        data[i].bvtc = bvtc[i]
-        data[i].itc = itc[i]
-     endfor
-
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; PARE DOWN TO A SUBSAMPLE THAT WE CARE ABOUT
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-
-;    Require some apparent magnitude if we want to keep this.
-
-     keep = where(finite(data.btc) or $
-                  finite(data.itc), keep_ct)
-
-     message, "Keeping "+str(keep_ct)+" of "+str(n_elements(data))+" because they have optical magnitudes.", /info
-
-     data = data[keep]
-
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; OUTPUT
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-
-     mwrfits, data, outfile, hdr, /create
-
-  endif
-
+  endif  
+  
+  stop
+  
 end
