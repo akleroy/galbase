@@ -2,44 +2,32 @@ pro master_script
 
 ;+
 ;
-; This script steps through the construction of the galaxy database.
+; This script steps through the construction of the entire galaxy
+; database. Don't run it unless you intend to query across the
+; web and rebuild things. Otherwise, just rerun the part you are
+; interested in up through the make_gal_base.
+;
+; If you only want to RUN the programs, you can fetch from the web
+; using fetch_gal_base.
 ;
 ;-
 
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; QUERY LEDA AND CONSTRUCT FITS FILES HOLDING HYPERLEDA DATA
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; Send a broad query to LEDA and save this to a text file.
+  make_leda_core, /send
 
-  make_leda_core
+; Parse this into a FITS table
+  make_leda_core, /parse
 
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; MAKE THE ALIAS FILES
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-
+; Make a list of known aliases and save various helper files.
   make_alias_list
 
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; DOWNSELECT
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; Make a database of distances
+  make_distance_base
 
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; SURVEY MEMBERSHIP
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-
+; Compile survey membership helper files
   compile_surveys
   
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; GET DISTANCES FROM NED
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-
-; Query NED to build up a database of distances and uncertainties for
-; our supersample.
-  
-
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-; BUILD THE GALAXY DATABASE
-; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
-
+; Make the galaxy database
   make_gal_base
 
 ; You are done, enjoy!
