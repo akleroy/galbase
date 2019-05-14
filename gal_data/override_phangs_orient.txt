@@ -1,0 +1,880 @@
+# This is a procedurally generated file. Editing not recommended.
+# Column 1: galaxy
+# Column 2: field
+# Column 3: value
+#
+ic1954   incl_deg    56.3
+ic1954   e_incl     5.0
+ic1954   ref_incl   LANGMEIDT19
+#
+ic1954   posang_deg    63.1
+ic1954   e_posang     5.0
+ic1954   ref_posang   LANGMEIDT19
+#
+ic1954   vhel_kms   1050.6
+ic1954   e_vhel      5.0
+ic1954   ref_vhel   LANGMEIDT19
+#
+ic5273   incl_deg    53.1
+ic5273   e_incl     5.0
+ic5273   ref_incl   LANGMEIDT19
+#
+ic5273   posang_deg   236.1
+ic5273   e_posang     5.0
+ic5273   ref_posang   LANGMEIDT19
+#
+ic5273   vhel_kms   1289.4
+ic5273   e_vhel      5.0
+ic5273   ref_vhel   LANGMEIDT19
+#
+ic5332   incl_deg    24.0
+ic5332   e_incl     5.0
+ic5332   ref_incl   LANGMEIDT19
+#
+ic5332   posang_deg    74.7
+ic5332   e_posang     5.0
+ic5332   ref_posang   LANGMEIDT19
+#
+ic5332   vhel_kms    701.5
+ic5332   e_vhel      5.0
+ic5332   ref_vhel   LANGMEIDT19
+#
+ngc0628   incl_deg     8.7
+ngc0628   e_incl     5.0
+ngc0628   ref_incl   LANGMEIDT19
+#
+ngc0628   posang_deg    20.9
+ngc0628   e_posang     5.0
+ngc0628   ref_posang   LANGMEIDT19
+#
+ngc0628   vhel_kms    654.4
+ngc0628   e_vhel      5.0
+ngc0628   ref_vhel   LANGMEIDT19
+#
+ngc0685   incl_deg    28.4
+ngc0685   e_incl     5.0
+ngc0685   ref_incl   LANGMEIDT19
+#
+ngc0685   posang_deg   100.1
+ngc0685   e_posang     5.0
+ngc0685   ref_posang   LANGMEIDT19
+#
+ngc0685   vhel_kms   1360.2
+ngc0685   e_vhel      5.0
+ngc0685   ref_vhel   LANGMEIDT19
+#
+ngc1087   incl_deg    41.3
+ngc1087   e_incl     5.0
+ngc1087   ref_incl   LANGMEIDT19
+#
+ngc1087   posang_deg    -2.7
+ngc1087   e_posang     5.0
+ngc1087   ref_posang   LANGMEIDT19
+#
+ngc1087   vhel_kms   1512.6
+ngc1087   e_vhel      5.0
+ngc1087   ref_vhel   LANGMEIDT19
+#
+ngc1097   incl_deg    48.6
+ngc1097   e_incl     5.0
+ngc1097   ref_incl   LANGMEIDT19
+#
+ngc1097   posang_deg   126.5
+ngc1097   e_posang     5.0
+ngc1097   ref_posang   LANGMEIDT19
+#
+ngc1097   vhel_kms   1272.3
+ngc1097   e_vhel      5.0
+ngc1097   ref_vhel   LANGMEIDT19
+#
+ngc1300   incl_deg    40.2
+ngc1300   e_incl     5.0
+ngc1300   ref_incl   LANGMEIDT19
+#
+ngc1300   posang_deg   275.1
+ngc1300   e_posang     5.0
+ngc1300   ref_posang   LANGMEIDT19
+#
+ngc1300   vhel_kms   1559.9
+ngc1300   e_vhel      5.0
+ngc1300   ref_vhel   LANGMEIDT19
+#
+ngc1317   incl_deg    25.3
+ngc1317   e_incl     5.0
+ngc1317   ref_incl   LANGMEIDT19
+#
+ngc1317   posang_deg   223.0
+ngc1317   e_posang     5.0
+ngc1317   ref_posang   LANGMEIDT19
+#
+ngc1317   vhel_kms   1948.5
+ngc1317   e_vhel      5.0
+ngc1317   ref_vhel   LANGMEIDT19
+#
+ngc1365   incl_deg    55.4
+ngc1365   e_incl     5.0
+ngc1365   ref_incl   LANGMEIDT19
+#
+ngc1365   posang_deg   210.7
+ngc1365   e_posang     5.0
+ngc1365   ref_posang   LANGMEIDT19
+#
+ngc1365   vhel_kms   1630.3
+ngc1365   e_vhel      5.0
+ngc1365   ref_vhel   LANGMEIDT19
+#
+ngc1385   incl_deg    46.3
+ngc1385   e_incl     5.0
+ngc1385   ref_incl   LANGMEIDT19
+#
+ngc1385   posang_deg   180.6
+ngc1385   e_posang     5.0
+ngc1385   ref_posang   LANGMEIDT19
+#
+ngc1385   vhel_kms   1493.2
+ngc1385   e_vhel      5.0
+ngc1385   ref_vhel   LANGMEIDT19
+#
+ngc1433   incl_deg    28.6
+ngc1433   e_incl     5.0
+ngc1433   ref_incl   LANGMEIDT19
+#
+ngc1433   posang_deg   204.3
+ngc1433   e_posang     5.0
+ngc1433   ref_posang   LANGMEIDT19
+#
+ngc1433   vhel_kms   1074.3
+ngc1433   e_vhel      5.0
+ngc1433   ref_vhel   LANGMEIDT19
+#
+ngc1511   incl_deg    76.5
+ngc1511   e_incl     5.0
+ngc1511   ref_incl   LANGMEIDT19
+#
+ngc1511   posang_deg   298.7
+ngc1511   e_posang     5.0
+ngc1511   ref_posang   LANGMEIDT19
+#
+ngc1511   vhel_kms   1350.3
+ngc1511   e_vhel      5.0
+ngc1511   ref_vhel   LANGMEIDT19
+#
+ngc1512   incl_deg    36.5
+ngc1512   e_incl     5.0
+ngc1512   ref_incl   LANGMEIDT19
+#
+ngc1512   posang_deg   263.7
+ngc1512   e_posang     5.0
+ngc1512   ref_posang   LANGMEIDT19
+#
+ngc1512   vhel_kms    887.5
+ngc1512   e_vhel      5.0
+ngc1512   ref_vhel   LANGMEIDT19
+#
+ngc1546   incl_deg    66.7
+ngc1546   e_incl     5.0
+ngc1546   ref_incl   LANGMEIDT19
+#
+ngc1546   posang_deg   149.6
+ngc1546   e_posang     5.0
+ngc1546   ref_posang   LANGMEIDT19
+#
+ngc1546   vhel_kms   1262.5
+ngc1546   e_vhel      5.0
+ngc1546   ref_vhel   LANGMEIDT19
+#
+ngc1559   incl_deg    60.1
+ngc1559   e_incl     5.0
+ngc1559   ref_incl   LANGMEIDT19
+#
+ngc1559   posang_deg   246.7
+ngc1559   e_posang     5.0
+ngc1559   ref_posang   LANGMEIDT19
+#
+ngc1559   vhel_kms   1290.3
+ngc1559   e_vhel      5.0
+ngc1559   ref_vhel   LANGMEIDT19
+#
+ngc1566   incl_deg    23.2
+ngc1566   e_incl     5.0
+ngc1566   ref_incl   LANGMEIDT19
+#
+ngc1566   posang_deg   216.4
+ngc1566   e_posang     5.0
+ngc1566   ref_posang   LANGMEIDT19
+#
+ngc1566   vhel_kms   1500.2
+ngc1566   e_vhel      5.0
+ngc1566   ref_vhel   LANGMEIDT19
+#
+ngc1637   incl_deg    42.1
+ngc1637   e_incl     5.0
+ngc1637   ref_incl   LANGMEIDT19
+#
+ngc1637   posang_deg   209.6
+ngc1637   e_posang     5.0
+ngc1637   ref_posang   LANGMEIDT19
+#
+ngc1637   vhel_kms    730.1
+ngc1637   e_vhel      5.0
+ngc1637   ref_vhel   LANGMEIDT19
+#
+ngc1672   incl_deg    37.5
+ngc1672   e_incl     5.0
+ngc1672   ref_incl   LANGMEIDT19
+#
+ngc1672   posang_deg   135.7
+ngc1672   e_posang     5.0
+ngc1672   ref_posang   LANGMEIDT19
+#
+ngc1672   vhel_kms   1335.6
+ngc1672   e_vhel      5.0
+ngc1672   ref_vhel   LANGMEIDT19
+#
+ngc1792   incl_deg    64.5
+ngc1792   e_incl     5.0
+ngc1792   ref_incl   LANGMEIDT19
+#
+ngc1792   posang_deg   319.7
+ngc1792   e_posang     5.0
+ngc1792   ref_posang   LANGMEIDT19
+#
+ngc1792   vhel_kms   1195.7
+ngc1792   e_vhel      5.0
+ngc1792   ref_vhel   LANGMEIDT19
+#
+ngc1809   incl_deg    80.5
+ngc1809   e_incl     5.0
+ngc1809   ref_incl   LANGMEIDT19
+#
+ngc1809   posang_deg   144.8
+ngc1809   e_posang     5.0
+ngc1809   ref_posang   LANGMEIDT19
+#
+ngc1809   vhel_kms   1305.6
+ngc1809   e_vhel      5.0
+ngc1809   ref_vhel   LANGMEIDT19
+#
+ngc2090   incl_deg    64.7
+ngc2090   e_incl     5.0
+ngc2090   ref_incl   LANGMEIDT19
+#
+ngc2090   posang_deg   192.0
+ngc2090   e_posang     5.0
+ngc2090   ref_posang   LANGMEIDT19
+#
+ngc2090   vhel_kms    917.6
+ngc2090   e_vhel      5.0
+ngc2090   ref_vhel   LANGMEIDT19
+#
+ngc2283   incl_deg    38.1
+ngc2283   e_incl     5.0
+ngc2283   ref_incl   LANGMEIDT19
+#
+ngc2283   posang_deg    -4.1
+ngc2283   e_posang     5.0
+ngc2283   ref_posang   LANGMEIDT19
+#
+ngc2283   vhel_kms    842.0
+ngc2283   e_vhel      5.0
+ngc2283   ref_vhel   LANGMEIDT19
+#
+ngc2566   incl_deg    48.5
+ngc2566   e_incl     5.0
+ngc2566   ref_incl   LANGMEIDT19
+#
+ngc2566   posang_deg   235.6
+ngc2566   e_posang     5.0
+ngc2566   ref_posang   LANGMEIDT19
+#
+ngc2566   vhel_kms   1626.9
+ngc2566   e_vhel      5.0
+ngc2566   ref_vhel   LANGMEIDT19
+#
+ngc2775   incl_deg    34.2
+ngc2775   e_incl     5.0
+ngc2775   ref_incl   LANGMEIDT19
+#
+ngc2775   posang_deg   163.5
+ngc2775   e_posang     5.0
+ngc2775   ref_posang   LANGMEIDT19
+#
+ngc2775   vhel_kms   1349.3
+ngc2775   e_vhel      5.0
+ngc2775   ref_vhel   LANGMEIDT19
+#
+ngc2835   incl_deg    47.8
+ngc2835   e_incl     5.0
+ngc2835   ref_incl   LANGMEIDT19
+#
+ngc2835   posang_deg     1.6
+ngc2835   e_posang     5.0
+ngc2835   ref_posang   LANGMEIDT19
+#
+ngc2835   vhel_kms    881.2
+ngc2835   e_vhel      5.0
+ngc2835   ref_vhel   LANGMEIDT19
+#
+ngc2903   incl_deg    64.5
+ngc2903   e_incl     5.0
+ngc2903   ref_incl   LANGMEIDT19
+#
+ngc2903   posang_deg   205.3
+ngc2903   e_posang     5.0
+ngc2903   ref_posang   LANGMEIDT19
+#
+ngc2903   vhel_kms    554.4
+ngc2903   e_vhel      5.0
+ngc2903   ref_vhel   LANGMEIDT19
+#
+ngc2997   incl_deg    31.6
+ngc2997   e_incl     5.0
+ngc2997   ref_incl   LANGMEIDT19
+#
+ngc2997   posang_deg   109.4
+ngc2997   e_posang     5.0
+ngc2997   ref_posang   LANGMEIDT19
+#
+ngc2997   vhel_kms   1090.2
+ngc2997   e_vhel      5.0
+ngc2997   ref_vhel   LANGMEIDT19
+#
+ngc3059   incl_deg    19.5
+ngc3059   e_incl     5.0
+ngc3059   ref_incl   LANGMEIDT19
+#
+ngc3059   posang_deg   -13.4
+ngc3059   e_posang     5.0
+ngc3059   ref_posang   LANGMEIDT19
+#
+ngc3059   vhel_kms   1249.6
+ngc3059   e_vhel      5.0
+ngc3059   ref_vhel   LANGMEIDT19
+#
+ngc3137   incl_deg    70.0
+ngc3137   e_incl     5.0
+ngc3137   ref_incl   LANGMEIDT19
+#
+ngc3137   posang_deg    -0.7
+ngc3137   e_posang     5.0
+ngc3137   ref_posang   LANGMEIDT19
+#
+ngc3137   vhel_kms   1099.3
+ngc3137   e_vhel      5.0
+ngc3137   ref_vhel   LANGMEIDT19
+#
+ngc3351   incl_deg    45.1
+ngc3351   e_incl     5.0
+ngc3351   ref_incl   LANGMEIDT19
+#
+ngc3351   posang_deg   188.4
+ngc3351   e_posang     5.0
+ngc3351   ref_posang   LANGMEIDT19
+#
+ngc3351   vhel_kms    778.5
+ngc3351   e_vhel      5.0
+ngc3351   ref_vhel   LANGMEIDT19
+#
+ngc3507   incl_deg    24.9
+ngc3507   e_incl     5.0
+ngc3507   ref_incl   LANGMEIDT19
+#
+ngc3507   posang_deg    56.7
+ngc3507   e_posang     5.0
+ngc3507   ref_posang   LANGMEIDT19
+#
+ngc3507   vhel_kms    971.2
+ngc3507   e_vhel      5.0
+ngc3507   ref_vhel   LANGMEIDT19
+#
+ngc3511   incl_deg    73.8
+ngc3511   e_incl     5.0
+ngc3511   ref_incl   LANGMEIDT19
+#
+ngc3511   posang_deg   257.7
+ngc3511   e_posang     5.0
+ngc3511   ref_posang   LANGMEIDT19
+#
+ngc3511   vhel_kms   1104.5
+ngc3511   e_vhel      5.0
+ngc3511   ref_vhel   LANGMEIDT19
+#
+ngc3521   incl_deg    68.5
+ngc3521   e_incl     5.0
+ngc3521   ref_incl   LANGMEIDT19
+#
+ngc3521   posang_deg   343.2
+ngc3521   e_posang     5.0
+ngc3521   ref_posang   LANGMEIDT19
+#
+ngc3521   vhel_kms    803.1
+ngc3521   e_vhel      5.0
+ngc3521   ref_vhel   LANGMEIDT19
+#
+ngc3596   incl_deg    16.9
+ngc3596   e_incl     5.0
+ngc3596   ref_incl   LANGMEIDT19
+#
+ngc3596   posang_deg   108.2
+ngc3596   e_posang     5.0
+ngc3596   ref_posang   LANGMEIDT19
+#
+ngc3596   vhel_kms   1189.3
+ngc3596   e_vhel      5.0
+ngc3596   ref_vhel   LANGMEIDT19
+#
+ngc3621   incl_deg    65.8
+ngc3621   e_incl     5.0
+ngc3621   ref_incl   LANGMEIDT19
+#
+ngc3621   posang_deg   343.5
+ngc3621   e_posang     5.0
+ngc3621   ref_posang   LANGMEIDT19
+#
+ngc3621   vhel_kms    732.1
+ngc3621   e_vhel      5.0
+ngc3621   ref_vhel   LANGMEIDT19
+#
+ngc3626   incl_deg    46.6
+ngc3626   e_incl     5.0
+ngc3626   ref_incl   LANGMEIDT19
+#
+ngc3626   posang_deg   163.2
+ngc3626   e_posang     5.0
+ngc3626   ref_posang   LANGMEIDT19
+#
+ngc3626   vhel_kms   1470.7
+ngc3626   e_vhel      5.0
+ngc3626   ref_vhel   LANGMEIDT19
+#
+ngc3627   incl_deg    55.0
+ngc3627   e_incl     5.0
+ngc3627   ref_incl   LANGMEIDT19
+#
+ngc3627   posang_deg   174.1
+ngc3627   e_posang     5.0
+ngc3627   ref_posang   LANGMEIDT19
+#
+ngc3627   vhel_kms    716.5
+ngc3627   e_vhel      5.0
+ngc3627   ref_vhel   LANGMEIDT19
+#
+ngc4207   incl_deg    49.0
+ngc4207   e_incl     5.0
+ngc4207   ref_incl   LANGMEIDT19
+#
+ngc4207   posang_deg   120.5
+ngc4207   e_posang     5.0
+ngc4207   ref_posang   LANGMEIDT19
+#
+ngc4207   vhel_kms    604.3
+ngc4207   e_vhel      5.0
+ngc4207   ref_vhel   LANGMEIDT19
+#
+ngc4254   incl_deg    37.8
+ngc4254   e_incl     5.0
+ngc4254   ref_incl   LANGMEIDT19
+#
+ngc4254   posang_deg    67.7
+ngc4254   e_posang     5.0
+ngc4254   ref_posang   LANGMEIDT19
+#
+ngc4254   vhel_kms   2384.2
+ngc4254   e_vhel      5.0
+ngc4254   ref_vhel   LANGMEIDT19
+#
+ngc4293   incl_deg    65.0
+ngc4293   e_incl     5.0
+ngc4293   ref_incl   LANGMEIDT19
+#
+ngc4293   posang_deg    64.0
+ngc4293   e_posang     5.0
+ngc4293   ref_posang   LANGMEIDT19
+#
+ngc4293   vhel_kms    921.9
+ngc4293   e_vhel      5.0
+ngc4293   ref_vhel   LANGMEIDT19
+#
+ngc4298   incl_deg    59.4
+ngc4298   e_incl     5.0
+ngc4298   ref_incl   LANGMEIDT19
+#
+ngc4298   posang_deg   314.0
+ngc4298   e_posang     5.0
+ngc4298   ref_posang   LANGMEIDT19
+#
+ngc4298   vhel_kms   1135.3
+ngc4298   e_vhel      5.0
+ngc4298   ref_vhel   LANGMEIDT19
+#
+ngc4303   incl_deg    26.5
+ngc4303   e_incl     5.0
+ngc4303   ref_incl   LANGMEIDT19
+#
+ngc4303   posang_deg   311.7
+ngc4303   e_posang     5.0
+ngc4303   ref_posang   LANGMEIDT19
+#
+ngc4303   vhel_kms   1557.4
+ngc4303   e_vhel      5.0
+ngc4303   ref_vhel   LANGMEIDT19
+#
+ngc4321   incl_deg    38.3
+ngc4321   e_incl     5.0
+ngc4321   ref_incl   LANGMEIDT19
+#
+ngc4321   posang_deg   157.2
+ngc4321   e_posang     5.0
+ngc4321   ref_posang   LANGMEIDT19
+#
+ngc4321   vhel_kms   1566.5
+ngc4321   e_vhel      5.0
+ngc4321   ref_vhel   LANGMEIDT19
+#
+ngc4424   incl_deg    58.2
+ngc4424   e_incl     5.0
+ngc4424   ref_incl   LANGMEIDT19
+#
+ngc4424   posang_deg    85.2
+ngc4424   e_posang     5.0
+ngc4424   ref_posang   LANGMEIDT19
+#
+ngc4424   vhel_kms    444.0
+ngc4424   e_vhel      5.0
+ngc4424   ref_vhel   LANGMEIDT19
+#
+ngc4457   incl_deg    39.2
+ngc4457   e_incl     5.0
+ngc4457   ref_incl   LANGMEIDT19
+#
+ngc4457   posang_deg    79.7
+ngc4457   e_posang     5.0
+ngc4457   ref_posang   LANGMEIDT19
+#
+ngc4457   vhel_kms    883.0
+ngc4457   e_vhel      5.0
+ngc4457   ref_vhel   LANGMEIDT19
+#
+ngc4496a   incl_deg    38.9
+ngc4496a   e_incl     5.0
+ngc4496a   ref_incl   LANGMEIDT19
+#
+ngc4496a   posang_deg    49.1
+ngc4496a   e_posang     5.0
+ngc4496a   ref_posang   LANGMEIDT19
+#
+ngc4496a   vhel_kms   1720.5
+ngc4496a   e_vhel      5.0
+ngc4496a   ref_vhel   LANGMEIDT19
+#
+ngc4535   incl_deg    40.7
+ngc4535   e_incl     5.0
+ngc4535   ref_incl   LANGMEIDT19
+#
+ngc4535   posang_deg   179.8
+ngc4535   e_posang     5.0
+ngc4535   ref_posang   LANGMEIDT19
+#
+ngc4535   vhel_kms   1949.3
+ngc4535   e_vhel      5.0
+ngc4535   ref_vhel   LANGMEIDT19
+#
+ngc4536   incl_deg    64.8
+ngc4536   e_incl     5.0
+ngc4536   ref_incl   LANGMEIDT19
+#
+ngc4536   posang_deg   307.0
+ngc4536   e_posang     5.0
+ngc4536   ref_posang   LANGMEIDT19
+#
+ngc4536   vhel_kms   1791.4
+ngc4536   e_vhel      5.0
+ngc4536   ref_vhel   LANGMEIDT19
+#
+ngc4540   incl_deg    31.6
+ngc4540   e_incl     5.0
+ngc4540   ref_incl   LANGMEIDT19
+#
+ngc4540   posang_deg    14.8
+ngc4540   e_posang     5.0
+ngc4540   ref_posang   LANGMEIDT19
+#
+ngc4540   vhel_kms   1282.3
+ngc4540   e_vhel      5.0
+ngc4540   ref_vhel   LANGMEIDT19
+#
+ngc4548   incl_deg    38.3
+ngc4548   e_incl     5.0
+ngc4548   ref_incl   LANGMEIDT19
+#
+ngc4548   posang_deg   149.2
+ngc4548   e_posang     5.0
+ngc4548   ref_posang   LANGMEIDT19
+#
+ngc4548   vhel_kms    477.9
+ngc4548   e_vhel      5.0
+ngc4548   ref_vhel   LANGMEIDT19
+#
+ngc4569   incl_deg    69.7
+ngc4569   e_incl     5.0
+ngc4569   ref_incl   LANGMEIDT19
+#
+ngc4569   posang_deg    21.1
+ngc4569   e_posang     5.0
+ngc4569   ref_posang   LANGMEIDT19
+#
+ngc4569   vhel_kms   -232.7
+ngc4569   e_vhel      5.0
+ngc4569   ref_vhel   LANGMEIDT19
+#
+ngc4571   incl_deg    31.8
+ngc4571   e_incl     5.0
+ngc4571   ref_incl   LANGMEIDT19
+#
+ngc4571   posang_deg   217.7
+ngc4571   e_posang     5.0
+ngc4571   ref_posang   LANGMEIDT19
+#
+ngc4571   vhel_kms    338.4
+ngc4571   e_vhel      5.0
+ngc4571   ref_vhel   LANGMEIDT19
+#
+ngc4579   incl_deg    40.1
+ngc4579   e_incl     5.0
+ngc4579   ref_incl   LANGMEIDT19
+#
+ngc4579   posang_deg    91.8
+ngc4579   e_posang     5.0
+ngc4579   ref_posang   LANGMEIDT19
+#
+ngc4579   vhel_kms   1512.0
+ngc4579   e_vhel      5.0
+ngc4579   ref_vhel   LANGMEIDT19
+#
+ngc4654   incl_deg    54.0
+ngc4654   e_incl     5.0
+ngc4654   ref_incl   LANGMEIDT19
+#
+ngc4654   posang_deg   123.7
+ngc4654   e_posang     5.0
+ngc4654   ref_posang   LANGMEIDT19
+#
+ngc4654   vhel_kms   1046.2
+ngc4654   e_vhel      5.0
+ngc4654   ref_vhel   LANGMEIDT19
+#
+ngc4689   incl_deg    38.1
+ngc4689   e_incl     5.0
+ngc4689   ref_incl   LANGMEIDT19
+#
+ngc4689   posang_deg   164.1
+ngc4689   e_posang     5.0
+ngc4689   ref_posang   LANGMEIDT19
+#
+ngc4689   vhel_kms   1608.9
+ngc4689   e_vhel      5.0
+ngc4689   ref_vhel   LANGMEIDT19
+#
+ngc4694   incl_deg    60.7
+ngc4694   e_incl     5.0
+ngc4694   ref_incl   LANGMEIDT19
+#
+ngc4694   posang_deg     0.3
+ngc4694   e_posang     5.0
+ngc4694   ref_posang   LANGMEIDT19
+#
+ngc4694   vhel_kms   1163.2
+ngc4694   e_vhel      5.0
+ngc4694   ref_vhel   LANGMEIDT19
+#
+ngc4731   incl_deg    64.0
+ngc4731   e_incl     5.0
+ngc4731   ref_incl   LANGMEIDT19
+#
+ngc4731   posang_deg   262.2
+ngc4731   e_posang     5.0
+ngc4731   ref_posang   LANGMEIDT19
+#
+ngc4731   vhel_kms   1481.2
+ngc4731   e_vhel      5.0
+ngc4731   ref_vhel   LANGMEIDT19
+#
+ngc4781   incl_deg    56.8
+ngc4781   e_incl     5.0
+ngc4781   ref_incl   LANGMEIDT19
+#
+ngc4781   posang_deg   286.8
+ngc4781   e_posang     5.0
+ngc4781   ref_posang   LANGMEIDT19
+#
+ngc4781   vhel_kms   1246.0
+ngc4781   e_vhel      5.0
+ngc4781   ref_vhel   LANGMEIDT19
+#
+ngc4826   incl_deg    61.1
+ngc4826   e_incl     5.0
+ngc4826   ref_incl   LANGMEIDT19
+#
+ngc4826   posang_deg   294.3
+ngc4826   e_posang     5.0
+ngc4826   ref_posang   LANGMEIDT19
+#
+ngc4826   vhel_kms    403.5
+ngc4826   e_vhel      5.0
+ngc4826   ref_vhel   LANGMEIDT19
+#
+ngc4941   incl_deg    49.7
+ngc4941   e_incl     5.0
+ngc4941   ref_incl   LANGMEIDT19
+#
+ngc4941   posang_deg   202.4
+ngc4941   e_posang     5.0
+ngc4941   ref_posang   LANGMEIDT19
+#
+ngc4941   vhel_kms   1112.0
+ngc4941   e_vhel      5.0
+ngc4941   ref_vhel   LANGMEIDT19
+#
+ngc4951   incl_deg    65.0
+ngc4951   e_incl     5.0
+ngc4951   ref_incl   LANGMEIDT19
+#
+ngc4951   posang_deg    91.2
+ngc4951   e_posang     5.0
+ngc4951   ref_posang   LANGMEIDT19
+#
+ngc4951   vhel_kms   1171.4
+ngc4951   e_vhel      5.0
+ngc4951   ref_vhel   LANGMEIDT19
+#
+ngc5042   incl_deg    49.6
+ngc5042   e_incl     5.0
+ngc5042   ref_incl   LANGMEIDT19
+#
+ngc5042   posang_deg   189.6
+ngc5042   e_posang     5.0
+ngc5042   ref_posang   LANGMEIDT19
+#
+ngc5042   vhel_kms   1385.9
+ngc5042   e_vhel      5.0
+ngc5042   ref_vhel   LANGMEIDT19
+#
+ngc5068   incl_deg    27.0
+ngc5068   e_incl     5.0
+ngc5068   ref_incl   LANGMEIDT19
+#
+ngc5068   posang_deg   300.1
+ngc5068   e_posang     5.0
+ngc5068   ref_posang   LANGMEIDT19
+#
+ngc5068   vhel_kms    665.6
+ngc5068   e_vhel      5.0
+ngc5068   ref_vhel   LANGMEIDT19
+#
+ngc5128   incl_deg    68.9
+ngc5128   e_incl     5.0
+ngc5128   ref_incl   LANGMEIDT19
+#
+ngc5128   posang_deg   303.1
+ngc5128   e_posang     5.0
+ngc5128   ref_posang   LANGMEIDT19
+#
+ngc5128   vhel_kms    574.2
+ngc5128   e_vhel      5.0
+ngc5128   ref_vhel   LANGMEIDT19
+#
+ngc5134   incl_deg    25.9
+ngc5134   e_incl     5.0
+ngc5134   ref_incl   LANGMEIDT19
+#
+ngc5134   posang_deg   315.3
+ngc5134   e_posang     5.0
+ngc5134   ref_posang   LANGMEIDT19
+#
+ngc5134   vhel_kms   1746.9
+ngc5134   e_vhel      5.0
+ngc5134   ref_vhel   LANGMEIDT19
+#
+ngc5248   incl_deg    48.2
+ngc5248   e_incl     5.0
+ngc5248   ref_incl   LANGMEIDT19
+#
+ngc5248   posang_deg   105.5
+ngc5248   e_posang     5.0
+ngc5248   ref_posang   LANGMEIDT19
+#
+ngc5248   vhel_kms   1154.5
+ngc5248   e_vhel      5.0
+ngc5248   ref_vhel   LANGMEIDT19
+#
+ngc5530   incl_deg    61.6
+ngc5530   e_incl     5.0
+ngc5530   ref_incl   LANGMEIDT19
+#
+ngc5530   posang_deg   305.5
+ngc5530   e_posang     5.0
+ngc5530   ref_posang   LANGMEIDT19
+#
+ngc5530   vhel_kms   1183.1
+ngc5530   e_vhel      5.0
+ngc5530   ref_vhel   LANGMEIDT19
+#
+ngc5643   incl_deg    29.9
+ngc5643   e_incl     5.0
+ngc5643   ref_incl   LANGMEIDT19
+#
+ngc5643   posang_deg   267.6
+ngc5643   e_posang     5.0
+ngc5643   ref_posang   LANGMEIDT19
+#
+ngc5643   vhel_kms   1190.7
+ngc5643   e_vhel      5.0
+ngc5643   ref_vhel   LANGMEIDT19
+#
+ngc6300   incl_deg    50.2
+ngc6300   e_incl     5.0
+ngc6300   ref_incl   LANGMEIDT19
+#
+ngc6300   posang_deg   105.1
+ngc6300   e_posang     5.0
+ngc6300   ref_posang   LANGMEIDT19
+#
+ngc6300   vhel_kms   1103.3
+ngc6300   e_vhel      5.0
+ngc6300   ref_vhel   LANGMEIDT19
+#
+ngc6744   incl_deg    53.0
+ngc6744   e_incl     5.0
+ngc6744   ref_incl   LANGMEIDT19
+#
+ngc6744   posang_deg    14.0
+ngc6744   e_posang     5.0
+ngc6744   ref_posang   LANGMEIDT19
+#
+ngc6744   vhel_kms    833.7
+ngc6744   e_vhel      5.0
+ngc6744   ref_vhel   LANGMEIDT19
+#
+ngc7456   incl_deg    75.2
+ngc7456   e_incl     5.0
+ngc7456   ref_incl   LANGMEIDT19
+#
+ngc7456   posang_deg    22.9
+ngc7456   e_posang     5.0
+ngc7456   ref_posang   LANGMEIDT19
+#
+ngc7456   vhel_kms   1198.0
+ngc7456   e_vhel      5.0
+ngc7456   ref_vhel   LANGMEIDT19
+#
+ngc7496   incl_deg     9.1
+ngc7496   e_incl     5.0
+ngc7496   ref_incl   LANGMEIDT19
+#
+ngc7496   posang_deg   213.2
+ngc7496   e_posang     5.0
+ngc7496   ref_posang   LANGMEIDT19
+#
+ngc7496   vhel_kms   1643.2
+ngc7496   e_vhel      5.0
+ngc7496   ref_vhel   LANGMEIDT19

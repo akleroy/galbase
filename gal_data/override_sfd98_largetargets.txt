@@ -1,0 +1,7 @@
+# Override SFD98 values for big targets
+#
+# Column 1: galaxy
+# Column 2: field
+# Column 3: value
+#
+NGC0224		av_sdf98	0.268

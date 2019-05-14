@@ -1,0 +1,125 @@
+#
+# Column 1: galaxy
+# Column 2: field
+# Column 3: value
+#
+NGC0628		dist_mpc	9.77
+NGC0628		e_dist_dex	0.035
+NGC0628		dist_code	1
+NGC0628		ref_dist	MCQUINN17
+#
+NGC1291		dist_mpc	9.08
+NGC1291		e_dist_dex	0.035
+NGC1291		dist_code	1
+NGC1291		ref_dist	MCQUINN17
+#
+NGC4455		dist_mpc	6.61
+NGC4455		e_dist_dex	0.035
+NGC4455		dist_code	1
+NGC4455		ref_dist	KARACHENTSEV18
+#
+NGC4559		dist_mpc	8.91
+NGC4559		e_dist_dex	0.035
+NGC4559		dist_code	1
+NGC4559		ref_dist	MCQUINN17
+#
+NGC4594		dist_mpc	9.55
+NGC4594		e_dist_dex	0.035
+NGC4594		dist_code	1
+NGC4594		ref_dist	MCQUINN17
+#
+NGC4618		dist_mpc	7.66
+NGC4618		e_dist_dex	0.035
+NGC4618		dist_code	1
+NGC4618		ref_dist	KARACHENTSEV18
+#
+NGC4656		dist_mpc	7.96
+NGC4656		e_dist_dex	0.035
+NGC4656		dist_code	1
+NGC4656		ref_dist	KARACHENTSEV18
+#
+NGC4625		dist_mpc	11.75
+NGC4625		e_dist_dex	0.035
+NGC4625		dist_code	1
+NGC4625		ref_dist	MCQUINN17
+#
+NGC5055		dist_mpc	8.87
+NGC5055		e_dist_dex	0.035
+NGC5055		dist_code	1
+NGC5055		ref_dist	MCQUINN17
+#
+NGC5068		dist_mpc	5.16
+NGC5068		e_dist_dex	0.035
+NGC5068		dist_code	1
+NGC5068		ref_dist	KARACHENTSEV18
+#
+NGC5194		dist_mpc	8.58
+NGC5194		e_dist_dex	0.035
+NGC5194		dist_code	1
+NGC5194		ref_dist	MCQUINN17
+#
+NGC5195		dist_mpc	8.58
+NGC5195		e_dist_dex	0.035
+NGC5195		dist_code	1
+NGC5195		ref_dist	MCQUINN17
+#
+NGC5398		dist_mpc	11.64
+NGC5398		e_dist_dex	0.035
+NGC5398		dist_code	1
+NGC5398		ref_dist	MCQUINN17
+#
+DDO161		dist_mpc	6.03
+DDO161		e_dist_dex	0.035
+DDO161		dist_code	1
+DDO161		ref_dist	KARACHENTSEV18
+#
+IC3840		dist_mpc	5.99
+IC3840		e_dist_dex	0.035
+IC3840		dist_code	1
+IC3840		ref_dist	KARACHENTSEV18
+#
+NGC6946		dist_mpc	7.72
+NGC6946		e_dist_dex	0.035
+NGC6946		dist_code	1
+NGC6946		ref_dist	ANAND18
+#
+# ------------------------------
+# Added during revision May 2019
+# ------------------------------
+#
+NGC1365		dist_mpc	18.1
+NGC1365		e_dist_dex	0.035
+NGC1365		dist_code	1
+NGC1365		ref_dist	JANG18
+#
+NGC1559		dist_mpc	19.8
+NGC1559		e_dist_dex	0.125
+NGC1559		dist_code	3
+NGC1559		ref_dist	TAKATS15
+#
+# Comment: these are TRGB but differ from Tully TRGB.
+#
+NGC3368		dist_mpc	10.72
+NGC3368		e_dist_dex	0.035
+NGC3368		dist_code	1
+NGC3368		ref_dist	LEE13
+#
+NGC3627		dist_mpc	10.57
+NGC3627		e_dist_dex	0.035
+NGC3627		dist_code	1
+NGC3627		ref_dist	LEE13
+#
+NGC4424		dist_mpc	16.4
+NGC4424		e_dist_dex	0.06
+NGC4424		dist_code	2
+NGC4424		ref_dist	RIESS16
+#
+NGC4536		dist_mpc	15.2
+NGC4536		e_dist_dex	0.06
+NGC4536		dist_code	2
+NGC4536		ref_dist	RIESS16
+#
+IC5332		dist_mpc	4.5
+IC5332		e_dist_dex	0.125
+IC5332		dist_code	3
+IC5332		ref_dist	KRECKELINPREP

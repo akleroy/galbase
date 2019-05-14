@@ -205,6 +205,11 @@ pro make_gal_base $
 
   override_files = file_search("gal_data/override_*.txt", count=ct)
 
+; ADD A FEW HIGH PRIORITY OVERRIDE FILES TO THE END OF THE AUTOMATIC
+; LIST. THESE WILL RUN TWICE, BUT THEY WILL ALSO BE SURE TO OVERWRITE
+; ANY EARLIER CASES.
+  override_files = [override_files, 'gal_data/override_phangs_orient.txt']
+
 ; BUILD THE INFRASTRUCTURE TO LOOK UP TAG NAMES
   data_tags = tag_names(this_data)
 
