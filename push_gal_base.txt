@@ -1,0 +1,5 @@
+scp gal_data/gal_base.fits cassini:~/WWW/.
+scp gal_data/gal_base_local.fits cassini:~/WWW/.
+scp gal_data/superset_alias.idl cassini:~/WWW/.
+scp gal_data/superset_alias.txt cassini:~/WWW/.
+scp gal_data/superset_alias.pkl cassini:~/WWW/.
