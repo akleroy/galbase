@@ -119,7 +119,3 @@ NGC4536		e_dist_dex	0.06
 NGC4536		dist_code	2
 NGC4536		ref_dist	RIESS16
 #
-IC5332		dist_mpc	4.5
-IC5332		e_dist_dex	0.125
-IC5332		dist_code	3
-IC5332		ref_dist	KRECKELINPREP
