@@ -2,8 +2,33 @@
 Nearby Galaxies Database
 ------------------------
 
-A code base to provide infrastructure for working with ISM, structure,
-and star formation in nearby galaxies.
+A database to provide infrastructure for working with ISM, structure,
+and star formation in nearby galaxies. 
+
+You are welcome to use this, but should always cite the original
+papers (LEDA, EDD, CosmicFlows, etc.). If you are here specifically
+for PHANGS stuff, you might prefer to use the PHANGS sample table,
+which is built using these codes but is less complicated.
+
+################################################################
+HOW TO SET THINGS UP
+################################################################
+
+1) Fetch the data files from the web.
+
+Look in the file 'fetch_galbase.py' - this has calls to go get the key
+data files from the web. Run this, modify your version of the lookup
+functions and just use the thing. This is the best option. The
+downside is that you can't modify the contents of the database so
+easily.
+
+2) Building the whole thing.
+
+The 'master_script' file lists the steps to reconstruct the whole
+database. This is not recommended. I'm not sure whether this has been
+successfully run by anyone but me (AKL), and I have not mapped out the
+dependencies. That said, it runs fine for me and isn't super
+complicated, so it SHOULD work.
 
 ################################################################
 HOW TO ACCESS THE DATABASE
@@ -26,7 +51,7 @@ IN PYTHON
 FITS record read using astropy.
 
 ################################################################
-HOW TO ADD NEW INFORMATION FOR INDIVIDUAL SYSTEMS
+HOW TO CONTRIBUTE NEW INFORMATION FOR INDIVIDUAL SYSTEMS
 ################################################################
 
 We use a system of "override" tables to change the values for any
@@ -41,37 +66,8 @@ the database (make_gal_base), so you need to rerun that to fold these
 in. But you don't need to do anything more upstream than that.
 
 ################################################################
-HOW TO REBUILD THE DATABASE
+HISTORY
 ################################################################
-
-The core of the database mostly reskins LEDA with organization and
-value added, particularly NED distances and user-supplied
-overrides. This is evolving with time, with a main goal being SFR,
-Mstar, and structural parameters. Right now the process of creating
-the database runs in IDL and is summarized in
-
-master_script
-
-At a high level the process goes like this:
-
-- [Optional] Compile the list of surveys that we are interested in.
-
-- Build LEDA SQL queries, feed these in to hyperleda, and make text
-  files. To do this, go to http://leda.univ-lyon1.fr/leda/fullsql.html
-  . Choose | as a delimiter and NaN as the undefined string.
-
-- Compile the LEDA text files into FITS files.
-
-- Run the NED query to make sure that we have a distance from NED for
-  each target.
-
-- Run the galaxy database constructor (make_gal_base) to put
-  everything together. 
-
-- Re-run this constructor to incorporate the latest override values as
-  needed.
-
-+++ HISTORY
 
 - Started as "things_galaxies" c. 2008
 
@@ -82,3 +78,9 @@ At a high level the process goes like this:
 - Python accessor, refactor, upgrades 2016.
 
 - Issues and history now captured in github, this section closed.
+
+- 2018-2019. Large refactor. Automated LEDA call and expanded to all z
+  < 0.3 galaxies for master sample. Override tables and survey
+  membership now focused on supporting PHANGS. Some physical parameter
+  estimation stuff added that should not necessarily be in
+  here. Shifted things so that data files live on the web.
