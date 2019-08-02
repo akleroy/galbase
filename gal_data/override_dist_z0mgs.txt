@@ -1,0 +1,14 @@
+#
+# Column 1: galaxy
+# Column 2: field
+# Column 3: value
+#
+UGC03766	dist_mpc	74.88
+UGC03766	e_dist_dex	0.03
+UGC03766	dist_code	4
+UGC03766	ref_dist	NEDLOOKUP
+#
+IC3355		dist_mpc	7.25
+IC3355		e_dist_dex	0.3
+IC3355		dist_code	4
+IC3555		ref_dist	NEDLOOKUP
