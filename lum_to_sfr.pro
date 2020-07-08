@@ -48,7 +48,7 @@ function lum_to_sfr $
 
   if band eq 'WISE3' then begin     
      if cal eq 'J13'then coef = 4.91d-10*1./3.839d33 ; -42.9
-     if cal eq 'Z19' then coef = 10.d^(-42.67)
+     if cal eq 'Z19' then coef = 10.d^(-42.70)
   endif
 
   if band eq 'WISE3+NUV' then begin
@@ -62,17 +62,17 @@ function lum_to_sfr $
   if band eq 'WISE4' then begin
      if cal eq 'KE12' then coef = 10.^(-1.*42.69d)*22./24.
      if cal eq 'J13' then coef = 7.50d-10*1./3.839d33 ; -42.7
-     if cal eq 'Z19' then coef = 10.d^(-42.55)
+     if cal eq 'Z19' then coef = 10.d^(-42.63)
   endif
 
   if band eq 'WISE4+NUV' then begin
      if cal eq 'KE12' then coef = 10.d^(-42.81)*22./25.
-     if cal eq 'Z19' then coef = 10.d^(-42.75)
+     if cal eq 'Z19' then coef = 10.d^(-42.79)
   endif
 
   if band eq 'WISE4+FUV' then begin
      if cal eq 'KE12' then coef = 10.d^(-42.76)*22./25.
-     if cal eq 'Z19' then coef = 10.d^(-42.68)
+     if cal eq 'Z19' then coef = 10.d^(-42.73)
   endif
 
   if finite(coef) eq 0 then begin

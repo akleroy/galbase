@@ -1,97 +1,199 @@
 pro build_phangs_overrides
 
 ;
-; Translate the Lang & Meidt orientations into an override file.
+; Translate the official PHANGS orientations into an override file.
 ;
 
-  infile = 'gal_data/LangMeidt_orientations_April16.txt'
-  outfile = 'gal_data/override_phangs_orient.txt'
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; READ THE SAMPLE TABLE
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
-  readcol, infile $
-           , comment='#', format='A,I,F,F,F,F,F' $
-           , lm_gal, lm_code $
-           , lm_incl, lm_posang, lm_vlsrk, lm_ra, lm_dec
-  n_lm = n_elements(lm_gal)
-  
-  lm_e_incl = 5.0+0.0*lm_incl
-  lm_e_posang = 5.0+0.0*lm_posang
+  infile = '~/projects/phangs_sample/export/phangs_sample_table_v1p5.fits'
+  tab = mrdfits(infile, 1, tab_hdr)
+  n_tab = n_elements(tab)
 
-  gals = gal_data(lm_gal)
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; PRINT THE CENTERS
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 
-  helio2lsr, lm_vhel_kms, lm_vlsrk $
-             , ra = gals.ra_deg, dec = gals.dec_deg $
-             , /reverse
-  lm_e_vhel = 5.0+lm_vhel_kms*0.0
+  outfile = 'gal_data/override_phangs_centers.txt'
 
   get_lun, lun
   openw, lun, outfile
 
-  printf, lun, '# This is a procedurally generated file. Editing not recommended.'
+  printf, lun, '# This is a procedurally generated file.'
+  printf, lun, '# Editing not recommended.'
   printf, lun, '# Column 1: galaxy'
   printf, lun, '# Column 2: field'
   printf, lun, '# Column 3: value'
 
-  for ii = 0, n_lm-1 do begin
-     
+  for ii = 0, n_tab-1 do begin
+
      printf, lun, '#'
 
      line = ''
-     line += lm_gal[ii]+'   '
+     line += strcompress(tab[ii].name,/rem)+'   '
+     line += 'ra_deg'+'   '
+     line += string(tab[ii].orient_ra, format='(F11.6)')
+     printf, lun, line
+
+     printf, lun, '#'
+
+     line = ''
+     line += strcompress(tab[ii].name,/rem)+'   '
+     line += 'dec_deg'+'   '
+     line += string(tab[ii].orient_dec, format='(F11.6)')
+     printf, lun, line
+
+  endfor
+
+  close, lun
+
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; NOW PRINT THE ORIENTATIONS
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+  outfile = 'gal_data/override_phangs_orient.txt'
+
+  helio2lsr, vhel_kms, tab.orient_vlsr $
+             , ra = tab.orient_ra $
+             , dec = tab.orient_dec $
+             , /reverse
+
+  get_lun, lun
+  openw, lun, outfile
+
+  printf, lun, '# This is a procedurally generated file.'
+  printf, lun, '# Editing not recommended.'
+  printf, lun, '# Column 1: galaxy'
+  printf, lun, '# Column 2: field'
+  printf, lun, '# Column 3: value'
+
+  for ii = 0, n_tab-1 do begin
+
+     printf, lun, '#'
+
+     line = ''
+     line += strcompress(tab[ii].name,/rem)+'   '
      line += 'incl_deg'+'   '
-     line += string(lm_incl[ii], format='(F5.1)')
+     line += string(tab[ii].orient_incl, format='(F5.1)')
      printf, lun, line
 
      line = ''
-     line += lm_gal[ii]+'   '
+     line += strcompress(tab[ii].name,/rem)+'   '
      line += 'e_incl'+'   '
-     line += string(lm_e_incl[ii], format='(F5.1)')
+     line += string(tab[ii].orient_incl_unc, format='(F5.1)')
      printf, lun, line
 
      line = ''
-     line += lm_gal[ii]+'   '
+     line += strcompress(tab[ii].name,/rem)+'   '
      line += 'ref_incl'+'   '
-     line += 'LANGMEIDT19'
+     line += tab[ii].orient_ref
      printf, lun, line
 
      printf, lun, '#'
 
      line = ''
-     line += lm_gal[ii]+'   '
+     line += strcompress(tab[ii].name,/rem)+'   '
      line += 'posang_deg'+'   '
-     line += string(lm_posang[ii], format='(F5.1)')
+     line += string(tab[ii].orient_posang, format='(F5.1)')
      printf, lun, line
 
      line = ''
-     line += lm_gal[ii]+'   '
+     line += strcompress(tab[ii].name,/rem)+'   '
      line += 'e_posang'+'   '
-     line += string(lm_e_posang[ii], format='(F5.1)')
+     line += string(tab[ii].orient_posang_unc, format='(F5.1)')
      printf, lun, line
 
      line = ''
-     line += lm_gal[ii]+'   '
+     line += strcompress(tab[ii].name,/rem)+'   '
      line += 'ref_posang'+'   '
-     line += 'LANGMEIDT19'
+     line += tab[ii].orient_ref
      printf, lun, line
 
      printf, lun, '#'
 
      line = ''
-     line += lm_gal[ii]+'   '
+     line += strcompress(tab[ii].name,/rem)+'   '
      line += 'vhel_kms'+'   '
-     line += string(lm_vhel_kms[ii], format='(F6.1)')
+     line += string(vhel_kms[ii], format='(F6.1)')
      printf, lun, line
 
      line = ''
-     line += lm_gal[ii]+'   '
+     line += strcompress(tab[ii].name,/rem)+'   '
      line += 'e_vhel'+'   '
-     line += string(lm_e_vhel[ii], format='(F6.1)')
+     line += string(tab[ii].orient_vlsr_unc, format='(F6.1)')
      printf, lun, line
 
      line = ''
-     line += lm_gal[ii]+'   '
+     line += strcompress(tab[ii].name,/rem)+'   '
      line += 'ref_vhel'+'   '
-     line += 'LANGMEIDT19'
+     line += tab[ii].orient_vlsr_ref
      printf, lun, line
+
+  endfor
+
+  close, lun
+  
+  spawn, 'cat '+outfile
+
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; PRINT THE DISTANCES
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+  outfile = 'gal_data/override_phangs_dist.txt'
+
+  get_lun, lun
+  openw, lun, outfile
+
+  printf, lun, '# This is a procedurally generated file.'
+  printf, lun, '# Editing not recommended.'
+  printf, lun, '# Column 1: galaxy'
+  printf, lun, '# Column 2: field'
+  printf, lun, '# Column 3: value'
+
+  for ii = 0, n_tab-1 do begin
+
+     printf, lun, '#'
+
+     line = ''
+     line += strcompress(tab[ii].name,/rem)+'   '
+     line += 'dist_mpc'+'   '
+     line += string(tab[ii].dist, format='(F6.2)')
+     printf, lun, line
+
+     line = ''
+     line += strcompress(tab[ii].name,/rem)+'   '
+     line += 'e_dist_dex'+'   '
+     line += string(tab[ii].dist_unc, format='(F5.3)')
+     printf, lun, line
+
+     line = ''
+     line += strcompress(tab[ii].name,/rem)+'   '
+     line += 'dist_code'+'   '
+     this_dist_code = '4'
+     if strcompress(tab[ii].dist_label,/rem) eq 'TRGB' then $
+        this_dist_code = '1'
+     if strcompress(tab[ii].dist_label,/rem) eq 'Cepheid' then $
+        this_dist_code = '2'
+     if strcompress(tab[ii].dist_label,/rem) eq 'SBF' then $
+        this_dist_code = '2'
+     if strcompress(tab[ii].dist_label,/rem) eq 'TF' then $
+        this_dist_code = '3'
+     if strcompress(tab[ii].dist_label,/rem) eq 'Group' then $
+        this_dist_code = '3'
+     if tab[ii].dist_label eq 'TRGB' then $
+        this_dist_code = '1'
+     line += this_dist_code
+     printf, lun, line
+
+     line = ''
+     line += strcompress(tab[ii].name,/rem)+'   '
+     line += 'ref_dist'+'   '
+     line += tab[ii].dist_ref
+     printf, lun, line
+
+     printf, lun, '#'
 
   endfor
 
