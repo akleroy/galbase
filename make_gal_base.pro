@@ -21,6 +21,10 @@ pro make_gal_base $
 
   dist_base = mrdfits(data_dir + 'dist_base.fits', 1, hdr)
 
+  s4g_fname = data_dir+'s4g_ipac_table.txt'
+  s4g_tab = read_ipac_table(s4g_fname, /debug)
+  s4g_pgc = get_pgc(s4g_tab.object)
+
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; INITIALIZE THE DATABASE
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
@@ -101,6 +105,59 @@ pro make_gal_base $
 
   this_data.kt = leda.kt
   this_data.e_kt = leda.e_kt
+
+
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+; OVERRIDE LEDA POSITION ANGLES WITH S4G WHEN AVAILABLE
+; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
+
+  print, ""
+  print, "... overriding LEDA position angles and inclinations with S4G when available."
+  print, ""
+
+  s4g_logr25 = alog10(1.0/(1.0-s4g_tab.ellip1_25p5))
+  
+  n_s4g = n_elements(s4g_pgc)
+  a = !values.f_nan*this_data.incl_deg
+  b = a
+  for ii = 0L, n_s4g-1 do begin
+     counter, ii, n_s4g, 'S4G gals'
+
+     this_s4g_pgc = s4g_pgc[ii]
+     this_ind = where(this_s4g_pgc eq this_data.pgc, this_ct)
+     if this_ct eq 0 then continue
+
+     this_s4g_pa = s4g_tab.pa1_25p5[ii]
+
+; Method follows HyperLEDA
+     num = 1.0-10.^(-2.0*s4g_logr25[ii])
+     
+     t_for_logr0 = this_data[this_ind].t
+     low_ind = where(t_for_logr0 lt -5, low_ct)
+     if low_ct gt 0 then $
+        t_for_logr0[low_ind] = -5.0
+     nan_ind = where(finite(t_for_logr0) eq 0, nan_ct) 
+     if nan_ct gt 0 then $
+        t_for_logr0[nan_ind] = 6.0
+     logr0 = 0.43 + 0.053*t_for_logr0
+     high_ind = where(t_for_logr0 gt 7, high_ct) 
+     if high_ct gt 0 then $
+        logr0[high_ind] = 0.38
+     
+     denom = 1.0-10.^(-2.0*logr0)
+
+     this_s4g_incl = (asin(sqrt(num/denom)))/!dtor
+
+     ;this_s4g_incl = s4g_incl[ii]
+     this_data[this_ind].posang_deg = this_s4g_pa
+     this_data[this_ind].ref_posang = 'S4GIPAC'
+
+     a[this_ind] = this_data[this_ind].incl_deg
+     this_data[this_ind].incl_deg = this_s4g_incl
+     b[this_ind] = this_s4g_incl
+  endfor
+
+;  stop
 
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; TAG SURVEY MEMBERSHIP
@@ -320,6 +377,9 @@ pro make_gal_base $
 
   this_data.logmhi = $
      alog10(10.^((leda.m21 - 17.4)/(-1.*2.5))*(2.36d5*this_data.dist_mpc^2))
+
+  this_data.e_logmhi = $
+     leda.e_m21/2.5
       
 ; &%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%&%
 ; REMOVE DUPLICATIONS BASED ON PGC NUMBER AND SORT

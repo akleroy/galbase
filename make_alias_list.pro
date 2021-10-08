@@ -50,7 +50,7 @@ pro make_alias_list $
      
 ;    STRIP LEADING ZEROS FROM NGC, UGC, PGC, AND IC ENTRIES AND ADD THIS AS AN ALIAS
 
-     for kk = 0, n_names-1 do begin
+     for kk = 0L, n_names-1 do begin
 
         this_name = this_name_list[kk]
         if (strpos(this_name, "NGC") eq 0) or $
@@ -64,7 +64,7 @@ pro make_alias_list $
            leading_digit = 1B
            was_zero = 0B
            
-           for zz = 0, strlen(this_name)-1 do begin
+           for zz = 0L, strlen(this_name)-1 do begin
               token = strmid(this_name,zz,1)
               if total(token eq digit) eq 1 then begin
                  if leading_digit and token eq '0' then begin
@@ -92,7 +92,7 @@ pro make_alias_list $
      this_name_list = strsplit(this_alias_list, ';', /extract)
      n_names = n_elements(this_name_list)
      
-     for kk = 0, n_names-1 do begin
+     for kk = 0L, n_names-1 do begin
 
         this_name = this_name_list[kk]        
         if (strpos(strupcase(this_name), "MESSIER") eq 0) $

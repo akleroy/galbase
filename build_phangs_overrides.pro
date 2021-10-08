@@ -154,6 +154,9 @@ pro build_phangs_overrides
 
   for ii = 0, n_tab-1 do begin
 
+     if finite(tab[ii].dist) eq 0 then $
+        continue
+
      printf, lun, '#'
 
      line = ''
