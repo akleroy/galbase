@@ -6,7 +6,7 @@ pro print_unwise_cutout_call $
    , dec_deg = dec_deg $
    , size_deg = size_deg $
    , outfile = outfile $
-   , min_size = min_size
+   , min_size_in_pix = min_size_in_pix
 
 ;+
 ;
@@ -25,8 +25,8 @@ pro print_unwise_cutout_call $
 ; Set the minimum size of a requested cutout in pixels. Defaults to
 ; 655 2.75" pixels. OK to leave unset.
 
-  if n_elements(min_size) eq 0 then $
-     min_size = 655
+  if n_elements(min_size_in_pix) eq 0 then $
+     min_size_in_pix = 655
 
 ; Read a file if supplied. This is given priority.
 
@@ -70,7 +70,9 @@ pro print_unwise_cutout_call $
      dec_str = str(dec_deg[ii])
      
      size_in_pix = size_deg[ii]/(pix_scale/3600.)
-     size_str = str(long(round(size_in_pix)))
+     if size_in_pix lt min_size_in_pix then $
+        size_in_pix = min_size_in_pix
+     size_str = str(long(round(size_in_pix)))   
      
   endfor
 
