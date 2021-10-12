@@ -66,13 +66,13 @@ pro print_unwise_cutout_call $
 
   for ii = 0, n_gal-1 do begin
      
-     ra_str = str(ra_deg[ii])     
-     dec_str = str(dec_deg[ii])
+     ra_str[ii] = str(ra_deg[ii])     
+     dec_str[ii] = str(dec_deg[ii])
      
      size_in_pix = size_deg[ii]/(pix_scale/3600.)
      if size_in_pix lt min_size_in_pix then $
         size_in_pix = min_size_in_pix
-     size_str = str(long(round(size_in_pix)))   
+     size_str[ii] = str(long(round(size_in_pix)))
      
   endfor
 
