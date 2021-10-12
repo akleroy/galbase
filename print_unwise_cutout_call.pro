@@ -30,8 +30,8 @@ pro print_unwise_cutout_call $
 
 ; Read a file if supplied. This is given priority.
 
-  if n_elements(infile) eq 0 then begin
-     readcol, infile, comments='#', delimiter=',' $
+  if n_elements(infile) eq 1 then begin
+     readcol, infile, comment='#', delimiter=',' $
               , format='A,A,F,F,F' $
               , galname, outdir, ra_deg, dec_deg, size_deg
   endif
