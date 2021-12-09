@@ -1,41 +1,16 @@
-# Targets of interest but not necessarily in a key survey (yet)
-# NOEMA
-IC342
-# M31 - CARMA, IRAM, other
-NGC224
-# M33 - IRAM, other
-NGC598
-# Classic EDGE on - lowest priority here
-NGC891
-# ALMA archive + proposal target
+NGC7793
+NGC0253
+NGC0300
+CIRCINUS
+NGC3489
+NGC3599
+NGC4459
+NGC4476
+NGC4477
+NGC4596
+NGC7743
+NGC0247
+NGC4945
+NGC1313
 NGC1068
-# Mild selection miss + good HST
-NGC1291
-# Nearby northern (not impossible ALMA) inclined target - low priority
-NGC2683
-# M81 - very north, very nearby but gas poor bulge
-NGC3031
-# EMPIRE target, good NOEMA target
-NGC3184
-# Modest selection miss + good ALMA target
-NGC3344
-# Bad selection miss + proposal target
-NGC3368
-# Inclined, northern, close-ish. Lower priority.
-NGC3556
-# Good NOEMA target - lower priority than the rest here
-NGC4258
-# Edge on with ALMA data (though not part of PHANGS)
-NGC4565
-# good NOEMA target - lower priority than the rest here
-NGC4736
-# EMPIRE target, good NOEMA target
-NGC5055
-# PAWS + SMA + everything
-NGC5194
-# ALMA archive
-NGC5236
-# M101 good NOEMA target - lower priority than the rest here
-NGC5457
-# EMPIRE + great CARMA
-NGC6946
+#NGC5236

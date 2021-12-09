@@ -1,0 +1,49 @@
+# Targets of interest but not necessarily in a our samples with notes
+#
+# Nearby, low priority, early-ish spiral
+NGC0278
+# Classic EDGE on - lowest priority here
+NGC891
+# ALMA archive + proposal target
+NGC1068
+# Mild selection miss + good HST
+NGC1291
+# Was allocated ALMA time. Proposed. Very nearby.
+NGC1313
+# Very nearby M81 group dwarf spiral - good NOEMA target
+NGC2403
+# Nearby northern (not impossible ALMA) inclined target - low priority
+NGC2683
+# M81 - very north, very nearby but gas poor bulge
+NGC3031
+# EMPIRE target, good NOEMA target
+NGC3184
+# Modest selection miss + good ALMA target
+NGC3344
+# Bad selection miss + proposal target
+NGC3368
+# M108 - Inclined, northern, close-ish. Lower priority.
+NGC3556
+# M065 - Inclined and distance uncertain but specs out as big and close.
+NGC3623
+# Low priority - potentially very close. Could drop from here.
+NGC3628
+# Good NOEMA target - lower priority than the rest here
+NGC4258
+# Sombrero - very early type, edge on. Still...
+NGC4594
+# Edge on with ALMA data (though not part of PHANGS)
+NGC4565
+# Edge on with IRAM data - lower interest unless we go that way
+NGC4631
+# good NOEMA target - lower priority than the rest here
+NGC4736
+# Proposed "big" target. Edge on but very nearby.
+NGC4945
+# EMPIRE target, good NOEMA target
+NGC5055
+# M101 good NOEMA target - lower priority than the rest here
+NGC5457
+# EMPIRE + great CARMA
+NGC6946
+
