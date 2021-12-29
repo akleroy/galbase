@@ -1,3 +1,4 @@
+# ARP entries are not in LEDA, they are mergers
 ARP090
 ARP094
 ARP116
@@ -8,6 +9,7 @@ ARP283
 ARP284
 IC0010
 IC0356
+# VV entry not in LEDA, is merger
 VV219
 MRK033
 NGC0150

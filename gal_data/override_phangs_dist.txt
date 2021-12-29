@@ -1,0 +1,713 @@
+# This is a procedurally generated file.
+# Editing not recommended.
+# Column 1: galaxy
+# Column 2: field
+# Column 3: value
+#
+eso097-013   dist_mpc     4.20
+eso097-013   e_dist_dex   0.073
+eso097-013   dist_code   3
+eso097-013   ref_dist   2004AJ....127.2031K
+#
+#
+ic0010   dist_mpc     0.79
+ic0010   e_dist_dex   0.027
+ic0010   dist_code   1
+ic0010   ref_dist   2009AJ....138..332J
+#
+#
+ic0342   dist_mpc     3.45
+ic0342   e_dist_dex   0.016
+ic0342   dist_code   1
+ic0342   ref_dist   2009AJ....138..332J
+#
+#
+ic1954   dist_mpc    12.80
+ic1954   e_dist_dex   0.068
+ic1954   dist_code   4
+ic1954   ref_dist   2016AJ....152...50T+2017ApJ...850..207S+2020AJ....159...67K
+#
+#
+ic1993   dist_mpc    18.09
+ic1993   e_dist_dex   0.061
+ic1993   dist_code   3
+ic1993   ref_dist   2017ApJ...843...16K
+#
+#
+ic5273   dist_mpc    14.18
+ic5273   e_dist_dex   0.061
+ic5273   dist_code   4
+ic5273   ref_dist   2017ApJ...850..207S+2020AJ....159...67K
+#
+#
+ic5332   dist_mpc     9.01
+ic5332   e_dist_dex   0.019
+ic5332   dist_code   1
+ic5332   ref_dist   PHANGSTRGB
+#
+#
+ngc0224   dist_mpc     0.82
+ngc0224   e_dist_dex   0.026
+ngc0224   dist_code   1
+ngc0224   ref_dist   2009AJ....138..332J
+#
+#
+ngc0247   dist_mpc     3.71
+ngc0247   e_dist_dex   0.015
+ngc0247   dist_code   1
+ngc0247   ref_dist   2009AJ....138..332J
+#
+#
+ngc0253   dist_mpc     3.70
+ngc0253   e_dist_dex   0.014
+ngc0253   dist_code   1
+ngc0253   ref_dist   2009AJ....138..332J
+#
+#
+ngc0278   dist_mpc    11.50
+ngc0278   e_dist_dex   0.061
+ngc0278   dist_code   4
+ngc0278   ref_dist   2017ApJ...850..207S+2020AJ....159...67K
+#
+#
+ngc0300   dist_mpc     2.09
+ngc0300   e_dist_dex   0.018
+ngc0300   dist_code   1
+ngc0300   ref_dist   2009AJ....138..332J
+#
+#
+ngc0598   dist_mpc     0.94
+ngc0598   e_dist_dex   0.018
+ngc0598   dist_code   1
+ngc0598   ref_dist   2009AJ....138..332J
+#
+#
+ngc0628   dist_mpc     9.84
+ngc0628   e_dist_dex   0.027
+ngc0628   dist_code   1
+ngc0628   ref_dist   2009AJ....138..332J
+#
+#
+ngc0685   dist_mpc    19.94
+ngc0685   e_dist_dex   0.061
+ngc0685   dist_code   4
+ngc0685   ref_dist   2017ApJ...850..207S+2020AJ....159...67K
+#
+#
+ngc0891   dist_mpc     9.97
+ngc0891   e_dist_dex   0.019
+ngc0891   dist_code   1
+ngc0891   ref_dist   2009AJ....138..332J
+#
+#
+ngc1068   dist_mpc    13.97
+ngc1068   e_dist_dex   0.061
+ngc1068   dist_code   4
+ngc1068   ref_dist   2017ApJ...850..207S+2020AJ....159...67K
+#
+#
+ngc1087   dist_mpc    15.85
+ngc1087   e_dist_dex   0.057
+ngc1087   dist_code   3
+ngc1087   ref_dist   2017ApJ...843...16K
+#
+#
+ngc1097   dist_mpc    13.58
+ngc1097   e_dist_dex   0.061
+ngc1097   dist_code   4
+ngc1097   ref_dist   2017ApJ...850..207S+2020AJ....159...67K
+#
+#
+ngc1291   dist_mpc     9.08
+ngc1291   e_dist_dex   0.024
+ngc1291   dist_code   1
+ngc1291   ref_dist   2009AJ....138..332J
+#
+#
+ngc1313   dist_mpc     4.32
+ngc1313   e_dist_dex   0.017
+ngc1313   dist_code   1
+ngc1313   ref_dist   2009AJ....138..332J
+#
+#
+ngc1300   dist_mpc    18.99
+ngc1300   e_dist_dex   0.061
+ngc1300   dist_code   4
+ngc1300   ref_dist   2017ApJ...850..207S+2020AJ....159...67K
+#
+#
+ngc1317   dist_mpc    19.11
+ngc1317   e_dist_dex   0.019
+ngc1317   dist_code   3
+ngc1317   ref_dist   2009AJ....138..332J
+#
+#
+ngc1326   dist_mpc    18.34
+ngc1326   e_dist_dex   0.041
+ngc1326   dist_code   3
+ngc1326   ref_dist   2017ApJ...843...16K
+#
+#
+ngc1365   dist_mpc    19.57
+ngc1365   e_dist_dex   0.017
+ngc1365   dist_code   1
+ngc1365   ref_dist   2009AJ....138..332J
+#
+#
+ngc1385   dist_mpc    17.22
+ngc1385   e_dist_dex   0.061
+ngc1385   dist_code   4
+ngc1385   ref_dist   2017ApJ...850..207S+2020AJ....159...67K
+#
+#
+ngc1433   dist_mpc    18.63
+ngc1433   e_dist_dex   0.041
+ngc1433   dist_code   4
+ngc1433   ref_dist   PHANGSPNLF
+#
+#
+ngc1511   dist_mpc    15.28
+ngc1511   e_dist_dex   0.060
+ngc1511   dist_code   3
+ngc1511   ref_dist   2016AJ....152...50T
+#
+#
+ngc1512   dist_mpc    18.83
+ngc1512   e_dist_dex   0.041
+ngc1512   dist_code   4
+ngc1512   ref_dist   PHANGSPNLF
+#
+#
+ngc1546   dist_mpc    17.69
+ngc1546   e_dist_dex   0.047
+ngc1546   dist_code   3
+ngc1546   ref_dist   2017ApJ...843...16K
+#
+#
+ngc1559   dist_mpc    19.44
+ngc1559   e_dist_dex   0.010
+ngc1559   dist_code   4
+ngc1559   ref_dist   2020ApJ...889....5H
+#
+#
+ngc1566   dist_mpc    17.69
+ngc1566   e_dist_dex   0.047
+ngc1566   dist_code   3
+ngc1566   ref_dist   2017ApJ...843...16K
+#
+#
+ngc1637   dist_mpc    11.70
+ngc1637   e_dist_dex   0.036
+ngc1637   dist_code   2
+ngc1637   ref_dist   2003ApJ...594..247L
+#
+#
+ngc1672   dist_mpc    19.40
+ngc1672   e_dist_dex   0.061
+ngc1672   dist_code   4
+ngc1672   ref_dist   2017ApJ...850..207S+2020AJ....159...67K
+#
+#
+ngc1809   dist_mpc    19.95
+ngc1809   e_dist_dex   0.108
+ngc1809   dist_code   3
+ngc1809   ref_dist   2016AJ....152...50T
+#
+#
+ngc1792   dist_mpc    16.20
+ngc1792   e_dist_dex   0.061
+ngc1792   dist_code   4
+ngc1792   ref_dist   2017ApJ...850..207S+2020AJ....159...67K
+#
+#
+ngc2090   dist_mpc    11.75
+ngc2090   e_dist_dex   0.030
+ngc2090   dist_code   2
+ngc2090   ref_dist   2001ApJ...553...47F
+#
+#
+ngc2283   dist_mpc    13.68
+ngc2283   e_dist_dex   0.061
+ngc2283   dist_code   4
+ngc2283   ref_dist   2017ApJ...850..207S+2020AJ....159...67K
+#
+#
+ngc2403   dist_mpc     3.19
+ngc2403   e_dist_dex   0.017
+ngc2403   dist_code   1
+ngc2403   ref_dist   2009AJ....138..332J
+#
+#
+ngc2566   dist_mpc    23.44
+ngc2566   e_dist_dex   0.061
+ngc2566   dist_code   3
+ngc2566   ref_dist   2017ApJ...843...16K
+#
+#
+ngc2683   dist_mpc     9.81
+ngc2683   e_dist_dex   0.019
+ngc2683   dist_code   1
+ngc2683   ref_dist   2009AJ....138..332J
+#
+#
+ngc2775   dist_mpc    23.15
+ngc2775   e_dist_dex   0.061
+ngc2775   dist_code   4
+ngc2775   ref_dist   2017ApJ...850..207S+2020AJ....159...67K
+#
+#
+ngc2835   dist_mpc    12.22
+ngc2835   e_dist_dex   0.032
+ngc2835   dist_code   1
+ngc2835   ref_dist   PHANGSTRGB
+#
+#
+ngc2903   dist_mpc    10.00
+ngc2903   e_dist_dex   0.079
+ngc2903   dist_code   4
+ngc2903   ref_dist   2016AJ....152...50T+2017ApJ...850..207S+2020AJ....159...67K
+#
+#
+ngc2997   dist_mpc    14.06
+ngc2997   e_dist_dex   0.079
+ngc2997   dist_code   3
+ngc2997   ref_dist   2017ApJ...843...16K
+#
+#
+ngc3059   dist_mpc    20.23
+ngc3059   e_dist_dex   0.079
+ngc3059   dist_code   3
+ngc3059   ref_dist   2017ApJ...843...16K
+#
+#
+ngc3031   dist_mpc     3.69
+ngc3031   e_dist_dex   0.024
+ngc3031   dist_code   1
+ngc3031   ref_dist   2009AJ....138..332J
+#
+#
+ngc3137   dist_mpc    16.37
+ngc3137   e_dist_dex   0.058
+ngc3137   dist_code   3
+ngc3137   ref_dist   2017ApJ...843...16K
+#
+#
+ngc3184   dist_mpc    12.58
+ngc3184   e_dist_dex   0.056
+ngc3184   dist_code   4
+ngc3184   ref_dist   2010ApJ...715..833O
+#
+#
+ngc3239   dist_mpc    10.86
+ngc3239   e_dist_dex   0.040
+ngc3239   dist_code   4
+ngc3239   ref_dist   2015MNRAS.448.2312B
+#
+#
+ngc3344   dist_mpc     9.83
+ngc3344   e_dist_dex   0.053
+ngc3344   dist_code   1
+ngc3344   ref_dist   2009AJ....138..332J
+#
+#
+ngc3351   dist_mpc     9.96
+ngc3351   e_dist_dex   0.014
+ngc3351   dist_code   1
+ngc3351   ref_dist   2009AJ....138..332J
+#
+#
+ngc3368   dist_mpc    11.21
+ngc3368   e_dist_dex   0.019
+ngc3368   dist_code   1
+ngc3368   ref_dist   2009AJ....138..332J
+#
+#
+ngc3489   dist_mpc    11.86
+ngc3489   e_dist_dex   0.056
+ngc3489   dist_code   2
+ngc3489   ref_dist   2001ApJ...546..681T+2016AJ....152...50T
+#
+#
+ngc3511   dist_mpc    13.94
+ngc3511   e_dist_dex   0.061
+ngc3511   dist_code   4
+ngc3511   ref_dist   2017ApJ...850..207S+2020AJ....159...67K
+#
+#
+ngc3507   dist_mpc    23.55
+ngc3507   e_dist_dex   0.068
+ngc3507   dist_code   3
+ngc3507   ref_dist   2016AJ....152...50T
+#
+#
+ngc3521   dist_mpc    13.24
+ngc3521   e_dist_dex   0.060
+ngc3521   dist_code   3
+ngc3521   ref_dist   2016AJ....152...50T
+#
+#
+ngc3556   dist_mpc     9.55
+ngc3556   e_dist_dex   0.060
+ngc3556   dist_code   3
+ngc3556   ref_dist   2016AJ....152...50T
+#
+#
+ngc3596   dist_mpc    11.30
+ngc3596   e_dist_dex   0.038
+ngc3596   dist_code   3
+ngc3596   ref_dist   2009AJ....138..332J
+#
+#
+ngc3599   dist_mpc    19.86
+ngc3599   e_dist_dex   0.056
+ngc3599   dist_code   2
+ngc3599   ref_dist   2001ApJ...546..681T+2016AJ....152...50T
+#
+#
+ngc3621   dist_mpc     7.06
+ngc3621   e_dist_dex   0.017
+ngc3621   dist_code   1
+ngc3621   ref_dist   PHANGSTRGB
+#
+#
+ngc3623   dist_mpc    11.30
+ngc3623   e_dist_dex   0.038
+ngc3623   dist_code   3
+ngc3623   ref_dist   2009AJ....138..332J
+#
+#
+ngc3626   dist_mpc    20.05
+ngc3626   e_dist_dex   0.048
+ngc3626   dist_code   2
+ngc3626   ref_dist   2001ApJ...546..681T+2016AJ....152...50T
+#
+#
+ngc3627   dist_mpc    11.32
+ngc3627   e_dist_dex   0.018
+ngc3627   dist_code   1
+ngc3627   ref_dist   2009AJ....138..332J
+#
+#
+ngc3628   dist_mpc    11.30
+ngc3628   e_dist_dex   0.038
+ngc3628   dist_code   3
+ngc3628   ref_dist   2009AJ....138..332J
+#
+#
+ngc4207   dist_mpc    15.78
+ngc4207   e_dist_dex   0.060
+ngc4207   dist_code   3
+ngc4207   ref_dist   2016AJ....152...50T
+#
+#
+ngc4254   dist_mpc    13.10
+ngc4254   e_dist_dex   0.062
+ngc4254   dist_code   4
+ngc4254   ref_dist   2006ApJ...645..841N
+#
+#
+ngc4258   dist_mpc     7.58
+ngc4258   e_dist_dex   0.006
+ngc4258   dist_code   4
+ngc4258   ref_dist   2019ApJ...886L..27R
+#
+#
+ngc4293   dist_mpc    15.76
+ngc4293   e_dist_dex   0.061
+ngc4293   dist_code   3
+ngc4293   ref_dist   2017ApJ...843...16K
+#
+#
+ngc4298   dist_mpc    14.92
+ngc4298   e_dist_dex   0.038
+ngc4298   dist_code   1
+ngc4298   ref_dist   PHANGSTRGB
+#
+#
+ngc4302   dist_mpc    14.92
+ngc4302   e_dist_dex   0.038
+ngc4302   dist_code   3
+ngc4302   ref_dist   PHANGSTRGB
+#
+#
+ngc4303   dist_mpc    16.99
+ngc4303   e_dist_dex   0.071
+ngc4303   dist_code   3
+ngc4303   ref_dist   2017ApJ...843...16K
+#
+#
+ngc4321   dist_mpc    15.21
+ngc4321   e_dist_dex   0.014
+ngc4321   dist_code   2
+ngc4321   ref_dist   2001ApJ...553...47F
+#
+#
+ngc4424   dist_mpc    16.20
+ngc4424   e_dist_dex   0.018
+ngc4424   dist_code   1
+ngc4424   ref_dist   2009AJ....138..332J
+#
+#
+ngc4457   dist_mpc    15.10
+ngc4457   e_dist_dex   0.054
+ngc4457   dist_code   3
+ngc4457   ref_dist   2001ApJ...546..681T+2016AJ....152...50T
+#
+#
+ngc4459   dist_mpc    15.85
+ngc4459   e_dist_dex   0.056
+ngc4459   dist_code   2
+ngc4459   ref_dist   2001ApJ...546..681T+2016AJ....152...50T
+#
+#
+ngc4476   dist_mpc    17.54
+ngc4476   e_dist_dex   0.056
+ngc4476   dist_code   2
+ngc4476   ref_dist   2001ApJ...546..681T+2016AJ....152...50T
+#
+#
+ngc4477   dist_mpc    15.76
+ngc4477   e_dist_dex   0.061
+ngc4477   dist_code   3
+ngc4477   ref_dist   2017ApJ...843...16K
+#
+#
+ngc4496a   dist_mpc    14.86
+ngc4496a   e_dist_dex   0.030
+ngc4496a   dist_code   2
+ngc4496a   ref_dist   2001ApJ...553...47F
+#
+#
+ngc4535   dist_mpc    15.77
+ngc4535   e_dist_dex   0.010
+ngc4535   dist_code   2
+ngc4535   ref_dist   2001ApJ...553...47F
+#
+#
+ngc4536   dist_mpc    16.25
+ngc4536   e_dist_dex   0.029
+ngc4536   dist_code   1
+ngc4536   ref_dist   2009AJ....138..332J
+#
+#
+ngc4540   dist_mpc    15.76
+ngc4540   e_dist_dex   0.061
+ngc4540   dist_code   3
+ngc4540   ref_dist   2017ApJ...843...16K
+#
+#
+ngc4548   dist_mpc    16.22
+ngc4548   e_dist_dex   0.010
+ngc4548   dist_code   2
+ngc4548   ref_dist   2001ApJ...553...47F
+#
+#
+ngc4565   dist_mpc    12.06
+ngc4565   e_dist_dex   0.015
+ngc4565   dist_code   1
+ngc4565   ref_dist   2009AJ....138..332J
+#
+#
+ngc4569   dist_mpc    15.76
+ngc4569   e_dist_dex   0.061
+ngc4569   dist_code   3
+ngc4569   ref_dist   2017ApJ...843...16K
+#
+#
+ngc4571   dist_mpc    14.90
+ngc4571   e_dist_dex   0.030
+ngc4571   dist_code   2
+ngc4571   ref_dist   1994Natur.371..385P
+#
+#
+ngc4579   dist_mpc    21.00
+ngc4579   e_dist_dex   0.040
+ngc4579   dist_code   4
+ngc4579   ref_dist   1996ApJ...465L..83R
+#
+#
+ngc4596   dist_mpc    15.76
+ngc4596   e_dist_dex   0.061
+ngc4596   dist_code   3
+ngc4596   ref_dist   2017ApJ...843...16K
+#
+#
+ngc4594   dist_mpc     9.33
+ngc4594   e_dist_dex   0.021
+ngc4594   dist_code   1
+ngc4594   ref_dist   2009AJ....138..332J
+#
+#
+ngc4631   dist_mpc     7.34
+ngc4631   e_dist_dex   0.016
+ngc4631   dist_code   1
+ngc4631   ref_dist   2009AJ....138..332J
+#
+#
+ngc4654   dist_mpc    21.98
+ngc4654   e_dist_dex   0.022
+ngc4654   dist_code   3
+ngc4654   ref_dist   2001ApJ...553...47F
+#
+#
+ngc4689   dist_mpc    15.00
+ngc4689   e_dist_dex   0.061
+ngc4689   dist_code   4
+ngc4689   ref_dist   2016AJ....152...50T+2017ApJ...850..207S+2020AJ....159...67K
+#
+#
+ngc4694   dist_mpc    15.76
+ngc4694   e_dist_dex   0.061
+ngc4694   dist_code   3
+ngc4694   ref_dist   2017ApJ...843...16K
+#
+#
+ngc4736   dist_mpc     4.41
+ngc4736   e_dist_dex   0.015
+ngc4736   dist_code   1
+ngc4736   ref_dist   2009AJ....138..332J
+#
+#
+ngc4731   dist_mpc    13.28
+ngc4731   e_dist_dex   0.064
+ngc4731   dist_code   3
+ngc4731   ref_dist   2017ApJ...843...16K
+#
+#
+ngc4781   dist_mpc    11.31
+ngc4781   e_dist_dex   0.043
+ngc4781   dist_code   3
+ngc4781   ref_dist   2017ApJ...843...16K
+#
+#
+ngc4826   dist_mpc     4.41
+ngc4826   e_dist_dex   0.018
+ngc4826   dist_code   1
+ngc4826   ref_dist   PHANGSTRGB
+#
+#
+ngc4941   dist_mpc    15.00
+ngc4941   e_dist_dex   0.125
+ngc4941   dist_code   3
+ngc4941   ref_dist   2017ApJ...843...16K
+#
+#
+ngc4951   dist_mpc    15.00
+ngc4951   e_dist_dex   0.107
+ngc4951   dist_code   3
+ngc4951   ref_dist   2016AJ....152...50T
+#
+#
+ngc4945   dist_mpc     3.47
+ngc4945   e_dist_dex   0.015
+ngc4945   dist_code   1
+ngc4945   ref_dist   2009AJ....138..332J
+#
+#
+ngc5042   dist_mpc    16.78
+ngc5042   e_dist_dex   0.061
+ngc5042   dist_code   4
+ngc5042   ref_dist   2017ApJ...850..207S+2020AJ....159...67K
+#
+#
+ngc5055   dist_mpc     9.02
+ngc5055   e_dist_dex   0.016
+ngc5055   dist_code   1
+ngc5055   ref_dist   2009AJ....138..332J
+#
+#
+ngc5068   dist_mpc     5.20
+ngc5068   e_dist_dex   0.018
+ngc5068   dist_code   1
+ngc5068   ref_dist   PHANGSTRGB
+#
+#
+ngc5128   dist_mpc     3.69
+ngc5128   e_dist_dex   0.015
+ngc5128   dist_code   1
+ngc5128   ref_dist   2009AJ....138..332J
+#
+#
+ngc5134   dist_mpc    19.92
+ngc5134   e_dist_dex   0.055
+ngc5134   dist_code   3
+ngc5134   ref_dist   2017ApJ...843...16K
+#
+#
+ngc5194   dist_mpc     8.56
+ngc5194   e_dist_dex   0.014
+ngc5194   dist_code   1
+ngc5194   ref_dist   2009AJ....138..332J
+#
+#
+ngc5236   dist_mpc     4.89
+ngc5236   e_dist_dex   0.016
+ngc5236   dist_code   1
+ngc5236   ref_dist   2009AJ....138..332J
+#
+#
+ngc5248   dist_mpc    14.87
+ngc5248   e_dist_dex   0.037
+ngc5248   dist_code   3
+ngc5248   ref_dist   2017ApJ...843...16K
+#
+#
+ngc5457   dist_mpc     6.65
+ngc5457   e_dist_dex   0.017
+ngc5457   dist_code   1
+ngc5457   ref_dist   2009AJ....138..332J
+#
+#
+ngc5530   dist_mpc    12.27
+ngc5530   e_dist_dex   0.061
+ngc5530   dist_code   4
+ngc5530   ref_dist   2017ApJ...850..207S+2020AJ....159...67K
+#
+#
+ngc5643   dist_mpc    12.68
+ngc5643   e_dist_dex   0.018
+ngc5643   dist_code   1
+ngc5643   ref_dist   2009AJ....138..332J
+#
+#
+ngc6300   dist_mpc    11.58
+ngc6300   e_dist_dex   0.061
+ngc6300   dist_code   4
+ngc6300   ref_dist   2017ApJ...850..207S+2020AJ....159...67K
+#
+#
+ngc6744   dist_mpc     9.39
+ngc6744   e_dist_dex   0.019
+ngc6744   dist_code   1
+ngc6744   ref_dist   PHANGSTRGB
+#
+#
+ngc6946   dist_mpc     7.34
+ngc6946   e_dist_dex   0.038
+ngc6946   dist_code   1
+ngc6946   ref_dist   2009AJ....138..332J
+#
+#
+ngc7456   dist_mpc    15.70
+ngc7456   e_dist_dex   0.060
+ngc7456   dist_code   3
+ngc7456   ref_dist   2016AJ....152...50T
+#
+#
+ngc7496   dist_mpc    18.72
+ngc7496   e_dist_dex   0.061
+ngc7496   dist_code   4
+ngc7496   ref_dist   2017ApJ...850..207S+2020AJ....159...67K
+#
+#
+ngc7743   dist_mpc    20.32
+ngc7743   e_dist_dex   0.056
+ngc7743   dist_code   2
+ngc7743   ref_dist   2001ApJ...546..681T+2016AJ....152...50T
+#
+#
+ngc7793   dist_mpc     3.62
+ngc7793   e_dist_dex   0.018
+ngc7793   dist_code   1
+ngc7793   ref_dist   2009AJ....138..332J
+#

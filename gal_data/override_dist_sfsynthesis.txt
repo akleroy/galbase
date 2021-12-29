@@ -1,0 +1,9 @@
+#
+# Column 1: galaxy
+# Column 2: field
+# Column 3: value
+#
+eso379-024	dist_mpc	4.9
+eso379-024	e_dist_dex	0.125
+eso379-024	dist_code	4
+eso379-024	ref_dist	KORIBALSKI18

@@ -1,0 +1,477 @@
+# This is a procedurally generated file.
+# Editing not recommended.
+# Column 1: galaxy
+# Column 2: field
+# Column 3: value
+#
+eso097-013   ra_deg    213.291245
+#
+eso097-013   dec_deg    -65.339149
+#
+ic0010   ra_deg      5.096250
+#
+ic0010   dec_deg     59.293098
+#
+ic0342   ra_deg     56.702126
+#
+ic0342   dec_deg     68.096092
+#
+ic1954   ra_deg     52.879707
+#
+ic1954   dec_deg    -51.904861
+#
+ic1993   ra_deg     56.769936
+#
+ic1993   dec_deg    -33.709671
+#
+ic5273   ra_deg    344.861176
+#
+ic5273   dec_deg    -37.702839
+#
+ic5332   ra_deg    353.614532
+#
+ic5332   dec_deg    -36.101082
+#
+ngc0224   ra_deg     10.684684
+#
+ngc0224   dec_deg     41.268978
+#
+ngc0247   ra_deg     11.785718
+#
+ngc0247   dec_deg    -20.760450
+#
+ngc0253   ra_deg     11.887966
+#
+ngc0253   dec_deg    -25.288443
+#
+ngc0278   ra_deg     13.017917
+#
+ngc0278   dec_deg     47.550529
+#
+ngc0300   ra_deg     13.723024
+#
+ngc0300   dec_deg    -37.684475
+#
+ngc0598   ra_deg     23.462120
+#
+ngc0598   dec_deg     30.659925
+#
+ngc0628   ra_deg     24.173855
+#
+ngc0628   dec_deg     15.783643
+#
+ngc0685   ra_deg     26.928452
+#
+ngc0685   dec_deg    -52.761978
+#
+ngc0891   ra_deg     35.639511
+#
+ngc0891   dec_deg     42.347633
+#
+ngc1068   ra_deg     40.669731
+#
+ngc1068   dec_deg     -0.013278
+#
+ngc1087   ra_deg     41.604919
+#
+ngc1087   dec_deg     -0.498717
+#
+ngc1097   ra_deg     41.578957
+#
+ngc1097   dec_deg    -30.274675
+#
+ngc1291   ra_deg     49.327477
+#
+ngc1291   dec_deg    -41.107994
+#
+ngc1313   ra_deg     49.565521
+#
+ngc1313   dec_deg    -66.497871
+#
+ngc1300   ra_deg     49.920815
+#
+ngc1300   dec_deg    -19.411114
+#
+ngc1317   ra_deg     50.684540
+#
+ngc1317   dec_deg    -37.103790
+#
+ngc1326   ra_deg     50.984917
+#
+ngc1326   dec_deg    -36.464535
+#
+ngc1365   ra_deg     53.401520
+#
+ngc1365   dec_deg    -36.140404
+#
+ngc1385   ra_deg     54.369015
+#
+ngc1385   dec_deg    -24.501162
+#
+ngc1433   ra_deg     55.506195
+#
+ngc1433   dec_deg    -47.221943
+#
+ngc1511   ra_deg     59.902458
+#
+ngc1511   dec_deg    -67.633926
+#
+ngc1512   ra_deg     60.975574
+#
+ngc1512   dec_deg    -43.348724
+#
+ngc1546   ra_deg     63.651218
+#
+ngc1546   dec_deg    -56.060898
+#
+ngc1559   ra_deg     64.402382
+#
+ngc1559   dec_deg    -62.783409
+#
+ngc1566   ra_deg     65.001587
+#
+ngc1566   dec_deg    -54.938011
+#
+ngc1637   ra_deg     70.367409
+#
+ngc1637   dec_deg     -2.857962
+#
+ngc1672   ra_deg     71.427040
+#
+ngc1672   dec_deg    -59.247257
+#
+ngc1809   ra_deg     75.520660
+#
+ngc1809   dec_deg    -69.567940
+#
+ngc1792   ra_deg     76.309692
+#
+ngc1792   dec_deg    -37.980560
+#
+ngc2090   ra_deg     86.757874
+#
+ngc2090   dec_deg    -34.250599
+#
+ngc2283   ra_deg    101.469971
+#
+ngc2283   dec_deg    -18.210800
+#
+ngc2403   ra_deg    114.214241
+#
+ngc2403   dec_deg     65.602417
+#
+ngc2566   ra_deg    124.690033
+#
+ngc2566   dec_deg    -25.499519
+#
+ngc2683   ra_deg    133.172928
+#
+ngc2683   dec_deg     33.422501
+#
+ngc2775   ra_deg    137.583954
+#
+ngc2775   dec_deg      7.038066
+#
+ngc2835   ra_deg    139.470444
+#
+ngc2835   dec_deg    -22.354679
+#
+ngc2903   ra_deg    143.042114
+#
+ngc2903   dec_deg     21.500841
+#
+ngc2997   ra_deg    146.411636
+#
+ngc2997   dec_deg    -31.191090
+#
+ngc3059   ra_deg    147.533997
+#
+ngc3059   dec_deg    -73.922195
+#
+ngc3031   ra_deg    148.888168
+#
+ngc3031   dec_deg     69.065277
+#
+ngc3137   ra_deg    152.281158
+#
+ngc3137   dec_deg    -29.064301
+#
+ngc3184   ra_deg    154.570587
+#
+ngc3184   dec_deg     41.424343
+#
+ngc3239   ra_deg    156.270309
+#
+ngc3239   dec_deg     17.163702
+#
+ngc3344   ra_deg    160.879791
+#
+ngc3344   dec_deg     24.922258
+#
+ngc3351   ra_deg    160.990646
+#
+ngc3351   dec_deg     11.703670
+#
+ngc3368   ra_deg    161.690414
+#
+ngc3368   dec_deg     11.819923
+#
+ngc3489   ra_deg    165.077362
+#
+ngc3489   dec_deg     13.901230
+#
+ngc3511   ra_deg    165.849213
+#
+ngc3511   dec_deg    -23.086714
+#
+ngc3507   ra_deg    165.855728
+#
+ngc3507   dec_deg     18.135521
+#
+ngc3521   ra_deg    166.452393
+#
+ngc3521   dec_deg     -0.035949
+#
+ngc3556   ra_deg    167.878906
+#
+ngc3556   dec_deg     55.674267
+#
+ngc3596   ra_deg    168.775803
+#
+ngc3596   dec_deg     14.787066
+#
+ngc3599   ra_deg    168.862289
+#
+ngc3599   dec_deg     18.110376
+#
+ngc3621   ra_deg    169.567917
+#
+ngc3621   dec_deg    -32.812599
+#
+ngc3623   ra_deg    169.732956
+#
+ngc3623   dec_deg     13.092309
+#
+ngc3626   ra_deg    170.015884
+#
+ngc3626   dec_deg     18.356846
+#
+ngc3627   ra_deg    170.062515
+#
+ngc3627   dec_deg     12.991500
+#
+ngc3628   ra_deg    170.070755
+#
+ngc3628   dec_deg     13.589627
+#
+ngc4207   ra_deg    183.876816
+#
+ngc4207   dec_deg      9.584928
+#
+ngc4254   ra_deg    184.706802
+#
+ngc4254   dec_deg     14.416412
+#
+ngc4258   ra_deg    184.739944
+#
+ngc4258   dec_deg     47.303883
+#
+ngc4293   ra_deg    185.303467
+#
+ngc4293   dec_deg     18.382574
+#
+ngc4298   ra_deg    185.386505
+#
+ngc4298   dec_deg     14.606110
+#
+ngc4302   ra_deg    185.427002
+#
+ngc4302   dec_deg     14.598306
+#
+ngc4303   ra_deg    185.478882
+#
+ngc4303   dec_deg      4.473744
+#
+ngc4321   ra_deg    185.728867
+#
+ngc4321   dec_deg     15.822304
+#
+ngc4424   ra_deg    186.798203
+#
+ngc4424   dec_deg      9.420637
+#
+ngc4457   ra_deg    187.245926
+#
+ngc4457   dec_deg      3.570620
+#
+ngc4459   ra_deg    187.250183
+#
+ngc4459   dec_deg     13.978520
+#
+ngc4476   ra_deg    187.496216
+#
+ngc4476   dec_deg     12.348649
+#
+ngc4477   ra_deg    187.509171
+#
+ngc4477   dec_deg     13.636418
+#
+ngc4496a   ra_deg    187.913544
+#
+ngc4496a   dec_deg      3.939608
+#
+ngc4535   ra_deg    188.584595
+#
+ngc4535   dec_deg      8.197973
+#
+ngc4536   ra_deg    188.612778
+#
+ngc4536   dec_deg      2.188243
+#
+ngc4540   ra_deg    188.711929
+#
+ngc4540   dec_deg     15.551724
+#
+ngc4548   ra_deg    188.860245
+#
+ngc4548   dec_deg     14.496331
+#
+ngc4565   ra_deg    189.086594
+#
+ngc4565   dec_deg     25.987522
+#
+ngc4569   ra_deg    189.207596
+#
+ngc4569   dec_deg     13.162875
+#
+ngc4571   ra_deg    189.234924
+#
+ngc4571   dec_deg     14.217327
+#
+ngc4579   ra_deg    189.431381
+#
+ngc4579   dec_deg     11.818217
+#
+ngc4596   ra_deg    189.983078
+#
+ngc4596   dec_deg     10.176163
+#
+ngc4594   ra_deg    189.997696
+#
+ngc4594   dec_deg    -11.623011
+#
+ngc4631   ra_deg    190.532654
+#
+ngc4631   dec_deg     32.542515
+#
+ngc4654   ra_deg    190.985748
+#
+ngc4654   dec_deg     13.126715
+#
+ngc4689   ra_deg    191.939896
+#
+ngc4689   dec_deg     13.762724
+#
+ngc4694   ra_deg    192.062698
+#
+ngc4694   dec_deg     10.983726
+#
+ngc4736   ra_deg    192.721252
+#
+ngc4736   dec_deg     41.120304
+#
+ngc4731   ra_deg    192.755035
+#
+ngc4731   dec_deg     -6.392839
+#
+ngc4781   ra_deg    193.599167
+#
+ngc4781   dec_deg    -10.537116
+#
+ngc4826   ra_deg    194.181839
+#
+ngc4826   dec_deg     21.683083
+#
+ngc4941   ra_deg    196.054611
+#
+ngc4941   dec_deg     -5.551536
+#
+ngc4951   ra_deg    196.282135
+#
+ngc4951   dec_deg     -6.493824
+#
+ngc4945   ra_deg    196.363770
+#
+ngc4945   dec_deg    -49.467907
+#
+ngc5042   ra_deg    198.879196
+#
+ngc5042   dec_deg    -23.983883
+#
+ngc5055   ra_deg    198.955399
+#
+ngc5055   dec_deg     42.029278
+#
+ngc5068   ra_deg    199.728073
+#
+ngc5068   dec_deg    -21.038744
+#
+ngc5128   ra_deg    201.365067
+#
+ngc5128   dec_deg    -43.019112
+#
+ngc5134   ra_deg    201.327255
+#
+ngc5134   dec_deg    -21.134195
+#
+ngc5194   ra_deg    202.469543
+#
+ngc5194   dec_deg     47.195152
+#
+ngc5236   ra_deg    204.253906
+#
+ngc5236   dec_deg    -29.865625
+#
+ngc5248   ra_deg    204.383362
+#
+ngc5248   dec_deg      8.885195
+#
+ngc5457   ra_deg    210.802368
+#
+ngc5457   dec_deg     54.349022
+#
+ngc5530   ra_deg    214.613800
+#
+ngc5530   dec_deg    -43.388260
+#
+ngc5643   ra_deg    218.169907
+#
+ngc5643   dec_deg    -44.174610
+#
+ngc6300   ra_deg    259.247803
+#
+ngc6300   dec_deg    -62.820549
+#
+ngc6744   ra_deg    287.442078
+#
+ngc6744   dec_deg    -63.857540
+#
+ngc6946   ra_deg    308.719177
+#
+ngc6946   dec_deg     60.153515
+#
+ngc7456   ra_deg    345.543060
+#
+ngc7456   dec_deg    -39.569412
+#
+ngc7496   ra_deg    347.447021
+#
+ngc7496   dec_deg    -43.427849
+#
+ngc7743   ra_deg    356.088043
+#
+ngc7743   dec_deg      9.934028
+#
+ngc7793   ra_deg    359.457581
+#
+ngc7793   dec_deg    -32.591072

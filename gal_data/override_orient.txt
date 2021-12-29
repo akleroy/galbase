@@ -301,6 +301,17 @@ ngc0224		ref_posang	CORBELLI10
 ngc0224		incl_deg	77.7	NONE
 ngc0224		ref_incl	CORBELLI10
 #
+# Nuclear PA - leave commented for the moment
+#ngc0253	posang_deg	55	NONE
+#ngc0253	ref_posang	LEROY15
+ngc0253		incl_deg	75	NONE
+ngc0253		ref_incl	MCCORMICK13
+#
+ngc0300		posang_deg	11.4	NONE
+ngc0300		ref_posang	FAESI18
+ngc0300		incl_deg	39.8	NONE
+ngc0300		ref_incl	FAESI18
+#
 # m33
 ngc0598		posang_deg	200	NONE
 ngc0598		ref_posang	KOCH17
@@ -342,12 +353,26 @@ ngc5194		ref_posang	COLOMBO14
 ngc5194		incl_deg	21	NONE
 ngc5194		ref_incl	COLOMBO14
 #
-#ngc5068	posang_deg	???	NONE
-#ngc5068	ref_posang	???
-#ngc5068	incl_deg	???	NONE
-#ngc5068	ref_incl	???
-#
 ngc6744		posang_deg	16	NONE
 ngc6744		ref_posang	RYDER99
 ngc6744		incl_deg	40	NONE
 ngc6744		ref_incl	RYDER99
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# A FEW OTHER CO-MAPPED TARGETS
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\
+
+pgc010217	posang_deg	35.
+pgc010217	ref_posang	JARRETT03
+
+ic0356		posang_deg	105.
+ic0356		ref_posang	JARRETT03
+
+ngc1530		posang_deg	310.0
+ngc1530		ref_posang	JARRETT03
+
+ngc2681		posang_deg	27.5
+ngc2681		ref_posang	JARRETT03
+
+ngc4302		posang_deg	358.0
+ngc4302		ref_posang	JARRETT03

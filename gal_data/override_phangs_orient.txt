@@ -1,818 +1,1323 @@
-# This is a procedurally generated file. Editing not recommended.
+# This is a procedurally generated file.
+# Editing not recommended.
 # Column 1: galaxy
 # Column 2: field
 # Column 3: value
 #
-ic1954   incl_deg    56.3
-ic1954   e_incl     5.0
+eso097-013   incl_deg    64.3
+eso097-013   e_incl     5.0
+eso097-013   ref_incl   LEDA
+#
+eso097-013   posang_deg    36.7
+eso097-013   e_posang    10.0
+eso097-013   ref_posang   LEDA
+#
+eso097-013   vhel_kms    435.5
+eso097-013   e_vhel      5.2
+eso097-013   ref_vhel   LEDA
+#
+ic0010   incl_deg   129.0
+ic0010   e_incl     5.0
+ic0010   ref_incl   LEDA
+#
+ic0010   posang_deg    31.1
+ic0010   e_posang    10.0
+ic0010   ref_posang   LEDA
+#
+ic0010   vhel_kms   -348.0
+ic0010   e_vhel      1.0
+ic0010   ref_vhel   NED
+#
+ic0342   incl_deg    31.0
+ic0342   e_incl     5.0
+ic0342   ref_incl   2009ApJ...702..277M
+#
+ic0342   posang_deg    42.0
+ic0342   e_posang     3.0
+ic0342   ref_posang   2009ApJ...702..277M
+#
+ic0342   vhel_kms     25.0
+ic0342   e_vhel      9.1
+ic0342   ref_vhel   LEDA
+#
+ic1954   incl_deg    57.1
+ic1954   e_incl     0.7
 ic1954   ref_incl   LANGMEIDT19
 #
-ic1954   posang_deg    63.1
-ic1954   e_posang     5.0
+ic1954   posang_deg    63.4
+ic1954   e_posang     0.2
 ic1954   ref_posang   LANGMEIDT19
 #
-ic1954   vhel_kms   1050.6
+ic1954   vhel_kms   1055.4
 ic1954   e_vhel      5.0
 ic1954   ref_vhel   LANGMEIDT19
 #
-ic5273   incl_deg    53.1
-ic5273   e_incl     5.0
+ic1993   incl_deg    21.3
+ic1993   e_incl     5.0
+ic1993   ref_incl   2015ApJS..219....4S
+#
+ic1993   posang_deg   353.5
+ic1993   e_posang    10.0
+ic1993   ref_posang   2015ApJS..219....4S
+#
+ic1993   vhel_kms   1077.7
+ic1993   e_vhel      5.2
+ic1993   ref_vhel   LEDA
+#
+ic5273   incl_deg    52.0
+ic5273   e_incl     2.1
 ic5273   ref_incl   LANGMEIDT19
 #
-ic5273   posang_deg   236.1
-ic5273   e_posang     5.0
+ic5273   posang_deg   234.1
+ic5273   e_posang     2.0
 ic5273   ref_posang   LANGMEIDT19
 #
-ic5273   vhel_kms   1289.4
+ic5273   vhel_kms   1288.3
 ic5273   e_vhel      5.0
 ic5273   ref_vhel   LANGMEIDT19
 #
-ic5332   incl_deg    24.0
+ic5332   incl_deg    26.9
 ic5332   e_incl     5.0
-ic5332   ref_incl   LANGMEIDT19
+ic5332   ref_incl   2015ApJS..219....4S
 #
-ic5332   posang_deg    74.7
-ic5332   e_posang     5.0
-ic5332   ref_posang   LANGMEIDT19
+ic5332   posang_deg    74.4
+ic5332   e_posang    10.0
+ic5332   ref_posang   2015ApJS..219....4S
 #
-ic5332   vhel_kms    701.5
-ic5332   e_vhel      5.0
-ic5332   ref_vhel   LANGMEIDT19
+ic5332   vhel_kms    703.4
+ic5332   e_vhel      2.3
+ic5332   ref_vhel   LEDA
 #
-ngc0628   incl_deg     8.7
-ngc0628   e_incl     5.0
+ngc0224   incl_deg    77.7
+ngc0224   e_incl     5.0
+ngc0224   ref_incl   2010A&A...511A..89C
+#
+ngc0224   posang_deg    38.0
+ngc0224   e_posang    10.0
+ngc0224   ref_posang   2010A&A...511A..89C
+#
+ngc0224   vhel_kms   -290.0
+ngc0224   e_vhel     15.5
+ngc0224   ref_vhel   LEDA
+#
+ngc0247   incl_deg    76.4
+ngc0247   e_incl     5.0
+ngc0247   ref_incl   LEDA
+#
+ngc0247   posang_deg   167.4
+ngc0247   e_posang    10.0
+ngc0247   ref_posang   LEDA
+#
+ngc0247   vhel_kms    155.4
+ngc0247   e_vhel      1.6
+ngc0247   ref_vhel   LEDA
+#
+ngc0253   incl_deg    75.0
+ngc0253   e_incl     5.0
+ngc0253   ref_incl   MCCORMICK13;LEDA
+#
+ngc0253   posang_deg    52.5
+ngc0253   e_posang    10.0
+ngc0253   ref_posang   MCCORMICK13;LEDA
+#
+ngc0253   vhel_kms    242.6
+ngc0253   e_vhel      2.4
+ngc0253   ref_vhel   LEDA
+#
+ngc0278   incl_deg    25.0
+ngc0278   e_incl     5.0
+ngc0278   ref_incl   2007ApJ...659.1176M
+#
+ngc0278   posang_deg   161.0
+ngc0278   e_posang    10.0
+ngc0278   ref_posang   2007ApJ...659.1176M
+#
+ngc0278   vhel_kms    639.0
+ngc0278   e_vhel      5.6
+ngc0278   ref_vhel   LEDA
+#
+ngc0300   incl_deg    39.8
+ngc0300   e_incl     5.0
+ngc0300   ref_incl   2014ApJ...789...81F
+#
+ngc0300   posang_deg   114.3
+ngc0300   e_posang    10.0
+ngc0300   ref_posang   2014ApJ...789...81F
+#
+ngc0300   vhel_kms    164.6
+ngc0300   e_vhel      7.3
+ngc0300   ref_vhel   LEDA
+#
+ngc0598   incl_deg    58.0
+ngc0598   e_incl     5.0
+ngc0598   ref_incl   2018MNRAS.479.2505K
+#
+ngc0598   posang_deg   200.0
+ngc0598   e_posang    10.0
+ngc0598   ref_posang   2018MNRAS.479.2505K
+#
+ngc0598   vhel_kms   -182.3
+ngc0598   e_vhel      2.7
+ngc0598   ref_vhel   LEDA
+#
+ngc0628   incl_deg     8.9
+ngc0628   e_incl    12.2
 ngc0628   ref_incl   LANGMEIDT19
 #
-ngc0628   posang_deg    20.9
-ngc0628   e_posang     5.0
+ngc0628   posang_deg    20.7
+ngc0628   e_posang     1.0
 ngc0628   ref_posang   LANGMEIDT19
 #
-ngc0628   vhel_kms    654.4
+ngc0628   vhel_kms    654.6
 ngc0628   e_vhel      5.0
 ngc0628   ref_vhel   LANGMEIDT19
 #
-ngc0685   incl_deg    28.4
-ngc0685   e_incl     5.0
+ngc0685   incl_deg    23.0
+ngc0685   e_incl    43.4
 ngc0685   ref_incl   LANGMEIDT19
 #
-ngc0685   posang_deg   100.1
-ngc0685   e_posang     5.0
+ngc0685   posang_deg   100.9
+ngc0685   e_posang     2.8
 ngc0685   ref_posang   LANGMEIDT19
 #
-ngc0685   vhel_kms   1360.2
+ngc0685   vhel_kms   1359.2
 ngc0685   e_vhel      5.0
 ngc0685   ref_vhel   LANGMEIDT19
 #
-ngc1087   incl_deg    41.3
-ngc1087   e_incl     5.0
+ngc0891   incl_deg    90.0
+ngc0891   e_incl     5.0
+ngc0891   ref_incl   LEDA
+#
+ngc0891   posang_deg    22.0
+ngc0891   e_posang    10.0
+ngc0891   ref_posang   LEDA
+#
+ngc0891   vhel_kms    527.7
+ngc0891   e_vhel      1.6
+ngc0891   ref_vhel   LEDA
+#
+ngc1068   incl_deg    34.7
+ngc1068   e_incl     5.0
+ngc1068   ref_incl   LEDA
+#
+ngc1068   posang_deg    72.7
+ngc1068   e_posang    10.0
+ngc1068   ref_posang   LEDA
+#
+ngc1068   vhel_kms   1141.2
+ngc1068   e_vhel      6.4
+ngc1068   ref_vhel   LEDA
+#
+ngc1087   incl_deg    42.9
+ngc1087   e_incl     3.9
 ngc1087   ref_incl   LANGMEIDT19
 #
-ngc1087   posang_deg    -2.7
-ngc1087   e_posang     5.0
+ngc1087   posang_deg   359.1
+ngc1087   e_posang     1.2
 ngc1087   ref_posang   LANGMEIDT19
 #
-ngc1087   vhel_kms   1512.6
+ngc1087   vhel_kms   1512.9
 ngc1087   e_vhel      5.0
 ngc1087   ref_vhel   LANGMEIDT19
 #
 ngc1097   incl_deg    48.6
-ngc1097   e_incl     5.0
+ngc1097   e_incl     6.0
 ngc1097   ref_incl   LANGMEIDT19
 #
-ngc1097   posang_deg   126.5
-ngc1097   e_posang     5.0
+ngc1097   posang_deg   122.4
+ngc1097   e_posang     3.6
 ngc1097   ref_posang   LANGMEIDT19
 #
 ngc1097   vhel_kms   1272.3
 ngc1097   e_vhel      5.0
 ngc1097   ref_vhel   LANGMEIDT19
 #
-ngc1300   incl_deg    40.2
-ngc1300   e_incl     5.0
+ngc1291   incl_deg    29.3
+ngc1291   e_incl     5.0
+ngc1291   ref_incl   LEDA
+#
+ngc1291   posang_deg   137.6
+ngc1291   e_posang    10.0
+ngc1291   ref_posang   LEDA
+#
+ngc1291   vhel_kms    837.0
+ngc1291   e_vhel      7.6
+ngc1291   ref_vhel   LEDA
+#
+ngc1313   incl_deg    34.8
+ngc1313   e_incl     5.0
+ngc1313   ref_incl   LEDA
+#
+ngc1313   posang_deg    23.4
+ngc1313   e_posang    10.0
+ngc1313   ref_posang   LEDA
+#
+ngc1313   vhel_kms    465.6
+ngc1313   e_vhel      7.2
+ngc1313   ref_vhel   LEDA
+#
+ngc1300   incl_deg    31.8
+ngc1300   e_incl     6.0
 ngc1300   ref_incl   LANGMEIDT19
 #
-ngc1300   posang_deg   275.1
-ngc1300   e_posang     5.0
+ngc1300   posang_deg   278.0
+ngc1300   e_posang     1.0
 ngc1300   ref_posang   LANGMEIDT19
 #
-ngc1300   vhel_kms   1559.9
+ngc1300   vhel_kms   1561.0
 ngc1300   e_vhel      5.0
 ngc1300   ref_vhel   LANGMEIDT19
 #
-ngc1317   incl_deg    25.3
-ngc1317   e_incl     5.0
+ngc1317   incl_deg    23.2
+ngc1317   e_incl     7.5
 ngc1317   ref_incl   LANGMEIDT19
 #
-ngc1317   posang_deg   223.0
-ngc1317   e_posang     5.0
+ngc1317   posang_deg   221.5
+ngc1317   e_posang     2.9
 ngc1317   ref_posang   LANGMEIDT19
 #
-ngc1317   vhel_kms   1948.5
+ngc1317   vhel_kms   1947.1
 ngc1317   e_vhel      5.0
 ngc1317   ref_vhel   LANGMEIDT19
 #
+ngc1326   incl_deg    52.7
+ngc1326   e_incl     5.0
+ngc1326   ref_incl   LEDA
+#
+ngc1326   posang_deg    70.9
+ngc1326   e_posang    10.0
+ngc1326   ref_posang   LEDA
+#
+ngc1326   vhel_kms   1360.3
+ngc1326   e_vhel      3.5
+ngc1326   ref_vhel   LEDA
+#
 ngc1365   incl_deg    55.4
-ngc1365   e_incl     5.0
+ngc1365   e_incl     6.0
 ngc1365   ref_incl   LANGMEIDT19
 #
-ngc1365   posang_deg   210.7
-ngc1365   e_posang     5.0
+ngc1365   posang_deg   201.1
+ngc1365   e_posang     7.5
 ngc1365   ref_posang   LANGMEIDT19
 #
 ngc1365   vhel_kms   1630.3
 ngc1365   e_vhel      5.0
 ngc1365   ref_vhel   LANGMEIDT19
 #
-ngc1385   incl_deg    46.3
-ngc1385   e_incl     5.0
+ngc1385   incl_deg    44.0
+ngc1385   e_incl     7.6
 ngc1385   ref_incl   LANGMEIDT19
 #
-ngc1385   posang_deg   180.6
-ngc1385   e_posang     5.0
+ngc1385   posang_deg   181.3
+ngc1385   e_posang     4.8
 ngc1385   ref_posang   LANGMEIDT19
 #
-ngc1385   vhel_kms   1493.2
+ngc1385   vhel_kms   1493.6
 ngc1385   e_vhel      5.0
 ngc1385   ref_vhel   LANGMEIDT19
 #
 ngc1433   incl_deg    28.6
-ngc1433   e_incl     5.0
+ngc1433   e_incl     6.0
 ngc1433   ref_incl   LANGMEIDT19
 #
-ngc1433   posang_deg   204.3
-ngc1433   e_posang     5.0
+ngc1433   posang_deg   199.7
+ngc1433   e_posang     0.3
 ngc1433   ref_posang   LANGMEIDT19
 #
 ngc1433   vhel_kms   1074.3
 ngc1433   e_vhel      5.0
 ngc1433   ref_vhel   LANGMEIDT19
 #
-ngc1511   incl_deg    76.5
-ngc1511   e_incl     5.0
+ngc1511   incl_deg    72.7
+ngc1511   e_incl     1.2
 ngc1511   ref_incl   LANGMEIDT19
 #
-ngc1511   posang_deg   298.7
-ngc1511   e_posang     5.0
+ngc1511   posang_deg   297.0
+ngc1511   e_posang     2.1
 ngc1511   ref_posang   LANGMEIDT19
 #
-ngc1511   vhel_kms   1350.3
+ngc1511   vhel_kms   1345.9
 ngc1511   e_vhel      5.0
 ngc1511   ref_vhel   LANGMEIDT19
 #
-ngc1512   incl_deg    36.5
-ngc1512   e_incl     5.0
+ngc1512   incl_deg    42.5
+ngc1512   e_incl     6.0
 ngc1512   ref_incl   LANGMEIDT19
 #
-ngc1512   posang_deg   263.7
-ngc1512   e_posang     5.0
+ngc1512   posang_deg   261.9
+ngc1512   e_posang     4.2
 ngc1512   ref_posang   LANGMEIDT19
 #
-ngc1512   vhel_kms    887.5
+ngc1512   vhel_kms    889.2
 ngc1512   e_vhel      5.0
 ngc1512   ref_vhel   LANGMEIDT19
 #
-ngc1546   incl_deg    66.7
-ngc1546   e_incl     5.0
+ngc1546   incl_deg    70.3
+ngc1546   e_incl     0.6
 ngc1546   ref_incl   LANGMEIDT19
 #
-ngc1546   posang_deg   149.6
-ngc1546   e_posang     5.0
+ngc1546   posang_deg   147.8
+ngc1546   e_posang     0.4
 ngc1546   ref_posang   LANGMEIDT19
 #
-ngc1546   vhel_kms   1262.5
+ngc1546   vhel_kms   1260.7
 ngc1546   e_vhel      5.0
 ngc1546   ref_vhel   LANGMEIDT19
 #
-ngc1559   incl_deg    60.1
-ngc1559   e_incl     5.0
+ngc1559   incl_deg    65.4
+ngc1559   e_incl     8.4
 ngc1559   ref_incl   LANGMEIDT19
 #
-ngc1559   posang_deg   246.7
-ngc1559   e_posang     5.0
+ngc1559   posang_deg   244.5
+ngc1559   e_posang     3.0
 ngc1559   ref_posang   LANGMEIDT19
 #
-ngc1559   vhel_kms   1290.3
+ngc1559   vhel_kms   1291.2
 ngc1559   e_vhel      5.0
 ngc1559   ref_vhel   LANGMEIDT19
 #
-ngc1566   incl_deg    23.2
-ngc1566   e_incl     5.0
+ngc1566   incl_deg    29.5
+ngc1566   e_incl    10.6
 ngc1566   ref_incl   LANGMEIDT19
 #
-ngc1566   posang_deg   216.4
-ngc1566   e_posang     5.0
+ngc1566   posang_deg   214.7
+ngc1566   e_posang     4.1
 ngc1566   ref_posang   LANGMEIDT19
 #
-ngc1566   vhel_kms   1500.2
+ngc1566   vhel_kms   1500.4
 ngc1566   e_vhel      5.0
 ngc1566   ref_vhel   LANGMEIDT19
 #
-ngc1637   incl_deg    42.1
+ngc1637   incl_deg    31.1
 ngc1637   e_incl     5.0
-ngc1637   ref_incl   LANGMEIDT19
+ngc1637   ref_incl   LEDA
 #
-ngc1637   posang_deg   209.6
-ngc1637   e_posang     5.0
-ngc1637   ref_posang   LANGMEIDT19
+ngc1637   posang_deg    20.6
+ngc1637   e_posang    10.0
+ngc1637   ref_posang   LEDA
 #
-ngc1637   vhel_kms    730.1
-ngc1637   e_vhel      5.0
-ngc1637   ref_vhel   LANGMEIDT19
+ngc1637   vhel_kms    715.6
+ngc1637   e_vhel      1.6
+ngc1637   ref_vhel   LEDA
 #
-ngc1672   incl_deg    37.5
-ngc1672   e_incl     5.0
+ngc1672   incl_deg    42.6
+ngc1672   e_incl    12.9
 ngc1672   ref_incl   LANGMEIDT19
 #
-ngc1672   posang_deg   135.7
-ngc1672   e_posang     5.0
+ngc1672   posang_deg   134.3
+ngc1672   e_posang     0.4
 ngc1672   ref_posang   LANGMEIDT19
 #
-ngc1672   vhel_kms   1335.6
+ngc1672   vhel_kms   1335.2
 ngc1672   e_vhel      5.0
 ngc1672   ref_vhel   LANGMEIDT19
 #
-ngc1792   incl_deg    64.5
-ngc1792   e_incl     5.0
-ngc1792   ref_incl   LANGMEIDT19
-#
-ngc1792   posang_deg   319.7
-ngc1792   e_posang     5.0
-ngc1792   ref_posang   LANGMEIDT19
-#
-ngc1792   vhel_kms   1195.7
-ngc1792   e_vhel      5.0
-ngc1792   ref_vhel   LANGMEIDT19
-#
-ngc1809   incl_deg    80.5
-ngc1809   e_incl     5.0
+ngc1809   incl_deg    57.6
+ngc1809   e_incl    23.6
 ngc1809   ref_incl   LANGMEIDT19
 #
-ngc1809   posang_deg   144.8
-ngc1809   e_posang     5.0
+ngc1809   posang_deg   138.2
+ngc1809   e_posang     8.9
 ngc1809   ref_posang   LANGMEIDT19
 #
 ngc1809   vhel_kms   1305.6
 ngc1809   e_vhel      5.0
 ngc1809   ref_vhel   LANGMEIDT19
 #
-ngc2090   incl_deg    64.7
-ngc2090   e_incl     5.0
+ngc1792   incl_deg    65.1
+ngc1792   e_incl     1.1
+ngc1792   ref_incl   LANGMEIDT19
+#
+ngc1792   posang_deg   318.9
+ngc1792   e_posang     0.9
+ngc1792   ref_posang   LANGMEIDT19
+#
+ngc1792   vhel_kms   1195.3
+ngc1792   e_vhel      5.0
+ngc1792   ref_vhel   LANGMEIDT19
+#
+ngc2090   incl_deg    64.5
+ngc2090   e_incl     0.2
 ngc2090   ref_incl   LANGMEIDT19
 #
-ngc2090   posang_deg   192.0
-ngc2090   e_posang     5.0
+ngc2090   posang_deg   192.5
+ngc2090   e_posang     0.6
 ngc2090   ref_posang   LANGMEIDT19
 #
-ngc2090   vhel_kms    917.6
+ngc2090   vhel_kms    918.1
 ngc2090   e_vhel      5.0
 ngc2090   ref_vhel   LANGMEIDT19
 #
-ngc2283   incl_deg    38.1
-ngc2283   e_incl     5.0
+ngc2283   incl_deg    43.7
+ngc2283   e_incl     3.6
 ngc2283   ref_incl   LANGMEIDT19
 #
 ngc2283   posang_deg    -4.1
-ngc2283   e_posang     5.0
+ngc2283   e_posang     1.0
 ngc2283   ref_posang   LANGMEIDT19
 #
-ngc2283   vhel_kms    842.0
+ngc2283   vhel_kms    841.2
 ngc2283   e_vhel      5.0
 ngc2283   ref_vhel   LANGMEIDT19
 #
+ngc2403   incl_deg    63.0
+ngc2403   e_incl     5.0
+ngc2403   ref_incl   2008AJ....136.2648D
+#
+ngc2403   posang_deg   124.0
+ngc2403   e_posang    10.0
+ngc2403   ref_posang   2008AJ....136.2648D
+#
+ngc2403   vhel_kms    140.9
+ngc2403   e_vhel      8.8
+ngc2403   ref_vhel   LEDA
+#
 ngc2566   incl_deg    48.5
-ngc2566   e_incl     5.0
+ngc2566   e_incl     6.0
 ngc2566   ref_incl   LANGMEIDT19
 #
-ngc2566   posang_deg   235.6
-ngc2566   e_posang     5.0
+ngc2566   posang_deg   312.0
+ngc2566   e_posang     2.0
 ngc2566   ref_posang   LANGMEIDT19
 #
 ngc2566   vhel_kms   1626.9
 ngc2566   e_vhel      5.0
 ngc2566   ref_vhel   LANGMEIDT19
 #
-ngc2775   incl_deg    34.2
-ngc2775   e_incl     5.0
+ngc2683   incl_deg    82.9
+ngc2683   e_incl     5.0
+ngc2683   ref_incl   LEDA
+#
+ngc2683   posang_deg    43.6
+ngc2683   e_posang    10.0
+ngc2683   ref_posang   LEDA
+#
+ngc2683   vhel_kms    420.7
+ngc2683   e_vhel      5.8
+ngc2683   ref_vhel   LEDA
+#
+ngc2775   incl_deg    41.2
+ngc2775   e_incl     0.6
 ngc2775   ref_incl   LANGMEIDT19
 #
-ngc2775   posang_deg   163.5
-ngc2775   e_posang     5.0
+ngc2775   posang_deg   156.5
+ngc2775   e_posang     0.1
 ngc2775   ref_posang   LANGMEIDT19
 #
-ngc2775   vhel_kms   1349.3
+ngc2775   vhel_kms   1349.8
 ngc2775   e_vhel      5.0
 ngc2775   ref_vhel   LANGMEIDT19
 #
-ngc2835   incl_deg    47.8
-ngc2835   e_incl     5.0
+ngc2835   incl_deg    41.3
+ngc2835   e_incl     5.3
 ngc2835   ref_incl   LANGMEIDT19
 #
-ngc2835   posang_deg     1.6
-ngc2835   e_posang     5.0
+ngc2835   posang_deg     1.0
+ngc2835   e_posang     1.0
 ngc2835   ref_posang   LANGMEIDT19
 #
-ngc2835   vhel_kms    881.2
+ngc2835   vhel_kms    881.7
 ngc2835   e_vhel      5.0
 ngc2835   ref_vhel   LANGMEIDT19
 #
-ngc2903   incl_deg    64.5
-ngc2903   e_incl     5.0
+ngc2903   incl_deg    66.8
+ngc2903   e_incl     3.1
 ngc2903   ref_incl   LANGMEIDT19
 #
-ngc2903   posang_deg   205.3
-ngc2903   e_posang     5.0
+ngc2903   posang_deg   203.7
+ngc2903   e_posang     2.0
 ngc2903   ref_posang   LANGMEIDT19
 #
-ngc2903   vhel_kms    554.4
+ngc2903   vhel_kms    553.2
 ngc2903   e_vhel      5.0
 ngc2903   ref_vhel   LANGMEIDT19
 #
-ngc2997   incl_deg    31.6
-ngc2997   e_incl     5.0
+ngc2997   incl_deg    33.0
+ngc2997   e_incl     9.0
 ngc2997   ref_incl   LANGMEIDT19
 #
-ngc2997   posang_deg   109.4
-ngc2997   e_posang     5.0
+ngc2997   posang_deg   108.1
+ngc2997   e_posang     0.7
 ngc2997   ref_posang   LANGMEIDT19
 #
-ngc2997   vhel_kms   1090.2
+ngc2997   vhel_kms   1090.5
 ngc2997   e_vhel      5.0
 ngc2997   ref_vhel   LANGMEIDT19
 #
-ngc3059   incl_deg    19.5
-ngc3059   e_incl     5.0
+ngc3059   incl_deg    29.4
+ngc3059   e_incl    11.0
 ngc3059   ref_incl   LANGMEIDT19
 #
-ngc3059   posang_deg   -13.4
-ngc3059   e_posang     5.0
+ngc3059   posang_deg   -14.8
+ngc3059   e_posang     2.9
 ngc3059   ref_posang   LANGMEIDT19
 #
-ngc3059   vhel_kms   1249.6
+ngc3059   vhel_kms   1248.8
 ngc3059   e_vhel      5.0
 ngc3059   ref_vhel   LANGMEIDT19
 #
-ngc3137   incl_deg    70.0
-ngc3137   e_incl     5.0
+ngc3031   incl_deg    59.0
+ngc3031   e_incl     5.0
+ngc3031   ref_incl   2008AJ....136.2648D
+#
+ngc3031   posang_deg   330.0
+ngc3031   e_posang    10.0
+ngc3031   ref_posang   2008AJ....136.2648D
+#
+ngc3031   vhel_kms    -37.9
+ngc3031   e_vhel      2.8
+ngc3031   ref_vhel   LEDA
+#
+ngc3137   incl_deg    70.3
+ngc3137   e_incl     1.2
 ngc3137   ref_incl   LANGMEIDT19
 #
-ngc3137   posang_deg    -0.7
-ngc3137   e_posang     5.0
+ngc3137   posang_deg    -0.3
+ngc3137   e_posang     0.5
 ngc3137   ref_posang   LANGMEIDT19
 #
-ngc3137   vhel_kms   1099.3
+ngc3137   vhel_kms   1098.7
 ngc3137   e_vhel      5.0
 ngc3137   ref_vhel   LANGMEIDT19
 #
+ngc3184   incl_deg    16.0
+ngc3184   e_incl     5.0
+ngc3184   ref_incl   HERACLESVALUE
+#
+ngc3184   posang_deg   179.0
+ngc3184   e_posang    10.0
+ngc3184   ref_posang   HERACLESVALUE
+#
+ngc3184   vhel_kms    592.2
+ngc3184   e_vhel      0.7
+ngc3184   ref_vhel   LEDA
+#
+ngc3239   incl_deg    60.3
+ngc3239   e_incl     5.0
+ngc3239   ref_incl   2015ApJS..219....4S
+#
+ngc3239   posang_deg    72.9
+ngc3239   e_posang    10.0
+ngc3239   ref_posang   2015ApJS..219....4S
+#
+ngc3239   vhel_kms    752.3
+ngc3239   e_vhel      3.2
+ngc3239   ref_vhel   LEDA
+#
+ngc3344   incl_deg    27.0
+ngc3344   e_incl     5.0
+ngc3344   ref_incl   2015ApJS..219....4S
+#
+ngc3344   posang_deg   142.7
+ngc3344   e_posang    10.0
+ngc3344   ref_posang   2015ApJS..219....4S
+#
+ngc3344   vhel_kms    587.8
+ngc3344   e_vhel      2.3
+ngc3344   ref_vhel   LEDA
+#
 ngc3351   incl_deg    45.1
-ngc3351   e_incl     5.0
+ngc3351   e_incl     6.0
 ngc3351   ref_incl   LANGMEIDT19
 #
-ngc3351   posang_deg   188.4
-ngc3351   e_posang     5.0
+ngc3351   posang_deg   193.2
+ngc3351   e_posang     2.0
 ngc3351   ref_posang   LANGMEIDT19
 #
 ngc3351   vhel_kms    778.5
 ngc3351   e_vhel      5.0
 ngc3351   ref_vhel   LANGMEIDT19
 #
-ngc3507   incl_deg    24.9
-ngc3507   e_incl     5.0
-ngc3507   ref_incl   LANGMEIDT19
+ngc3368   incl_deg    51.1
+ngc3368   e_incl     5.0
+ngc3368   ref_incl   LEDA
 #
-ngc3507   posang_deg    56.7
-ngc3507   e_posang     5.0
-ngc3507   ref_posang   LANGMEIDT19
+ngc3368   posang_deg     4.6
+ngc3368   e_posang    10.0
+ngc3368   ref_posang   LEDA
 #
-ngc3507   vhel_kms    971.2
-ngc3507   e_vhel      5.0
-ngc3507   ref_vhel   LANGMEIDT19
+ngc3368   vhel_kms    892.0
+ngc3368   e_vhel      1.6
+ngc3368   ref_vhel   LEDA
 #
-ngc3511   incl_deg    73.8
-ngc3511   e_incl     5.0
+ngc3489   incl_deg    63.7
+ngc3489   e_incl     5.0
+ngc3489   ref_incl   LEDA
+#
+ngc3489   posang_deg    70.0
+ngc3489   e_posang    10.0
+ngc3489   ref_posang   LEDA
+#
+ngc3489   vhel_kms    694.3
+ngc3489   e_vhel      3.1
+ngc3489   ref_vhel   LEDA
+#
+ngc3511   incl_deg    75.1
+ngc3511   e_incl     2.2
 ngc3511   ref_incl   LANGMEIDT19
 #
-ngc3511   posang_deg   257.7
-ngc3511   e_posang     5.0
+ngc3511   posang_deg   256.8
+ngc3511   e_posang     0.8
 ngc3511   ref_posang   LANGMEIDT19
 #
-ngc3511   vhel_kms   1104.5
+ngc3511   vhel_kms   1104.8
 ngc3511   e_vhel      5.0
 ngc3511   ref_vhel   LANGMEIDT19
 #
-ngc3521   incl_deg    68.5
-ngc3521   e_incl     5.0
+ngc3507   incl_deg    21.7
+ngc3507   e_incl    11.3
+ngc3507   ref_incl   LANGMEIDT19
+#
+ngc3507   posang_deg    55.8
+ngc3507   e_posang     1.3
+ngc3507   ref_posang   LANGMEIDT19
+#
+ngc3507   vhel_kms    970.6
+ngc3507   e_vhel      5.0
+ngc3507   ref_vhel   LANGMEIDT19
+#
+ngc3521   incl_deg    68.8
+ngc3521   e_incl     0.3
 ngc3521   ref_incl   LANGMEIDT19
 #
-ngc3521   posang_deg   343.2
-ngc3521   e_posang     5.0
+ngc3521   posang_deg   343.0
+ngc3521   e_posang     0.6
 ngc3521   ref_posang   LANGMEIDT19
 #
-ngc3521   vhel_kms    803.1
+ngc3521   vhel_kms    802.3
 ngc3521   e_vhel      5.0
 ngc3521   ref_vhel   LANGMEIDT19
 #
-ngc3596   incl_deg    16.9
-ngc3596   e_incl     5.0
+ngc3556   incl_deg    67.5
+ngc3556   e_incl     5.0
+ngc3556   ref_incl   LEDA
+#
+ngc3556   posang_deg    79.0
+ngc3556   e_posang    10.0
+ngc3556   ref_posang   LEDA
+#
+ngc3556   vhel_kms    697.6
+ngc3556   e_vhel      1.4
+ngc3556   ref_vhel   LEDA
+#
+ngc3596   incl_deg    25.1
+ngc3596   e_incl    11.0
 ngc3596   ref_incl   LANGMEIDT19
 #
-ngc3596   posang_deg   108.2
-ngc3596   e_posang     5.0
+ngc3596   posang_deg    78.4
+ngc3596   e_posang     1.0
 ngc3596   ref_posang   LANGMEIDT19
 #
-ngc3596   vhel_kms   1189.3
+ngc3596   vhel_kms   1188.9
 ngc3596   e_vhel      5.0
 ngc3596   ref_vhel   LANGMEIDT19
 #
+ngc3599   incl_deg    23.0
+ngc3599   e_incl     5.0
+ngc3599   ref_incl   2015ApJS..219....4S
+#
+ngc3599   posang_deg    41.9
+ngc3599   e_posang    10.0
+ngc3599   ref_posang   2015ApJS..219....4S
+#
+ngc3599   vhel_kms    837.1
+ngc3599   e_vhel     20.2
+ngc3599   ref_vhel   LEDA
+#
 ngc3621   incl_deg    65.8
-ngc3621   e_incl     5.0
+ngc3621   e_incl     1.8
 ngc3621   ref_incl   LANGMEIDT19
 #
-ngc3621   posang_deg   343.5
-ngc3621   e_posang     5.0
+ngc3621   posang_deg   343.8
+ngc3621   e_posang     0.3
 ngc3621   ref_posang   LANGMEIDT19
 #
-ngc3621   vhel_kms    732.1
+ngc3621   vhel_kms    732.6
 ngc3621   e_vhel      5.0
 ngc3621   ref_vhel   LANGMEIDT19
 #
+ngc3623   incl_deg    90.0
+ngc3623   e_incl     5.0
+ngc3623   ref_incl   LEDA
+#
+ngc3623   posang_deg   173.3
+ngc3623   e_posang    10.0
+ngc3623   ref_posang   LEDA
+#
+ngc3623   vhel_kms    801.6
+ngc3623   e_vhel      1.2
+ngc3623   ref_vhel   LEDA
+#
 ngc3626   incl_deg    46.6
-ngc3626   e_incl     5.0
+ngc3626   e_incl     6.0
 ngc3626   ref_incl   LANGMEIDT19
 #
-ngc3626   posang_deg   163.2
-ngc3626   e_posang     5.0
+ngc3626   posang_deg   165.2
+ngc3626   e_posang     2.0
 ngc3626   ref_posang   LANGMEIDT19
 #
 ngc3626   vhel_kms   1470.7
 ngc3626   e_vhel      5.0
 ngc3626   ref_vhel   LANGMEIDT19
 #
-ngc3627   incl_deg    55.0
-ngc3627   e_incl     5.0
+ngc3627   incl_deg    57.3
+ngc3627   e_incl     1.0
 ngc3627   ref_incl   LANGMEIDT19
 #
-ngc3627   posang_deg   174.1
-ngc3627   e_posang     5.0
+ngc3627   posang_deg   173.1
+ngc3627   e_posang     3.6
 ngc3627   ref_posang   LANGMEIDT19
 #
-ngc3627   vhel_kms    716.5
+ngc3627   vhel_kms    716.3
 ngc3627   e_vhel      5.0
 ngc3627   ref_vhel   LANGMEIDT19
 #
-ngc4207   incl_deg    49.0
-ngc4207   e_incl     5.0
+ngc3628   incl_deg    79.3
+ngc3628   e_incl     5.0
+ngc3628   ref_incl   LEDA
+#
+ngc3628   posang_deg   103.6
+ngc3628   e_posang    10.0
+ngc3628   ref_posang   LEDA
+#
+ngc3628   vhel_kms    845.1
+ngc3628   e_vhel      1.3
+ngc3628   ref_vhel   LEDA
+#
+ngc4207   incl_deg    64.5
+ngc4207   e_incl     6.0
 ngc4207   ref_incl   LANGMEIDT19
 #
-ngc4207   posang_deg   120.5
-ngc4207   e_posang     5.0
+ngc4207   posang_deg   121.9
+ngc4207   e_posang     2.0
 ngc4207   ref_posang   LANGMEIDT19
 #
-ngc4207   vhel_kms    604.3
+ngc4207   vhel_kms    604.1
 ngc4207   e_vhel      5.0
 ngc4207   ref_vhel   LANGMEIDT19
 #
-ngc4254   incl_deg    37.8
-ngc4254   e_incl     5.0
+ngc4254   incl_deg    34.4
+ngc4254   e_incl     1.0
 ngc4254   ref_incl   LANGMEIDT19
 #
-ngc4254   posang_deg    67.7
-ngc4254   e_posang     5.0
+ngc4254   posang_deg    68.1
+ngc4254   e_posang     0.5
 ngc4254   ref_posang   LANGMEIDT19
 #
-ngc4254   vhel_kms   2384.2
+ngc4254   vhel_kms   2384.6
 ngc4254   e_vhel      5.0
 ngc4254   ref_vhel   LANGMEIDT19
 #
+ngc4258   incl_deg    68.3
+ngc4258   e_incl     5.0
+ngc4258   ref_incl   LEDA
+#
+ngc4258   posang_deg   150.0
+ngc4258   e_posang    10.0
+ngc4258   ref_posang   LEDA
+#
+ngc4258   vhel_kms    454.2
+ngc4258   e_vhel      6.1
+ngc4258   ref_vhel   LEDA
+#
 ngc4293   incl_deg    65.0
-ngc4293   e_incl     5.0
+ngc4293   e_incl     6.0
 ngc4293   ref_incl   LANGMEIDT19
 #
-ngc4293   posang_deg    64.0
-ngc4293   e_posang     5.0
+ngc4293   posang_deg    48.3
+ngc4293   e_posang     2.0
 ngc4293   ref_posang   LANGMEIDT19
 #
-ngc4293   vhel_kms    921.9
+ngc4293   vhel_kms    921.8
 ngc4293   e_vhel      5.0
 ngc4293   ref_vhel   LANGMEIDT19
 #
-ngc4298   incl_deg    59.4
-ngc4298   e_incl     5.0
+ngc4298   incl_deg    59.2
+ngc4298   e_incl     0.8
 ngc4298   ref_incl   LANGMEIDT19
 #
-ngc4298   posang_deg   314.0
-ngc4298   e_posang     5.0
+ngc4298   posang_deg   313.9
+ngc4298   e_posang     0.7
 ngc4298   ref_posang   LANGMEIDT19
 #
-ngc4298   vhel_kms   1135.3
+ngc4298   vhel_kms   1134.3
 ngc4298   e_vhel      5.0
 ngc4298   ref_vhel   LANGMEIDT19
 #
-ngc4303   incl_deg    26.5
-ngc4303   e_incl     5.0
+ngc4302   incl_deg    90.0
+ngc4302   e_incl     6.0
+ngc4302   ref_incl   1988ApJS...66..261K+LANGMEIDT19(unc)
+#
+ngc4302   posang_deg   178.0
+ngc4302   e_posang     2.0
+ngc4302   ref_posang   1988ApJS...66..261K+LANGMEIDT19(unc)
+#
+ngc4302   vhel_kms   1149.2
+ngc4302   e_vhel      3.0
+ngc4302   ref_vhel   NED
+#
+ngc4303   incl_deg    23.5
+ngc4303   e_incl     9.2
 ngc4303   ref_incl   LANGMEIDT19
 #
-ngc4303   posang_deg   311.7
-ngc4303   e_posang     5.0
+ngc4303   posang_deg   312.4
+ngc4303   e_posang     2.5
 ngc4303   ref_posang   LANGMEIDT19
 #
-ngc4303   vhel_kms   1557.4
+ngc4303   vhel_kms   1557.7
 ngc4303   e_vhel      5.0
 ngc4303   ref_vhel   LANGMEIDT19
 #
-ngc4321   incl_deg    38.3
-ngc4321   e_incl     5.0
+ngc4321   incl_deg    38.5
+ngc4321   e_incl     2.4
 ngc4321   ref_incl   LANGMEIDT19
 #
-ngc4321   posang_deg   157.2
-ngc4321   e_posang     5.0
+ngc4321   posang_deg   156.2
+ngc4321   e_posang     1.7
 ngc4321   ref_posang   LANGMEIDT19
 #
-ngc4321   vhel_kms   1566.5
+ngc4321   vhel_kms   1568.2
 ngc4321   e_vhel      5.0
 ngc4321   ref_vhel   LANGMEIDT19
 #
 ngc4424   incl_deg    58.2
-ngc4424   e_incl     5.0
+ngc4424   e_incl     6.0
 ngc4424   ref_incl   LANGMEIDT19
 #
-ngc4424   posang_deg    85.2
-ngc4424   e_posang     5.0
+ngc4424   posang_deg    88.3
+ngc4424   e_posang     2.0
 ngc4424   ref_posang   LANGMEIDT19
 #
 ngc4424   vhel_kms    444.0
 ngc4424   e_vhel      5.0
 ngc4424   ref_vhel   LANGMEIDT19
 #
-ngc4457   incl_deg    39.2
-ngc4457   e_incl     5.0
+ngc4457   incl_deg    17.4
+ngc4457   e_incl     6.0
 ngc4457   ref_incl   LANGMEIDT19
 #
-ngc4457   posang_deg    79.7
-ngc4457   e_posang     5.0
+ngc4457   posang_deg    78.7
+ngc4457   e_posang     2.0
 ngc4457   ref_posang   LANGMEIDT19
 #
-ngc4457   vhel_kms    883.0
+ngc4457   vhel_kms    883.5
 ngc4457   e_vhel      5.0
 ngc4457   ref_vhel   LANGMEIDT19
 #
-ngc4496a   incl_deg    38.9
-ngc4496a   e_incl     5.0
+ngc4459   incl_deg    47.0
+ngc4459   e_incl     5.0
+ngc4459   ref_incl   LEDA
+#
+ngc4459   posang_deg   108.8
+ngc4459   e_posang    10.0
+ngc4459   ref_posang   LEDA
+#
+ngc4459   vhel_kms   1185.8
+ngc4459   e_vhel     11.0
+ngc4459   ref_vhel   LEDA
+#
+ngc4476   incl_deg    60.1
+ngc4476   e_incl     5.0
+ngc4476   ref_incl   LEDA
+#
+ngc4476   posang_deg    27.4
+ngc4476   e_posang    10.0
+ngc4476   ref_posang   LEDA
+#
+ngc4476   vhel_kms   1958.6
+ngc4476   e_vhel      1.3
+ngc4476   ref_vhel   LEDA
+#
+ngc4477   incl_deg    33.5
+ngc4477   e_incl     5.0
+ngc4477   ref_incl   LEDA
+#
+ngc4477   posang_deg    25.7
+ngc4477   e_posang    10.0
+ngc4477   ref_posang   LEDA
+#
+ngc4477   vhel_kms   1357.9
+ngc4477   e_vhel     33.1
+ngc4477   ref_vhel   LEDA
+#
+ngc4496a   incl_deg    53.8
+ngc4496a   e_incl     3.5
 ngc4496a   ref_incl   LANGMEIDT19
 #
-ngc4496a   posang_deg    49.1
-ngc4496a   e_posang     5.0
+ngc4496a   posang_deg    51.1
+ngc4496a   e_posang     4.1
 ngc4496a   ref_posang   LANGMEIDT19
 #
-ngc4496a   vhel_kms   1720.5
+ngc4496a   vhel_kms   1719.0
 ngc4496a   e_vhel      5.0
 ngc4496a   ref_vhel   LANGMEIDT19
 #
-ngc4535   incl_deg    40.7
-ngc4535   e_incl     5.0
+ngc4535   incl_deg    44.7
+ngc4535   e_incl    10.8
 ngc4535   ref_incl   LANGMEIDT19
 #
-ngc4535   posang_deg   179.8
-ngc4535   e_posang     5.0
+ngc4535   posang_deg   179.7
+ngc4535   e_posang     1.6
 ngc4535   ref_posang   LANGMEIDT19
 #
-ngc4535   vhel_kms   1949.3
+ngc4535   vhel_kms   1949.9
 ngc4535   e_vhel      5.0
 ngc4535   ref_vhel   LANGMEIDT19
 #
-ngc4536   incl_deg    64.8
-ngc4536   e_incl     5.0
+ngc4536   incl_deg    66.0
+ngc4536   e_incl     2.9
 ngc4536   ref_incl   LANGMEIDT19
 #
-ngc4536   posang_deg   307.0
-ngc4536   e_posang     5.0
+ngc4536   posang_deg   305.6
+ngc4536   e_posang     2.3
 ngc4536   ref_posang   LANGMEIDT19
 #
-ngc4536   vhel_kms   1791.4
+ngc4536   vhel_kms   1791.9
 ngc4536   e_vhel      5.0
 ngc4536   ref_vhel   LANGMEIDT19
 #
-ngc4540   incl_deg    31.6
-ngc4540   e_incl     5.0
+ngc4540   incl_deg    28.7
+ngc4540   e_incl    28.7
 ngc4540   ref_incl   LANGMEIDT19
 #
-ngc4540   posang_deg    14.8
-ngc4540   e_posang     5.0
+ngc4540   posang_deg    12.8
+ngc4540   e_posang     4.3
 ngc4540   ref_posang   LANGMEIDT19
 #
-ngc4540   vhel_kms   1282.3
+ngc4540   vhel_kms   1281.6
 ngc4540   e_vhel      5.0
 ngc4540   ref_vhel   LANGMEIDT19
 #
 ngc4548   incl_deg    38.3
-ngc4548   e_incl     5.0
+ngc4548   e_incl     6.0
 ngc4548   ref_incl   LANGMEIDT19
 #
-ngc4548   posang_deg   149.2
-ngc4548   e_posang     5.0
+ngc4548   posang_deg   138.0
+ngc4548   e_posang     2.0
 ngc4548   ref_posang   LANGMEIDT19
 #
 ngc4548   vhel_kms    477.9
 ngc4548   e_vhel      5.0
 ngc4548   ref_vhel   LANGMEIDT19
 #
-ngc4569   incl_deg    69.7
-ngc4569   e_incl     5.0
+ngc4565   incl_deg    90.0
+ngc4565   e_incl     5.0
+ngc4565   ref_incl   LEDA
+#
+ngc4565   posang_deg   135.2
+ngc4565   e_posang    10.0
+ngc4565   ref_posang   LEDA
+#
+ngc4565   vhel_kms   1226.2
+ngc4565   e_vhel      1.7
+ngc4565   ref_vhel   LEDA
+#
+ngc4569   incl_deg    70.0
+ngc4569   e_incl     6.0
 ngc4569   ref_incl   LANGMEIDT19
 #
-ngc4569   posang_deg    21.1
-ngc4569   e_posang     5.0
+ngc4569   posang_deg    18.0
+ngc4569   e_posang     2.0
 ngc4569   ref_posang   LANGMEIDT19
 #
-ngc4569   vhel_kms   -232.7
+ngc4569   vhel_kms   -230.3
 ngc4569   e_vhel      5.0
 ngc4569   ref_vhel   LANGMEIDT19
 #
-ngc4571   incl_deg    31.8
-ngc4571   e_incl     5.0
+ngc4571   incl_deg    32.7
+ngc4571   e_incl     2.1
 ngc4571   ref_incl   LANGMEIDT19
 #
-ngc4571   posang_deg   217.7
-ngc4571   e_posang     5.0
+ngc4571   posang_deg   217.5
+ngc4571   e_posang     0.6
 ngc4571   ref_posang   LANGMEIDT19
 #
-ngc4571   vhel_kms    338.4
+ngc4571   vhel_kms    338.1
 ngc4571   e_vhel      5.0
 ngc4571   ref_vhel   LANGMEIDT19
 #
-ngc4579   incl_deg    40.1
-ngc4579   e_incl     5.0
+ngc4579   incl_deg    40.2
+ngc4579   e_incl     5.6
 ngc4579   ref_incl   LANGMEIDT19
 #
-ngc4579   posang_deg    91.8
-ngc4579   e_posang     5.0
+ngc4579   posang_deg    91.3
+ngc4579   e_posang     1.6
 ngc4579   ref_posang   LANGMEIDT19
 #
-ngc4579   vhel_kms   1512.0
+ngc4579   vhel_kms   1512.2
 ngc4579   e_vhel      5.0
 ngc4579   ref_vhel   LANGMEIDT19
 #
-ngc4654   incl_deg    54.0
-ngc4654   e_incl     5.0
+ngc4596   incl_deg    36.6
+ngc4596   e_incl     5.0
+ngc4596   ref_incl   LEDA
+#
+ngc4596   posang_deg   120.0
+ngc4596   e_posang    10.0
+ngc4596   ref_posang   LEDA
+#
+ngc4596   vhel_kms   1878.9
+ngc4596   e_vhel      7.5
+ngc4596   ref_vhel   LEDA
+#
+ngc4594   incl_deg    79.0
+ngc4594   e_incl     5.0
+ngc4594   ref_incl   HERACLESVALUE
+#
+ngc4594   posang_deg    90.0
+ngc4594   e_posang    10.0
+ngc4594   ref_posang   HERACLESVALUE
+#
+ngc4594   vhel_kms   1087.5
+ngc4594   e_vhel      4.9
+ngc4594   ref_vhel   LEDA
+#
+ngc4631   incl_deg    85.0
+ngc4631   e_incl     5.0
+ngc4631   ref_incl   HERACLESVALUE
+#
+ngc4631   posang_deg    86.0
+ngc4631   e_posang    10.0
+ngc4631   ref_posang   HERACLESVALUE
+#
+ngc4631   vhel_kms    615.8
+ngc4631   e_vhel      3.0
+ngc4631   ref_vhel   LEDA
+#
+ngc4654   incl_deg    55.6
+ngc4654   e_incl     5.9
 ngc4654   ref_incl   LANGMEIDT19
 #
-ngc4654   posang_deg   123.7
-ngc4654   e_posang     5.0
+ngc4654   posang_deg   123.2
+ngc4654   e_posang     1.0
 ngc4654   ref_posang   LANGMEIDT19
 #
-ngc4654   vhel_kms   1046.2
+ngc4654   vhel_kms   1046.3
 ngc4654   e_vhel      5.0
 ngc4654   ref_vhel   LANGMEIDT19
 #
-ngc4689   incl_deg    38.1
-ngc4689   e_incl     5.0
+ngc4689   incl_deg    38.7
+ngc4689   e_incl     2.7
 ngc4689   ref_incl   LANGMEIDT19
 #
 ngc4689   posang_deg   164.1
-ngc4689   e_posang     5.0
+ngc4689   e_posang     0.3
 ngc4689   ref_posang   LANGMEIDT19
 #
-ngc4689   vhel_kms   1608.9
+ngc4689   vhel_kms   1608.6
 ngc4689   e_vhel      5.0
 ngc4689   ref_vhel   LANGMEIDT19
 #
 ngc4694   incl_deg    60.7
-ngc4694   e_incl     5.0
+ngc4694   e_incl     6.0
 ngc4694   ref_incl   LANGMEIDT19
 #
-ngc4694   posang_deg     0.3
-ngc4694   e_posang     5.0
+ngc4694   posang_deg   143.3
+ngc4694   e_posang     2.0
 ngc4694   ref_posang   LANGMEIDT19
 #
 ngc4694   vhel_kms   1163.2
 ngc4694   e_vhel      5.0
 ngc4694   ref_vhel   LANGMEIDT19
 #
+ngc4736   incl_deg    41.0
+ngc4736   e_incl     5.0
+ngc4736   ref_incl   2008AJ....136.2648D
+#
+ngc4736   posang_deg   296.0
+ngc4736   e_posang    10.0
+ngc4736   ref_posang   2008AJ....136.2648D
+#
+ngc4736   vhel_kms    313.5
+ngc4736   e_vhel      1.3
+ngc4736   ref_vhel   LEDA
+#
 ngc4731   incl_deg    64.0
-ngc4731   e_incl     5.0
+ngc4731   e_incl     6.0
 ngc4731   ref_incl   LANGMEIDT19
 #
-ngc4731   posang_deg   262.2
-ngc4731   e_posang     5.0
+ngc4731   posang_deg   255.4
+ngc4731   e_posang     2.0
 ngc4731   ref_posang   LANGMEIDT19
 #
 ngc4731   vhel_kms   1481.2
 ngc4731   e_vhel      5.0
 ngc4731   ref_vhel   LANGMEIDT19
 #
-ngc4781   incl_deg    56.8
-ngc4781   e_incl     5.0
+ngc4781   incl_deg    59.0
+ngc4781   e_incl     3.8
 ngc4781   ref_incl   LANGMEIDT19
 #
-ngc4781   posang_deg   286.8
-ngc4781   e_posang     5.0
+ngc4781   posang_deg   290.0
+ngc4781   e_posang     1.3
 ngc4781   ref_posang   LANGMEIDT19
 #
-ngc4781   vhel_kms   1246.0
+ngc4781   vhel_kms   1246.4
 ngc4781   e_vhel      5.0
 ngc4781   ref_vhel   LANGMEIDT19
 #
-ngc4826   incl_deg    61.1
-ngc4826   e_incl     5.0
+ngc4826   incl_deg    59.1
+ngc4826   e_incl     0.9
 ngc4826   ref_incl   LANGMEIDT19
 #
-ngc4826   posang_deg   294.3
-ngc4826   e_posang     5.0
+ngc4826   posang_deg   293.6
+ngc4826   e_posang     1.2
 ngc4826   ref_posang   LANGMEIDT19
 #
-ngc4826   vhel_kms    403.5
+ngc4826   vhel_kms    402.3
 ngc4826   e_vhel      5.0
 ngc4826   ref_vhel   LANGMEIDT19
 #
-ngc4941   incl_deg    49.7
-ngc4941   e_incl     5.0
+ngc4941   incl_deg    53.4
+ngc4941   e_incl     1.1
 ngc4941   ref_incl   LANGMEIDT19
 #
-ngc4941   posang_deg   202.4
-ngc4941   e_posang     5.0
+ngc4941   posang_deg   202.2
+ngc4941   e_posang     0.6
 ngc4941   ref_posang   LANGMEIDT19
 #
-ngc4941   vhel_kms   1112.0
+ngc4941   vhel_kms   1112.5
 ngc4941   e_vhel      5.0
 ngc4941   ref_vhel   LANGMEIDT19
 #
-ngc4951   incl_deg    65.0
-ngc4951   e_incl     5.0
+ngc4951   incl_deg    70.2
+ngc4951   e_incl     2.2
 ngc4951   ref_incl   LANGMEIDT19
 #
 ngc4951   posang_deg    91.2
-ngc4951   e_posang     5.0
+ngc4951   e_posang     0.5
 ngc4951   ref_posang   LANGMEIDT19
 #
-ngc4951   vhel_kms   1171.4
+ngc4951   vhel_kms   1172.7
 ngc4951   e_vhel      5.0
 ngc4951   ref_vhel   LANGMEIDT19
 #
-ngc5042   incl_deg    49.6
-ngc5042   e_incl     5.0
+ngc4945   incl_deg    90.0
+ngc4945   e_incl     5.0
+ngc4945   ref_incl   LEDA
+#
+ngc4945   posang_deg    43.8
+ngc4945   e_posang    10.0
+ngc4945   ref_posang   LEDA
+#
+ngc4945   vhel_kms    563.9
+ngc4945   e_vhel      2.7
+ngc4945   ref_vhel   LEDA
+#
+ngc5042   incl_deg    49.4
+ngc5042   e_incl     8.6
 ngc5042   ref_incl   LANGMEIDT19
 #
-ngc5042   posang_deg   189.6
-ngc5042   e_posang     5.0
+ngc5042   posang_deg   190.6
+ngc5042   e_posang     0.8
 ngc5042   ref_posang   LANGMEIDT19
 #
-ngc5042   vhel_kms   1385.9
+ngc5042   vhel_kms   1384.8
 ngc5042   e_vhel      5.0
 ngc5042   ref_vhel   LANGMEIDT19
 #
-ngc5068   incl_deg    27.0
-ngc5068   e_incl     5.0
+ngc5055   incl_deg    59.0
+ngc5055   e_incl     5.0
+ngc5055   ref_incl   2008AJ....136.2648D
+#
+ngc5055   posang_deg   102.0
+ngc5055   e_posang    10.0
+ngc5055   ref_posang   2008AJ....136.2648D
+#
+ngc5055   vhel_kms    507.9
+ngc5055   e_vhel      2.6
+ngc5055   ref_vhel   LEDA
+#
+ngc5068   incl_deg    35.7
+ngc5068   e_incl    10.9
 ngc5068   ref_incl   LANGMEIDT19
 #
-ngc5068   posang_deg   300.1
-ngc5068   e_posang     5.0
+ngc5068   posang_deg   342.4
+ngc5068   e_posang     3.2
 ngc5068   ref_posang   LANGMEIDT19
 #
 ngc5068   vhel_kms    665.6
 ngc5068   e_vhel      5.0
 ngc5068   ref_vhel   LANGMEIDT19
 #
-ngc5128   incl_deg    68.9
+ngc5128   incl_deg    45.3
 ngc5128   e_incl     5.0
-ngc5128   ref_incl   LANGMEIDT19
+ngc5128   ref_incl   LEDA
 #
-ngc5128   posang_deg   303.1
-ngc5128   e_posang     5.0
-ngc5128   ref_posang   LANGMEIDT19
+ngc5128   posang_deg    32.2
+ngc5128   e_posang    10.0
+ngc5128   ref_posang   LEDA
 #
-ngc5128   vhel_kms    574.2
-ngc5128   e_vhel      5.0
-ngc5128   ref_vhel   LANGMEIDT19
+ngc5128   vhel_kms    551.9
+ngc5128   e_vhel      5.7
+ngc5128   ref_vhel   LEDA
 #
-ngc5134   incl_deg    25.9
-ngc5134   e_incl     5.0
+ngc5134   incl_deg    22.7
+ngc5134   e_incl     6.0
 ngc5134   ref_incl   LANGMEIDT19
 #
-ngc5134   posang_deg   315.3
-ngc5134   e_posang     5.0
+ngc5134   posang_deg   311.6
+ngc5134   e_posang     2.0
 ngc5134   ref_posang   LANGMEIDT19
 #
-ngc5134   vhel_kms   1746.9
+ngc5134   vhel_kms   1747.1
 ngc5134   e_vhel      5.0
 ngc5134   ref_vhel   LANGMEIDT19
 #
-ngc5248   incl_deg    48.2
-ngc5248   e_incl     5.0
+ngc5194   incl_deg    21.0
+ngc5194   e_incl     5.0
+ngc5194   ref_incl   2014ApJ...784....4C
+#
+ngc5194   posang_deg   173.0
+ngc5194   e_posang    10.0
+ngc5194   ref_posang   2014ApJ...784....4C
+#
+ngc5194   vhel_kms    460.8
+ngc5194   e_vhel      1.5
+ngc5194   ref_vhel   LEDA
+#
+ngc5236   incl_deg    24.0
+ngc5236   e_incl     5.0
+ngc5236   ref_incl   1999ApJ...523..136S
+#
+ngc5236   posang_deg   225.0
+ngc5236   e_posang    10.0
+ngc5236   ref_posang   1999ApJ...523..136S
+#
+ngc5236   vhel_kms    508.4
+ngc5236   e_vhel      2.1
+ngc5236   ref_vhel   LEDA
+#
+ngc5248   incl_deg    47.4
+ngc5248   e_incl    16.3
 ngc5248   ref_incl   LANGMEIDT19
 #
-ngc5248   posang_deg   105.5
-ngc5248   e_posang     5.0
+ngc5248   posang_deg   109.2
+ngc5248   e_posang     3.5
 ngc5248   ref_posang   LANGMEIDT19
 #
-ngc5248   vhel_kms   1154.5
+ngc5248   vhel_kms   1154.7
 ngc5248   e_vhel      5.0
 ngc5248   ref_vhel   LANGMEIDT19
 #
-ngc5530   incl_deg    61.6
-ngc5530   e_incl     5.0
+ngc5457   incl_deg    18.0
+ngc5457   e_incl     5.0
+ngc5457   ref_incl   1999ApJ...523..136S
+#
+ngc5457   posang_deg    39.0
+ngc5457   e_posang    10.0
+ngc5457   ref_posang   1999ApJ...523..136S
+#
+ngc5457   vhel_kms    236.9
+ngc5457   e_vhel      1.7
+ngc5457   ref_vhel   LEDA
+#
+ngc5530   incl_deg    61.9
+ngc5530   e_incl     2.6
 ngc5530   ref_incl   LANGMEIDT19
 #
-ngc5530   posang_deg   305.5
-ngc5530   e_posang     5.0
+ngc5530   posang_deg   305.4
+ngc5530   e_posang     1.0
 ngc5530   ref_posang   LANGMEIDT19
 #
 ngc5530   vhel_kms   1183.1
@@ -820,61 +1325,97 @@ ngc5530   e_vhel      5.0
 ngc5530   ref_vhel   LANGMEIDT19
 #
 ngc5643   incl_deg    29.9
-ngc5643   e_incl     5.0
+ngc5643   e_incl     6.0
 ngc5643   ref_incl   LANGMEIDT19
 #
-ngc5643   posang_deg   267.6
-ngc5643   e_posang     5.0
+ngc5643   posang_deg   318.7
+ngc5643   e_posang     2.0
 ngc5643   ref_posang   LANGMEIDT19
 #
-ngc5643   vhel_kms   1190.7
+ngc5643   vhel_kms   1190.8
 ngc5643   e_vhel      5.0
 ngc5643   ref_vhel   LANGMEIDT19
 #
-ngc6300   incl_deg    50.2
-ngc6300   e_incl     5.0
+ngc6300   incl_deg    49.6
+ngc6300   e_incl     5.8
 ngc6300   ref_incl   LANGMEIDT19
 #
-ngc6300   posang_deg   105.1
-ngc6300   e_posang     5.0
+ngc6300   posang_deg   105.4
+ngc6300   e_posang     2.3
 ngc6300   ref_posang   LANGMEIDT19
 #
 ngc6300   vhel_kms   1103.3
 ngc6300   e_vhel      5.0
 ngc6300   ref_vhel   LANGMEIDT19
 #
-ngc6744   incl_deg    53.0
-ngc6744   e_incl     5.0
+ngc6744   incl_deg    52.7
+ngc6744   e_incl     2.2
 ngc6744   ref_incl   LANGMEIDT19
 #
 ngc6744   posang_deg    14.0
-ngc6744   e_posang     5.0
+ngc6744   e_posang     0.2
 ngc6744   ref_posang   LANGMEIDT19
 #
-ngc6744   vhel_kms    833.7
+ngc6744   vhel_kms    834.0
 ngc6744   e_vhel      5.0
 ngc6744   ref_vhel   LANGMEIDT19
 #
-ngc7456   incl_deg    75.2
-ngc7456   e_incl     5.0
+ngc6946   incl_deg    33.0
+ngc6946   e_incl     5.0
+ngc6946   ref_incl   2008AJ....136.2648D
+#
+ngc6946   posang_deg   243.0
+ngc6946   e_posang    10.0
+ngc6946   ref_posang   2008AJ....136.2648D
+#
+ngc6946   vhel_kms     45.8
+ngc6946   e_vhel      2.2
+ngc6946   ref_vhel   LEDA
+#
+ngc7456   incl_deg    67.3
+ngc7456   e_incl     4.3
 ngc7456   ref_incl   LANGMEIDT19
 #
-ngc7456   posang_deg    22.9
-ngc7456   e_posang     5.0
+ngc7456   posang_deg    16.0
+ngc7456   e_posang     2.9
 ngc7456   ref_posang   LANGMEIDT19
 #
-ngc7456   vhel_kms   1198.0
+ngc7456   vhel_kms   1195.1
 ngc7456   e_vhel      5.0
 ngc7456   ref_vhel   LANGMEIDT19
 #
-ngc7496   incl_deg     9.1
-ngc7496   e_incl     5.0
+ngc7496   incl_deg    35.9
+ngc7496   e_incl     6.0
 ngc7496   ref_incl   LANGMEIDT19
 #
-ngc7496   posang_deg   213.2
-ngc7496   e_posang     5.0
+ngc7496   posang_deg   193.7
+ngc7496   e_posang     4.2
 ngc7496   ref_posang   LANGMEIDT19
 #
-ngc7496   vhel_kms   1643.2
+ngc7496   vhel_kms   1643.1
 ngc7496   e_vhel      5.0
 ngc7496   ref_vhel   LANGMEIDT19
+#
+ngc7743   incl_deg    37.1
+ngc7743   e_incl     5.0
+ngc7743   ref_incl   LEDA
+#
+ngc7743   posang_deg    86.2
+ngc7743   e_posang    10.0
+ngc7743   ref_posang   LEDA
+#
+ngc7743   vhel_kms   1684.1
+ngc7743   e_vhel      5.4
+ngc7743   ref_vhel   LEDA
+#
+ngc7793   incl_deg    50.0
+ngc7793   e_incl     5.0
+ngc7793   ref_incl   2008AJ....136.2648D
+#
+ngc7793   posang_deg   290.0
+ngc7793   e_posang    10.0
+ngc7793   ref_posang   2008AJ....136.2648D
+#
+ngc7793   vhel_kms    227.1
+ngc7793   e_vhel      2.3
+ngc7793   ref_vhel   LEDA

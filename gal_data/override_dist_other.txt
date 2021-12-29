@@ -1,0 +1,46 @@
+# This is a grab bag of distance overrides.
+#
+# Column 1: galaxy
+# Column 2: field
+# Column 3: value
+#
+NGC4455		dist_mpc	6.61
+NGC4455		e_dist_dex	0.035
+NGC4455		dist_code	1
+NGC4455		ref_dist	KARACHENTSEV18
+#
+NGC4559		dist_mpc	8.91
+NGC4559		e_dist_dex	0.035
+NGC4559		dist_code	1
+NGC4559		ref_dist	MCQUINN17
+#
+NGC4618		dist_mpc	7.66
+NGC4618		e_dist_dex	0.035
+NGC4618		dist_code	1
+NGC4618		ref_dist	KARACHENTSEV18
+#
+NGC4625		dist_mpc	11.75
+NGC4625		e_dist_dex	0.035
+NGC4625		dist_code	1
+NGC4625		ref_dist	MCQUINN17
+#
+NGC5195		dist_mpc	8.58
+NGC5195		e_dist_dex	0.035
+NGC5195		dist_code	1
+NGC5195		ref_dist	MCQUINN17
+#
+NGC5398		dist_mpc	11.64
+NGC5398		e_dist_dex	0.035
+NGC5398		dist_code	1
+NGC5398		ref_dist	MCQUINN17
+#
+DDO161		dist_mpc	6.03
+DDO161		e_dist_dex	0.035
+DDO161		dist_code	1
+DDO161		ref_dist	KARACHENTSEV18
+#
+IC3840		dist_mpc	5.99
+IC3840		e_dist_dex	0.035
+IC3840		dist_code	1
+IC3840		ref_dist	KARACHENTSEV18
+
